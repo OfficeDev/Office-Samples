@@ -4,60 +4,55 @@
 
 This sample demonstrates how to use the Microsoft Graph JavaScript SDK to send emails in Excel from Office Add-ins.
 
-## How the sample add-in works
 ### Features
 - Create Sample Data, including valid email address (required) and other information.
 - Verify Template and Data, the To Line must contain the column name of the email address.
 - Send Email, which will pop up a dialog to get the consent of Microsoft Graph. After sign-in, the email will be send out.
 
-### Play the sample add-in demo
-Click the button below and play the sample add-in demo:<br><br>
-<a href="https://office.live.com/start/Excel.aspx?culture=en-US&omextemplateclient=Excel&omexsessionid=c0a9c7a1-b954-45df-9295-8c1e21201f34&omexcampaignid=none&templateid=WA200006296&templatetitle=Mail%20Merge%20Add-in%20for%20Excel&omexsrctype=1" target="_blank"><img src="./assets/button.png" width="200"/></a>
-<br>
+## Sample Demo Video
+![npm-search-msgext](assets/sampleDemo.gif)
 
-#### Note：
-You need to have a Microsoft 365 account to try the sample. You can [sign up for the Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) to get a free Microsoft 365 subscription.<br>
+## Required Steps & How to Run
 
-### Expected result
-When you click the button, you will open Excel online in a new browser tab, and the sample add-in will launch automatically.
-
-![image](./assets/expected-result.png)
-
-## Build, run and debug the sample code
 ### Prerequisites
-
 To run the completed project in this folder, you need the following:
 - [Node.js](https://nodejs.org) installed on your development machine. (**Note:** This tutorial was written with Node version 16.14.0. The steps in this guide may work with other versions, but that has not been tested.)
 - Either a personal Microsoft account with a mailbox on Outlook.com, or a Microsoft work or school account. You can [sign up for the Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) to get a free Microsoft 365 subscription.
 
-### Manually run on your local machine
-#### 1. Run command below to clone the repo and install the project dependency
-```
-git clone https://github.com/OfficeDev/Excel-Scenario-based-Add-in-Samples.git && cd Excel-Scenario-based-Add-in-Samples/Mail-Merge-Sample-Add-in && npm install
-```
-#### 2. Open the `Excel-Scenario-based-Add-in-Samples/Mail-Merge-Sample-Add-in` folder in Visual Studio Code.You can see the sample code and make code changes to the sample.
+### Register a web application with the Azure Active Directory admin center
+1. If you have an application ID already, please ensure: 
 
-#### 3. If you have an application ID already, please ensure: 
-
-In [Microsoft Entra admin center](https://aad.portal.azure.com) under **Identity > Applications > App registrations**: 
+- In [Microsoft Entra admin center](https://aad.portal.azure.com) under **Identity > Applications > App registrations**: 
 - Navigate to **Redirect URI**, set the first drop-down to `Single-page application (SPA)` and its value to `https://localhost:3000/consent.html`.
 
-Otherwise, if you haven't registered a web application with the Azure Active Directory admin center, please follow the steps below:
-* Log into [Microsoft Entra admin center](
-https://aad.portal.azure.com) using a personal or business Microsoft account.
-* In the navigation, select **Identity > Applications > App registrations**.
-* Choose **New registration**. On the **App registrations** page, configure the values as follows: 
+2. Otherwise, if you haven't registered a web application with the Azure Active Directory admin center, please follow the steps below:
+
+- Open a browser and navigate to the [Microsoft Entra admin center](https://aad.portal.azure.com). Login using a **personal account** (aka: Microsoft Account) or **Work or School Account**.
+
+- Select **Identity** in the left-hand navigation, then select **App registrations** under **Applications**.
+- Select **New registration**. On the **App registrations** page, set the values as follows.
     - Set **Name** to `Office Add-in Graph Tutorial`.
     - Set **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts**.
-    - Under **Redirect URI**, set the first drop-down to `Single-page application (SPA)` and set the value to `
-https://localhost:3000/consent.html`.
-* Click **Register** and copy the value of the **Application (client) ID**.
+    - Under **Redirect URI**, set the first drop-down to `Single-page application (SPA)` and set the value to `https://localhost:3000/consent.html`.
 
-#### 4. In Visual Studio Code: edit the `taskpane.js` file and replace `YOUR_APP_ID_HERE` with the **Application Id** you got from the App Registration Portal. 
+- Select **Register**. On the **Office Add-in Graph Tutorial** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
 
-#### 5. Run the following command in your CLI to start the sample add-in on desktop.
+
+### Configure the sample
+
+1. Edit the `taskpane.js` file and make the following changes.
+    - Replace `YOUR_APP_ID_HERE` with the **Application Id** you got from the App Registration Portal.
+1. In your command-line interface (CLI), navigate to this directory and run the following command to install requirements.
+    ```
+    npm install
+    ```
+
+### Run the sample on Windows and Mac
+
+Run the following command in your CLI to start the application.
 ```
-npm run start
+npm run build
+npm start
 ```
 
 ### Expected result
@@ -98,10 +93,6 @@ The previous steps show you how to run our sample on Desktop. As for the Excel O
 
 1.  Verify that the add-in loaded successfully. 
 
-## Additional resources
-You may explore additional resources at the following links:
-- More samples: [Office Add-ins code samples](https://github.com/OfficeDev/Office-Add-in-samples)
-- Office add-ins documentation: [Office Add-ins documentation](https://learn.microsoft.com/en-us/office/dev/add-ins/)
 
 ## Feedback
 Did you experience any problems with the sample? [Create an issue]( https://github.com/OfficeDev/Word-Scenario-based-Add-in-Samples/issues/new) and we'll help you out.
