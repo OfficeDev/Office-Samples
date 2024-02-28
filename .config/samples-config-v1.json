@@ -89,11 +89,11 @@
             "shortDescription": "Use web workers in custom functions to prevent blocking the UI of your Office Add-in.",
             "fullDescription": "Shows how to use web workers in custom functions to prevent blocking the UI of your Office Add-in.",
             "types": [
-                "Tab"
+                "Excel"
             ],
             "tags": [
                 "Custom Function",
-                "TS",
+                "JS",
                 "Excel",
                 "WebWorker"
             ],
