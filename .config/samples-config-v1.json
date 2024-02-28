@@ -78,6 +78,28 @@
             "thumbnailPath": "assets/taskpane.png",
             "gifPath": "assets/sampleDemo.gif",
             "suggested": false
+        },
+        {
+            "id": "Custom-Function-Using-WebWorker",
+            "onboardDate": "2021-11-30",
+            "title": "Custom function sample using web worker",
+            "shortId": "CF using web worker",
+            "shortDescription": "Use web workers in custom functions to prevent blocking the UI of your Office Add-in.",
+            "fullDescription": "Shows how to use web workers in custom functions to prevent blocking the UI of your Office Add-in.",
+            "types": [
+                "Excel"
+            ],
+            "tags": [
+                "Custom Function",
+                "JS",
+                "Excel",
+                "WebWorker"
+            ],
+            "time": "5min to run",
+            "configuration": "Ready for debug",
+            "thumbnailPath": "assets/taskpane.png",
+            "gifPath": "assets/sampleDemo.gif",
+            "suggested": false
         }
     ]
 }
