@@ -84,7 +84,7 @@
         {
             "id": "Custom-Function-Using-WebWorker",
             "onboardDate": "2021-11-30",
-            "title": "Custom function sample using web worker",
+            "title": "Custom Function Sample Using Web Worker",
             "shortId": "CF using web worker",
             "shortDescription": "Use web workers in custom functions to prevent blocking the UI of your Office Add-in.",
             "fullDescription": "Shows how to use web workers in custom functions to prevent blocking the UI of your Office Add-in.",
