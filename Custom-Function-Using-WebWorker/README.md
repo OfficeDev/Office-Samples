@@ -96,7 +96,6 @@ Now you can use the following custom functions:
 
 If you open the task pane you will see an animated bouncing ball. You can see the effect of blocking the UI thread by entering `=WebWorkerSample.TEST_UI_THREAD(50000)` into a cell. The bouncing ball will stop for a few seconds while the result is calculated.
 
-
 ## Details
 
 ### Dispatch to web worker
