@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   },
 });
 
-const TextInsertion: React.FC = () => {
+const AnnotationComponents: React.FC = () => {
   const [outputText, setOutputText] = useState("");
 
   let eventContexts = [];
@@ -66,7 +66,7 @@ const TextInsertion: React.FC = () => {
       await context.sync();
 
       for (let result of results) {
-        resultString += `${args.type}: ${result.para.uniqueLocalId} - ${result.text.value}`;
+        resultString += `${args.type}: ${result.para.uniqueLocalId} - ${result.text.value}` + "\n";
       }
     });
     setOutputText((prevText) => prevText + resultString);
@@ -80,7 +80,7 @@ const TextInsertion: React.FC = () => {
 
       await context.sync();
 
-      result = `AnnotationClicked: ${args.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}`;
+      result = `AnnotationClicked: ${args.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}` + "\n";
     });
     setOutputText((prevText) => prevText + result);
   };
@@ -93,7 +93,7 @@ const TextInsertion: React.FC = () => {
 
       await context.sync();
 
-      result = `AnnotationHovered: ${args.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}`;
+      result = `AnnotationHovered: ${args.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}` + "\n";
     });
     setOutputText((prevText) => prevText + result);
   };
@@ -234,12 +234,12 @@ const TextInsertion: React.FC = () => {
           appearance="primary"
           disabled={false}
           size="large"
-          onClick={acceptFirst}
+          onClick={() => handleClick(acceptFirst)}
           style={{ marginRight: "10px" }}
         >
           Accept first.
         </Button>
-        <Button appearance="primary" disabled={false} size="large" onClick={rejectLast}>
+        <Button appearance="primary" disabled={false} size="large" onClick={() => handleClick(rejectLast)}>
           Reject last.
         </Button>
       </div>
@@ -264,4 +264,4 @@ const TextInsertion: React.FC = () => {
   );
 };
 
-export default TextInsertion;
+export default AnnotationComponents;

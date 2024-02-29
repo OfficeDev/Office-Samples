@@ -34,6 +34,7 @@ export const initDocument = async () => {
 
 export const insertAnnotations = async () => {
   // Adds annotations to the selected paragraph.
+  let result = "";
   await Word.run(async (context) => {
     const paragraph = context.document.getSelection().paragraphs.getFirst();
     const critique1 = {
@@ -68,9 +69,9 @@ export const insertAnnotations = async () => {
     const annotationIds = paragraph.insertAnnotations(annotationSet);
 
     await context.sync();
-
-    console.log("Annotations inserted:", annotationIds.value);
+    result = "Annotations inserted: " + annotationIds.value;
   });
+  return result;
 };
 
 export const getAnnotations = async (): Promise<any> => {
@@ -99,6 +100,7 @@ export const getAnnotations = async (): Promise<any> => {
 
 export const acceptFirst = async () => {
   // Accepts the first annotation found in the selected paragraph.
+  let result = "";
   await Word.run(async (context) => {
     const paragraph = context.document.getSelection().paragraphs.getFirst();
     const annotations = paragraph.getAnnotations();
@@ -110,7 +112,7 @@ export const acceptFirst = async () => {
       const annotation = annotations.items[i];
 
       if (annotation.state === Word.AnnotationState.created) {
-        console.log(`Accepting ${annotation.id}`);
+        result += `Accepting ${annotation.id}` + "\n";
         annotation.critiqueAnnotation.accept();
 
         await context.sync();
@@ -118,10 +120,12 @@ export const acceptFirst = async () => {
       }
     }
   });
+  return result;
 };
 
 export const rejectLast = async () => {
   // Rejects the last annotation found in the selected paragraph.
+  let result = "";
   await Word.run(async (context) => {
     const paragraph = context.document.getSelection().paragraphs.getFirst();
     const annotations = paragraph.getAnnotations();
@@ -133,7 +137,7 @@ export const rejectLast = async () => {
       const annotation = annotations.items[i];
 
       if (annotation.state === Word.AnnotationState.created) {
-        console.log(`Rejecting ${annotation.id}`);
+        result += `Rejecting ${annotation.id}` + "\n";
         annotation.critiqueAnnotation.reject();
 
         await context.sync();
@@ -141,6 +145,7 @@ export const rejectLast = async () => {
       }
     }
   });
+  return result;
 };
 
 export const deleteAnnotations = async () => {
@@ -165,7 +170,11 @@ export const deleteAnnotations = async () => {
     await context.sync();
 
     console.log("Annotations deleted:", ids);
-    result = length + " Annotation(s) deleted. \n" + ids;
+    if (length === 0) {
+      result = "No annotations found.";
+    } else {
+      result = length + " Annotation(s) deleted. \n" + ids;
+    }
   });
   return result;
 };
