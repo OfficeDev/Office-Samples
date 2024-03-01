@@ -23,6 +23,7 @@ module.exports = async (env, options) => {
       taskpane: ["./src/taskpane/index.tsx", "./src/taskpane/taskpane.html"],
       commands: "./src/commands/commands.ts",
       login: ["./src/login/login.tsx", "./src/login/login.html"],
+      googlelogin: ["./src/googlelogin/googlelogin.tsx", "./src/googlelogin/googlelogin.html"],
     },
     output: {
       clean: true,
@@ -95,6 +96,11 @@ module.exports = async (env, options) => {
         filename: "login.html",
         template: "./src/login/login.html",
         chunks: ["polyfill", "vendor", "login"],
+      }),
+      new HtmlWebpackPlugin({
+        filename: "googlelogin.html",
+        template: "./src/googlelogin/googlelogin.html",
+        chunks: ["polyfill", "vendor", "googlelogin"],
       }),
       new webpack.ProvidePlugin({
         Promise: ["es6-promise", "Promise"],

@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { Button, Field, Textarea, tokens, makeStyles } from "@fluentui/react-components";
-import insertText from "../office-document";
+import { Button, tokens, makeStyles } from "@fluentui/react-components";
 
 const useStyles = makeStyles({
   instructions: {
@@ -23,17 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-const TextInsertion: React.FC = () => {
-  const [text, setText] = useState<string>("Some text.");
-
-  const handleTextInsertion = async () => {
-    await insertText(text);
-  };
-
-  const handleTextChange = async (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(event.target.value);
-  };
-
+const LoginComponent: React.FC = () => {
   const styles = useStyles();
   let dialog;
 
@@ -84,4 +73,4 @@ const TextInsertion: React.FC = () => {
   );
 };
 
-export default TextInsertion;
+export default LoginComponent;
