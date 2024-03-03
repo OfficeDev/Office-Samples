@@ -9,11 +9,17 @@ export interface MyModalProps {
   eventName: string;
   eventMessage: string;
   annotationId: string;
+  paraIds: string[];
 }
 
 const MyModal: React.FC<MyModalProps> = (props: MyModalProps) => {
-  const handleClick = async (func: () => Promise<any>) => {
-    await func();
+  const handleClick = async (func: (...args: any[]) => any, ...args: any[]) => {
+    await func(...args);
+    props.handleClose();
+  };
+
+  const handleGrammerChecking = async (args: string[]) => {
+    await insertAnnotations(args);
     props.handleClose();
   };
 
@@ -45,7 +51,7 @@ const MyModal: React.FC<MyModalProps> = (props: MyModalProps) => {
           )}
           {props.eventName === "ParagraphAdded" ? (
             <>
-              <Button variant="primary" onClick={() => handleClick(() => insertAnnotations())}>
+              <Button variant="primary" onClick={() => handleGrammerChecking(props.paraIds)}>
                 Check Grammar
               </Button>
             </>

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Button, Field, tokens, makeStyles } from "@fluentui/react-components";
-import { initDocument, insertAnnotations } from "../office-document";
+import { initDocument, insertInitAnnotations } from "../office-document";
 import NewModal from "./NewModal";
 
 const useStyles = makeStyles({
@@ -34,14 +34,27 @@ const AnnotationComponents: React.FC = () => {
     eventName: "",
     eventMessage: "",
     annotationId: "",
+    paraIds: [""],
   });
 
-  const handleModalShow = (show: boolean, eventName: string, eventMessage: string, annotationId: string) => {
-    setModalShow({ show: show, eventName: eventName, eventMessage: eventMessage, annotationId: annotationId });
+  const handleModalShow = (
+    show: boolean,
+    eventName: string,
+    eventMessage: string,
+    annotationId: string,
+    paraIds: string[]
+  ) => {
+    setModalShow({
+      show: show,
+      eventName: eventName,
+      eventMessage: eventMessage,
+      annotationId: annotationId,
+      paraIds: paraIds,
+    });
   };
 
   const handleGrammerChecking = async () => {
-    await insertAnnotations();
+    await insertInitAnnotations();
     await registerEventHandlers();
   };
 
@@ -74,7 +87,7 @@ const AnnotationComponents: React.FC = () => {
   };
 
   const paragraphAdded = async (args: Word.ParagraphAddedEventArgs) => {
-    let resultString = "";
+    //let resultString = "";
     await Word.run(async (context) => {
       const results = [];
       for (let id of args.uniqueLocalIds) {
@@ -85,12 +98,18 @@ const AnnotationComponents: React.FC = () => {
       }
 
       await context.sync();
-
+      /*
       for (let result of results) {
         resultString += `${args.type}: ${result.para.uniqueLocalId} - ${result.text.value}` + "\n";
-      }
+      }*/
     });
-    handleModalShow(true, args.type, resultString, "");
+    handleModalShow(
+      true,
+      args.type,
+      "New paragraph(s) added, do you want to start checking grammers?",
+      "",
+      args.uniqueLocalIds
+    );
   };
 
   const paragraphChanged = async (args: Word.ParagraphChangedEventArgs) => {
@@ -112,7 +131,7 @@ const AnnotationComponents: React.FC = () => {
         }
       }
     );
-    handleModalShow(true, "ParagraphChanged", resultString, "");
+    handleModalShow(true, "ParagraphChanged", resultString, "", [""]);
   };
 
   const onClickedHandler = async (args: Word.AnnotationClickedEventArgs) => {
@@ -127,16 +146,15 @@ const AnnotationComponents: React.FC = () => {
   };
 
   const onHoveredHandler = async (args: Word.AnnotationHoveredEventArgs) => {
-    let result = "";
     await Word.run(async (context: { document: { getAnnotationById: (arg0: any) => any }; sync: () => any }) => {
       const annotation = context.document.getAnnotationById(args.id);
       annotation.load("critiqueAnnotation");
 
       await context.sync();
 
-      result = `AnnotationHovered: ${args.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}` + "\n";
+      // result = `AnnotationHovered: ${args.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}` + "\n";
     });
-    handleModalShow(true, "AnnotationHovered", result, args.id);
+    handleModalShow(true, "AnnotationHovered", "How do you want to continue with this?", args.id, [""]);
   };
 
   const onInsertedHandler = async (args: Word.AnnotationInsertedEventArgs) => {
@@ -168,23 +186,35 @@ const AnnotationComponents: React.FC = () => {
     <div className={styles.textPromptAndInsertion}>
       <NewModal
         show={state.show}
-        handleClose={() => handleModalShow(false, "", "", "")}
+        handleClose={() => handleModalShow(false, "", "", "", [""])}
         eventName={state.eventName}
         eventMessage={state.eventMessage}
         annotationId={state.annotationId}
+        paraIds={state.paraIds}
       />
       <Field
         className={styles.textAreaField}
         size="large"
-        label="Let us start with inserting some init text into the document. Or you can click the button directly to insert init text."
+        label="Step 1. Insert initial text to start checking grammers."
       ></Field>
       <Button appearance="primary" disabled={false} size="large" onClick={initDocument}>
-        Insert initial text and register events.
+        Insert
       </Button>
       <br />
+      <Field
+        className={styles.textAreaField}
+        size="large"
+        label="Step 2. Click following button to check grammers and insert annotations."
+      ></Field>
       <Button appearance="primary" disabled={false} size="large" onClick={handleGrammerChecking}>
-        Check Grammers.
+        Check
       </Button>
+      <br />
+      <Field
+        className={styles.textAreaField}
+        size="large"
+        label="Step 3. Hover the annotations to see details."
+      ></Field>
     </div>
   );
 };

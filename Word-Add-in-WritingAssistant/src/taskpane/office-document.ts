@@ -18,9 +18,50 @@ export const initDocument = async () => {
   }
 };
 
-export const insertAnnotations = async () => {
+export const insertAnnotations = async (args: string[]) => {
   // Adds annotations to the selected paragraph.
-  let result = "";
+  await Word.run(async (context) => {
+    for (var arg of args) {
+      let paragraph = context.document.getParagraphByUniqueLocalId(arg);
+      const critique1 = {
+        colorScheme: Word.CritiqueColorScheme.red,
+        start: 1,
+        length: 3,
+      };
+      const critique2 = {
+        colorScheme: Word.CritiqueColorScheme.green,
+        start: 6,
+        length: 1,
+      };
+      const critique3 = {
+        colorScheme: Word.CritiqueColorScheme.blue,
+        start: 10,
+        length: 3,
+      };
+      const critique4 = {
+        colorScheme: Word.CritiqueColorScheme.lavender,
+        start: 14,
+        length: 3,
+      };
+      const critique5 = {
+        colorScheme: Word.CritiqueColorScheme.berry,
+        start: 18,
+        length: 10,
+      };
+      const annotationSet: Word.AnnotationSet = {
+        critiques: [critique1, critique2, critique3, critique4, critique5],
+      };
+
+      const annotationIds = paragraph.insertAnnotations(annotationSet);
+
+      await context.sync();
+      console.log("Annotations inserted: " + annotationIds.value);
+    }
+  });
+};
+
+export const insertInitAnnotations = async () => {
+  // Adds annotations to the selected paragraph.
   await Word.run(async (context) => {
     const paragraph = context.document.getSelection().paragraphs.getFirst();
     const critique1 = {
@@ -55,9 +96,8 @@ export const insertAnnotations = async () => {
     const annotationIds = paragraph.insertAnnotations(annotationSet);
 
     await context.sync();
-    result = "Annotations inserted: " + annotationIds.value;
+    console.log("Annotations inserted: " + annotationIds.value);
   });
-  return result;
 };
 
 export const getAnnotations = async (): Promise<any> => {
