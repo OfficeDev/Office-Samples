@@ -2,6 +2,7 @@ import * as React from "react";
 import Header from "./Header";
 import AnnotationComponents from "./Annotations";
 import { Field, makeStyles } from "@fluentui/react-components";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 interface AppProps {
   title: string;

@@ -1,15 +1,9 @@
+/* global Word console */
+
 import * as React from "react";
-import { useState } from "react";
-import { Button, Field, Textarea, tokens, makeStyles } from "@fluentui/react-components";
-import insertText from "../office-document";
-import {
-  initDocument,
-  insertAnnotations,
-  getAnnotations,
-  acceptFirst,
-  rejectLast,
-  deleteAnnotations,
-} from "../office-document";
+import { Button, Field, tokens, makeStyles } from "@fluentui/react-components";
+import { initDocument, insertAnnotations } from "../office-document";
+import NewModal from "./NewModal";
 
 const useStyles = makeStyles({
   instructions: {
@@ -32,27 +26,54 @@ const useStyles = makeStyles({
 });
 
 const AnnotationComponents: React.FC = () => {
-  const [outputText, setOutputText] = useState("");
-
+  const styles = useStyles();
   let eventContexts = [];
+
+  const [state, setModalShow] = React.useState({
+    show: false,
+    eventName: "",
+    eventMessage: "",
+    annotationId: "",
+  });
+
+  const handleModalShow = (show: boolean, eventName: string, eventMessage: string, annotationId: string) => {
+    setModalShow({ show: show, eventName: eventName, eventMessage: eventMessage, annotationId: annotationId });
+  };
+
+  const handleGrammerChecking = async () => {
+    await insertAnnotations();
+    await registerEventHandlers();
+  };
 
   const registerEventHandlers = async () => {
     // Registers event handlers.
-    await Word.run(async (context) => {
-      eventContexts[0] = context.document.onParagraphAdded.add(paragraphChanged);
-      eventContexts[1] = context.document.onParagraphChanged.add(paragraphChanged);
+    await Word.run(
+      async (context: {
+        document: {
+          onParagraphAdded: { add: (arg0: (args: Word.ParagraphChangedEventArgs) => Promise<void>) => any };
+          onParagraphChanged: { add: (arg0: (args: Word.ParagraphChangedEventArgs) => Promise<void>) => any };
+          onAnnotationClicked: { add: (arg0: (args: Word.AnnotationClickedEventArgs) => Promise<void>) => any };
+          onAnnotationHovered: { add: (arg0: (args: Word.AnnotationHoveredEventArgs) => Promise<void>) => any };
+          onAnnotationInserted: { add: (arg0: (args: Word.AnnotationInsertedEventArgs) => Promise<void>) => any };
+          onAnnotationRemoved: { add: (arg0: (args: Word.AnnotationRemovedEventArgs) => Promise<void>) => any };
+        };
+        sync: () => any;
+      }) => {
+        eventContexts[0] = context.document.onParagraphAdded.add(paragraphAdded);
+        eventContexts[1] = context.document.onParagraphChanged.add(paragraphChanged);
 
-      eventContexts[2] = context.document.onAnnotationClicked.add(onClickedHandler);
-      eventContexts[3] = context.document.onAnnotationHovered.add(onHoveredHandler);
-      eventContexts[4] = context.document.onAnnotationInserted.add(onInsertedHandler);
-      eventContexts[5] = context.document.onAnnotationRemoved.add(onRemovedHandler);
+        eventContexts[2] = context.document.onAnnotationClicked.add(onClickedHandler);
+        eventContexts[3] = context.document.onAnnotationHovered.add(onHoveredHandler);
+        eventContexts[4] = context.document.onAnnotationInserted.add(onInsertedHandler);
+        eventContexts[5] = context.document.onAnnotationRemoved.add(onRemovedHandler);
 
-      await context.sync();
-    });
-    return "Event handlers registered.\n";
+        await context.sync();
+      }
+    );
+    console.log("Event handlers registered.");
   };
 
-  const paragraphChanged = async (args: Word.ParagraphChangedEventArgs) => {
+  const paragraphAdded = async (args: Word.ParagraphAddedEventArgs) => {
     let resultString = "";
     await Word.run(async (context) => {
       const results = [];
@@ -69,25 +90,45 @@ const AnnotationComponents: React.FC = () => {
         resultString += `${args.type}: ${result.para.uniqueLocalId} - ${result.text.value}` + "\n";
       }
     });
-    setOutputText((prevText) => prevText + resultString);
+    handleModalShow(true, args.type, resultString, "");
+  };
+
+  const paragraphChanged = async (args: Word.ParagraphChangedEventArgs) => {
+    let resultString = "";
+    await Word.run(
+      async (context: { document: { getParagraphByUniqueLocalId: (arg0: any) => any }; sync: () => any }) => {
+        const results = [];
+        for (let id of args.uniqueLocalIds) {
+          let para = context.document.getParagraphByUniqueLocalId(id);
+          para.load("uniqueLocalId");
+
+          results.push({ para: para, text: para.getText() });
+        }
+
+        await context.sync();
+
+        for (let result of results) {
+          resultString += `${args.type}: ${result.para.uniqueLocalId} - ${result.text.value}` + "\n";
+        }
+      }
+    );
+    handleModalShow(true, "ParagraphChanged", resultString, "");
   };
 
   const onClickedHandler = async (args: Word.AnnotationClickedEventArgs) => {
-    let result = "";
     await Word.run(async (context) => {
       const annotation = context.document.getAnnotationById(args.id);
       annotation.load("critiqueAnnotation");
 
       await context.sync();
 
-      result = `AnnotationClicked: ${args.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}` + "\n";
+      console.log(`AnnotationClicked: ${args.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}`);
     });
-    setOutputText((prevText) => prevText + result);
   };
 
   const onHoveredHandler = async (args: Word.AnnotationHoveredEventArgs) => {
     let result = "";
-    await Word.run(async (context) => {
+    await Word.run(async (context: { document: { getAnnotationById: (arg0: any) => any }; sync: () => any }) => {
       const annotation = context.document.getAnnotationById(args.id);
       annotation.load("critiqueAnnotation");
 
@@ -95,11 +136,10 @@ const AnnotationComponents: React.FC = () => {
 
       result = `AnnotationHovered: ${args.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}` + "\n";
     });
-    setOutputText((prevText) => prevText + result);
+    handleModalShow(true, "AnnotationHovered", result, args.id);
   };
 
   const onInsertedHandler = async (args: Word.AnnotationInsertedEventArgs) => {
-    let result = "";
     await Word.run(async (context) => {
       const annotations = [];
       for (let i = 0; i < args.ids.length; i++) {
@@ -110,156 +150,41 @@ const AnnotationComponents: React.FC = () => {
       }
 
       await context.sync();
-
       for (let annotation of annotations) {
-        result +=
-          `AnnotationInserted: ${annotation.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}` + "\n";
+        console.log(`AnnotationInserted: ${annotation.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}`);
       }
     });
-    setOutputText((prevText) => prevText + result);
   };
 
   const onRemovedHandler = async (args: Word.AnnotationRemovedEventArgs) => {
-    let result = "";
     await Word.run(async () => {
       for (let id of args.ids) {
-        result += `AnnotationRemoved: ${id}` + "\n";
+        console.log(`AnnotationRemoved: ${id}`);
       }
     });
-    setOutputText((prevText) => prevText + result);
-  };
-
-  const deregisterEventHandlers = async () => {
-    // Deregisters event handlers.
-    await Word.run(async (context) => {
-      for (let i = 0; i < eventContexts.length; i++) {
-        await Word.run(eventContexts[i].context, async () => {
-          eventContexts[i].remove();
-        });
-      }
-
-      await context.sync();
-
-      eventContexts = [];
-    });
-    return "Removed event handlers.\n";
-  };
-
-  const [text, setText] = useState<string>("");
-
-  const handleTextInsertion = async () => {
-    if (text === "" || text === "Some text.") {
-      await initDocument(); // If the text is empty, insert the initial text.
-    } else {
-      await insertText(text);
-    }
-  };
-
-  const handleTextChange = async (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(event.target.value);
-  };
-
-  const styles = useStyles();
-
-  const handleOutputTextChange = (event) => {
-    setOutputText((prevText) => prevText + event.target.value);
-  };
-
-  const handleGetAnnotations = async () => {
-    const annotations = await getAnnotations();
-    setOutputText((prevText) => prevText + annotations);
-  };
-
-  const handleDeleteAnnotations = async () => {
-    const result = await deleteAnnotations();
-    setOutputText((prevText) => prevText + result);
-  };
-
-  const handleClick = async (func) => {
-    const result = await func();
-    setOutputText((prevText) => prevText + result);
-  };
-
-  const clearOutputText = async () => {
-    setOutputText("");
   };
 
   return (
     <div className={styles.textPromptAndInsertion}>
+      <NewModal
+        show={state.show}
+        handleClose={() => handleModalShow(false, "", "", "")}
+        eventName={state.eventName}
+        eventMessage={state.eventMessage}
+        annotationId={state.annotationId}
+      />
       <Field
         className={styles.textAreaField}
         size="large"
         label="Let us start with inserting some init text into the document. Or you can click the button directly to insert init text."
       ></Field>
-      <Button appearance="primary" disabled={false} size="large" onClick={handleTextInsertion}>
-        Insert initial text
+      <Button appearance="primary" disabled={false} size="large" onClick={initDocument}>
+        Insert initial text and register events.
       </Button>
-      <Field className={styles.instructions} size="large" label="Register/Deregister event handlers." />
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Button
-          appearance="primary"
-          disabled={false}
-          size="large"
-          onClick={() => handleClick(registerEventHandlers)}
-          style={{ marginRight: "10px" }}
-        >
-          Register
-        </Button>
-        <Button appearance="primary" disabled={false} size="large" onClick={() => handleClick(deregisterEventHandlers)}>
-          Deregister
-        </Button>
-      </div>
       <br />
-      <Field className={styles.textAreaField} size="large" label="To begin, let's start to insert annotations." />
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Button appearance="primary" disabled={false} size="large" onClick={() => handleClick(insertAnnotations)}>
-          Insert Annotations
-        </Button>
-        <Button
-          appearance="primary"
-          disabled={false}
-          size="large"
-          onClick={handleGetAnnotations}
-          style={{ marginRight: "10px" }}
-        >
-          Get All
-        </Button>
-        <Button appearance="primary" disabled={false} size="large" onClick={() => handleClick(handleDeleteAnnotations)}>
-          Delete All
-        </Button>
-      </div>
-      <Field className={styles.instructions} size="large" label="Accept or reject annotations." />
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Button
-          appearance="primary"
-          disabled={false}
-          size="large"
-          onClick={() => handleClick(acceptFirst)}
-          style={{ marginRight: "10px" }}
-        >
-          Accept first.
-        </Button>
-        <Button appearance="primary" disabled={false} size="large" onClick={() => handleClick(rejectLast)}>
-          Reject last.
-        </Button>
-      </div>
-      <Field className={styles.textAreaField} size="large" label="Output logs"></Field>
-      <Button
-        style={{ alignSelf: "flex-end" }}
-        appearance="primary"
-        disabled={false}
-        size="large"
-        onClick={clearOutputText}
-      >
-        Clear
+      <Button appearance="primary" disabled={false} size="large" onClick={handleGrammerChecking}>
+        Check Grammers.
       </Button>
-      <Textarea
-        style={{ width: "100%", height: "300px" }}
-        size="large"
-        value={outputText}
-        onChange={handleOutputTextChange}
-        readOnly
-      />
     </div>
   );
 };

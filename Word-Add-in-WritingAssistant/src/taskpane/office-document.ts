@@ -1,18 +1,4 @@
 /* global Word console */
-
-const insertText = async (text: string) => {
-  // Write text to the document.
-  try {
-    await Word.run(async (context) => {
-      let body = context.document.body;
-      body.insertParagraph(text, Word.InsertLocation.end);
-      await context.sync();
-    });
-  } catch (error) {
-    console.log("Error: " + error);
-  }
-};
-
 export const initDocument = async () => {
   try {
     await Word.run(async (context) => {
@@ -98,56 +84,6 @@ export const getAnnotations = async (): Promise<any> => {
   return outputText;
 };
 
-export const acceptFirst = async () => {
-  // Accepts the first annotation found in the selected paragraph.
-  let result = "";
-  await Word.run(async (context) => {
-    const paragraph = context.document.getSelection().paragraphs.getFirst();
-    const annotations = paragraph.getAnnotations();
-    annotations.load("id,state,critiqueAnnotation");
-
-    await context.sync();
-
-    for (var i = 0; i < annotations.items.length; i++) {
-      const annotation = annotations.items[i];
-
-      if (annotation.state === Word.AnnotationState.created) {
-        result += `Accepting ${annotation.id}` + "\n";
-        annotation.critiqueAnnotation.accept();
-
-        await context.sync();
-        break;
-      }
-    }
-  });
-  return result;
-};
-
-export const rejectLast = async () => {
-  // Rejects the last annotation found in the selected paragraph.
-  let result = "";
-  await Word.run(async (context) => {
-    const paragraph = context.document.getSelection().paragraphs.getFirst();
-    const annotations = paragraph.getAnnotations();
-    annotations.load("id,state,critiqueAnnotation");
-
-    await context.sync();
-
-    for (var i = annotations.items.length - 1; i >= 0; i--) {
-      const annotation = annotations.items[i];
-
-      if (annotation.state === Word.AnnotationState.created) {
-        result += `Rejecting ${annotation.id}` + "\n";
-        annotation.critiqueAnnotation.reject();
-
-        await context.sync();
-        break;
-      }
-    }
-  });
-  return result;
-};
-
 export const deleteAnnotations = async () => {
   // Deletes all annotations found in the selected paragraph.
   let result = "";
@@ -179,4 +115,22 @@ export const deleteAnnotations = async () => {
   return result;
 };
 
-export default insertText;
+export const acceptAction = async (id: string) => {
+  await Word.run(async (context) => {
+    const annotation = context.document.getAnnotationById(id);
+    annotation.load("id,state,critiqueAnnotation");
+    annotation.critiqueAnnotation.accept();
+    await context.sync();
+  });
+};
+
+export const rejectAction = async (id: string) => {
+  await Word.run(async (context) => {
+    const annotation = context.document.getAnnotationById(id);
+    annotation.load("id,state,critiqueAnnotation");
+    annotation.critiqueAnnotation.reject();
+    await context.sync();
+  });
+};
+
+export default initDocument;
