@@ -1,19 +1,3 @@
----
-page_type: sample
-urlFragment: excel-custom-function-web-worker-pattern
-products:
-  - office-excel
-  - office-365
-languages:
-  - javascript
-extensions:
-  contentType: samples
-  technologies:
-  - Add-ins
-  createdDate: 12/16/2020 1:25:00 PM
-description: "This sample shows how to use web workers in custom functions to prevent blocking the UI of your Office Add-in."
----
-
 # Custom function sample using web worker
 
 ## Summary
@@ -28,6 +12,10 @@ This sample shows how to use web workers in custom functions to prevent blocking
 ## Applies to
 
 - Excel on Windows, Mac, and in a browser.
+
+
+## Sample Demo Video
+![npm-search-msgext](assets/sampleDemo.gif)
 
 ## Prerequisites
 
@@ -57,9 +45,6 @@ To learn more about custom functions, see [Create custom functions in Excel](htt
 When using the shared runtime, custom functions block the UI of your Office Add-in when they run. If you have long-running custom functions, this can cause poor performance in your Office Add-in UI when the spreadsheet is calculated. For example, if someone has a table with thousands of rows, each of which is calling a long-running custom function, this can lead to the UI being blocked during a recalculation.
 
 You can unblock the UI by using web workers to do the calculations for your custom functions.
-
-## Sample Demo Video
-![npm-search-msgext](assets/sampleDemo.gif)
 
 ## Run the sample from Localhost
 
