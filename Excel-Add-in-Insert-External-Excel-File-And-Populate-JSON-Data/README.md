@@ -1,3 +1,5 @@
+![npm-search-msgext](assets/sampleDemo.gif)
+
 # Insert an external Excel file and populate it with JSON data
 
 This sample shows how to insert an existing template from an external Excel file into the currently open Excel file. Then it retrieves data from a JSON web service and populates the template for the customer.
@@ -5,9 +7,6 @@ This sample shows how to insert an existing template from an external Excel file
 ### Features
 - Use insertWorksheetsFromBase64 to insert a worksheet from another Excel file into the open Excel file.
 - Get JSON data and add it to the worksheet.
-
-## Sample Demo Video
-![npm-search-msgext](assets/sampleDemo.gif)
 
 ## Required Steps & How to Run
 
