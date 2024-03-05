@@ -1,15 +1,25 @@
-## Required Steps & How to Run
+![](./assets/YOUR SAMPLE GIF PATH)
+
+Describe sample functionality, EXAMPLE: This sample shows how to insert an existing template from an external Excel file into the currently open Excel file. Then it retrieves data from a JSON web service and populates the template for the customer.
+
+### Features
+- Features of this sample: which APIs are used, what service is called....
+- EXAMPLE: Use insertWorksheetsFromBase64 to insert a worksheet from another Excel file into the open Excel file.
+- EXAMPLE: Get JSON data and add it to the worksheet.
+
+## Steps & How to Run
 
 ### Prerequisites
 - [Node.js](https://nodejs.org) 16/18 (Tested on 16.14.0)
 
 ### Run & Debug
 1. Open M365/Teams Toolkit
-<br><img width="300" src="./assets/toolkit.png"></img>
-2. Click `Check and Install Dependency`
+<br>![](./assets/toolkit_development.png)
+2. Click `Check and Install Dependencies`
 3. Launch and debug
-    * For debugging in Office on Windows/macOS, click `Preview Your Office Add-in(F5)` button on tree view and select a launch config. A Word/Excel/PowerPoint app will launch with add-in sample side-loaded. **Note:** Debugging on macOS is not supported yet.
-    * For debugging in Office on the web: [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
+    * **For Office on Windows/macOS**, click `Preview Your Office Add-in(F5)` button on tree view and select a launch config. A Word/Excel/PowerPoint app will launch with add-in sample side-loaded. **Note:** Debugging on macOS is not supported yet.
+    * **For Office on the web**: [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
+4. lick `Stop Preview Your Office Add-in` to stop debugging.
 
 
 ### How to use this sample
