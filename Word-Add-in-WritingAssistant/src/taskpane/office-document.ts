@@ -18,6 +18,30 @@ export const initDocument = async () => {
   }
 };
 
+export const insertFile = async (base64String: any) => {
+  try {
+    await Word.run(async (context) => {
+      context.document.insertFileFromBase64(base64String, "Replace", {
+        importTheme: true,
+        importStyles: true,
+        importParagraphSpacing: true,
+        importPageColor: true,
+        importChangeTrackingMode: true,
+        importCustomProperties: true,
+        importCustomXmlParts: true,
+        importDifferentOddEvenPages: true,
+      });
+      await context.sync();
+    });
+    await Word.run(async (context) => {
+      context.document.body.paragraphs.getFirst().select();
+      await context.sync();
+    });
+  } catch (error) {
+    console.log("Error: " + error);
+  }
+};
+
 export const insertAnnotations = async (args: string[]) => {
   // Adds annotations to the selected paragraph.
   await Word.run(async (context) => {
@@ -60,14 +84,16 @@ export const insertAnnotations = async (args: string[]) => {
   });
 };
 
+export let allAnnotationIds: any[] = [];
+
 export const insertInitAnnotations = async () => {
   // Adds annotations to the selected paragraph.
   await Word.run(async (context) => {
-    const paragraph = context.document.getSelection().paragraphs.getFirst();
+    const paragraph = context.document.body.paragraphs.getFirst().getNext();
     const critique1 = {
       colorScheme: Word.CritiqueColorScheme.red,
-      start: 1,
-      length: 3,
+      start: 207,
+      length: 10,
     };
     const critique2 = {
       colorScheme: Word.CritiqueColorScheme.green,
@@ -97,6 +123,7 @@ export const insertInitAnnotations = async () => {
 
     await context.sync();
     console.log("Annotations inserted: " + annotationIds.value);
+    allAnnotationIds = annotationIds.value;
   });
 };
 
@@ -155,11 +182,14 @@ export const deleteAnnotations = async () => {
   return result;
 };
 
-export const acceptAction = async (id: string) => {
+export const acceptAction = async (id: string, expectedString: string) => {
   await Word.run(async (context) => {
     const annotation = context.document.getAnnotationById(id);
     annotation.load("id,state,critiqueAnnotation");
     annotation.critiqueAnnotation.accept();
+    await context.sync();
+    let range = annotation.critiqueAnnotation.range;
+    range.insertText(expectedString, "Replace");
     await context.sync();
   });
 };

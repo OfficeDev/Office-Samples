@@ -33,13 +33,27 @@ const MyModal: React.FC<MyModalProps> = (props: MyModalProps) => {
         keyboard={false}
       >
         <Modal.Header>
-          <Modal.Title>{props.eventName}</Modal.Title>
+          <Modal.Title>{props.eventName === "AnnotationHovered" ? <>Grammers Checking</> : <></>}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{props.eventMessage}</Modal.Body>
+        <Modal.Body>
+          {props.eventName === "AnnotationHovered" ? (
+            <>
+              <p>
+                The suggested string is <strong>{props.eventMessage}</strong>
+              </p>
+              How do you want to continue with this?
+            </>
+          ) : (
+            <></>
+          )}
+        </Modal.Body>
         <Modal.Footer>
           {props.eventName === "AnnotationHovered" ? (
             <>
-              <Button variant="primary" onClick={() => handleClick(() => acceptAction(props.annotationId))}>
+              <Button
+                variant="primary"
+                onClick={() => handleClick(() => acceptAction(props.annotationId, props.eventMessage))}
+              >
                 Accept
               </Button>
               <Button variant="danger" onClick={() => handleClick(() => rejectAction(props.annotationId))}>

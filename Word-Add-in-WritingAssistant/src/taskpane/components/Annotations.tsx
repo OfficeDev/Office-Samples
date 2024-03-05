@@ -2,8 +2,9 @@
 
 import * as React from "react";
 import { Button, Field, tokens, makeStyles } from "@fluentui/react-components";
-import { initDocument, insertInitAnnotations } from "../office-document";
+import { allAnnotationIds, insertInitAnnotations } from "../office-document";
 import NewModal from "./NewModal";
+import FileUploader from "./FileUploader";
 
 const useStyles = makeStyles({
   instructions: {
@@ -113,7 +114,7 @@ const AnnotationComponents: React.FC = () => {
   };
 
   const paragraphChanged = async (args: Word.ParagraphChangedEventArgs) => {
-    let resultString = "";
+    //let resultString = "";
     await Word.run(
       async (context: { document: { getParagraphByUniqueLocalId: (arg0: any) => any }; sync: () => any }) => {
         const results = [];
@@ -126,12 +127,12 @@ const AnnotationComponents: React.FC = () => {
 
         await context.sync();
 
-        for (let result of results) {
-          resultString += `${args.type}: ${result.para.uniqueLocalId} - ${result.text.value}` + "\n";
-        }
+        //for (let result of results) {
+        //  resultString += `${args.type}: ${result.para.uniqueLocalId} - ${result.text.value}` + "\n";
+        //}
       }
     );
-    handleModalShow(true, "ParagraphChanged", resultString, "", [""]);
+    //handleModalShow(true, "ParagraphChanged", resultString, "", [""]);
   };
 
   const onClickedHandler = async (args: Word.AnnotationClickedEventArgs) => {
@@ -146,15 +147,26 @@ const AnnotationComponents: React.FC = () => {
   };
 
   const onHoveredHandler = async (args: Word.AnnotationHoveredEventArgs) => {
+    let expectedString = "";
     await Word.run(async (context: { document: { getAnnotationById: (arg0: any) => any }; sync: () => any }) => {
       const annotation = context.document.getAnnotationById(args.id);
       annotation.load("critiqueAnnotation");
 
       await context.sync();
-
+      for (var i = 0; i < allAnnotationIds.length; i++) {
+        if (allAnnotationIds[i] === args.id) {
+          switch (i) {
+            case 0:
+              expectedString = "effective";
+              break;
+            default:
+              break;
+          }
+        }
+      }
       // result = `AnnotationHovered: ${args.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}` + "\n";
     });
-    handleModalShow(true, "AnnotationHovered", "How do you want to continue with this?", args.id, [""]);
+    handleModalShow(true, "AnnotationHovered", expectedString, args.id, [""]);
   };
 
   const onInsertedHandler = async (args: Word.AnnotationInsertedEventArgs) => {
@@ -192,19 +204,13 @@ const AnnotationComponents: React.FC = () => {
         annotationId={state.annotationId}
         paraIds={state.paraIds}
       />
-      <Field
-        className={styles.textAreaField}
-        size="large"
-        label="Step 1. Insert initial text to start checking grammers."
-      ></Field>
-      <Button appearance="primary" disabled={false} size="large" onClick={initDocument}>
-        Insert
-      </Button>
+      <Field className={styles.textAreaField} size="large" label="Step 1. Import your document."></Field>
+      <FileUploader />
       <br />
       <Field
         className={styles.textAreaField}
         size="large"
-        label="Step 2. Click following button to check grammers and insert annotations."
+        label="Step 2. Click following button to check grammar."
       ></Field>
       <Button appearance="primary" disabled={false} size="large" onClick={handleGrammerChecking}>
         Check
