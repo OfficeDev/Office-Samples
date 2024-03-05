@@ -159,6 +159,18 @@ const AnnotationComponents: React.FC = () => {
             case 0:
               expectedString = "effective";
               break;
+            case 1:
+              expectedString = "a";
+              break;
+            case 2:
+              expectedString = "sov";
+              break;
+            case 3:
+              expectedString = " 64";
+              break;
+            case 4:
+              expectedString = "developme";
+              break;
             default:
               break;
           }

@@ -77,10 +77,9 @@ export const insertAnnotations = async (args: string[]) => {
       };
 
       const annotationIds = paragraph.insertAnnotations(annotationSet);
-
-      await context.sync();
       console.log("Annotations inserted: " + annotationIds.value);
     }
+    await context.sync();
   });
 };
 

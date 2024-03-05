@@ -18,7 +18,7 @@ const MyModal: React.FC<MyModalProps> = (props: MyModalProps) => {
     props.handleClose();
   };
 
-  const handleGrammerChecking = async (args: string[]) => {
+  const handleGrammarChecking = async (args: string[]) => {
     await insertAnnotations(args);
     props.handleClose();
   };
@@ -33,7 +33,7 @@ const MyModal: React.FC<MyModalProps> = (props: MyModalProps) => {
         keyboard={false}
       >
         <Modal.Header>
-          <Modal.Title>{props.eventName === "AnnotationHovered" ? <>Grammers Checking</> : <></>}</Modal.Title>
+          <Modal.Title>{props.eventName === "AnnotationHovered" ? <>Grammar Checking</> : <></>}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {props.eventName === "AnnotationHovered" ? (
@@ -65,7 +65,7 @@ const MyModal: React.FC<MyModalProps> = (props: MyModalProps) => {
           )}
           {props.eventName === "ParagraphAdded" ? (
             <>
-              <Button variant="primary" onClick={() => handleGrammerChecking(props.paraIds)}>
+              <Button variant="primary" onClick={() => handleGrammarChecking(props.paraIds)}>
                 Check Grammar
               </Button>
             </>
