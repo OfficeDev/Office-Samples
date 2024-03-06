@@ -1,10 +1,10 @@
 ![](./assets/sampleDemo.gif)
 
-This sample shows how to insert an existing template from an external Excel file into the currently open Excel file. Then it retrieves data from a JSON web service and populates the template for the customer.
+This add-in demonstrates Word add-in capabilities to help users check errors, improve writing, and rephrase content.
 
 ### Features
-- Use insertWorksheetsFromBase64 to insert a worksheet from another Excel file into the open Excel file.
-- Get JSON data and add it to the worksheet.
+- Use insertFileFromBase64 to insert a document into the open Word document.
+- Check erros, provid recommendations.
 
 ## How to run this sample
 
@@ -32,9 +32,10 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 
 
 ### How to use this sample add-in
-1. Click the button "Choose File" to choose the Excel file you want to inserted into the worksheet. You can also use the provided file name as "SalesTemplate.xlsx" to have a test.
-2. Then, the provided Excel file will be inserted into current worksheet.
-3. What's more, we will also automate appendix an worksheet using the provided "JSONData.json"
+1. Click the button "Import" to choose the document you want to inserted into the current Word document.
+2. Then, the provided Word file will be inserted into current document.
+3. Click the button "Check" to check all the potential errors.
+4. Move the mouse hover the annotation to check details.
 
 
 ### File structure
@@ -51,17 +52,20 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 | manifest*.xml                 Manifest file
 | package.json                  
 | README.md                     Get started here
-| SalesTemplate.xlsx            Template to be imported
-| SECURITY.md
 | src/                          Add-ins source code
 |   | commands/
 |   |   | commands.html
 |   |   | commands.js
 |   | taskpane/
-|   |   | JSONdata.json         Sample data
-|   |   | taskpane.css          Taskpane style
+|   |   | componets/            React components used in this sample.
+|   |   |   |Annotations.tsx
+|   |   |   |App.tsx
+|   |   |   |FileUploader.tsx
+|   |   |   |Header.tsx
+|   |   |   |NewModal.tsx
+|   |   | index.tsx             React component
+|   |   | office-document.ts    API usages.
 |   |   | taskpane.html         Taskpane entry html
-|   |   | taskpane.js           Add API calls and logic here
 | webpack.config.js             Webpack config
 ```
 
