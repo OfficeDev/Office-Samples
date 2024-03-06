@@ -18,6 +18,10 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
   },
+  field_label: {
+    fontWeight: "bold",
+    maxWidth: "80%",
+  },
 });
 
 const App = (props: AppProps) => {
@@ -25,9 +29,13 @@ const App = (props: AppProps) => {
 
   return (
     <div className={styles.root}>
-      <Header logo="assets/logo-filled.png" title={props.title} message="Welcome" />
+      <Header logo="assets/logo-filled.png" title={props.title} message="Writing Assistant Add-in" />
       <div className={styles.welcome__header}>
-        <Field size="large" label="Discover what the add-in can do for you."></Field>
+        <Field
+          size="large"
+          className={styles.field_label}
+          label="The sample add-in showcases capabilities for error checking, rephrasing content and improving writing. "
+        ></Field>
       </div>
       <AnnotationComponents />
     </div>
