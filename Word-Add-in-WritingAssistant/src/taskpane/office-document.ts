@@ -264,11 +264,29 @@ export const rejectAction = async (id: string) => {
   });
 };
 
-export const appendText = async (str: string) => {
+export const rewriteText = async (str: string) => {
   await Word.run(async (context) => {
     const range = context.document.getSelection();
-    range.insertText(str, "After");
+    range.insertText(str, "Replace");
     await context.sync();
   });
 };
+
+export const ignoreAll = async () => {
+  await Word.run(async (context) => {
+    const paragraphs = context.document.body.paragraphs;
+    paragraphs.load();
+    await context.sync();
+    for (var para of paragraphs.items) {
+      const annotations = para.getAnnotations();
+      annotations.load();
+      await context.sync();
+      for (var annotation of annotations.items) {
+        annotation.critiqueAnnotation.reject();
+      }
+    }
+    await context.sync();
+  });
+};
+
 export default initDocument;
