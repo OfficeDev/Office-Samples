@@ -25,9 +25,12 @@ const App = (props: AppProps) => {
 
   return (
     <div className={styles.root}>
-      <Header logo="assets/logo-filled.png" title={props.title} message="Welcome" />
+      <Header logo="assets/logo-filled.png" title={props.title} message="Word Writing Assistant add-in" />
       <div className={styles.welcome__header}>
-        <Field size="large" label="Discover what the add-in can do for you."></Field>
+        <Field
+          size="large"
+          label="The sample add-in showcases capabilities for error checking, rephrasing content and improving writing. "
+        ></Field>
       </div>
       <AnnotationComponents />
     </div>

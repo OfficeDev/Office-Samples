@@ -41,7 +41,7 @@ export const insertFile = async (base64String: any) => {
     console.log("Error: " + error);
   }
 };
-
+/*
 export const insertAnnotations = async (args: string[]) => {
   // Adds annotations to the selected paragraph.
   await Word.run(async (context) => {
@@ -81,49 +81,111 @@ export const insertAnnotations = async (args: string[]) => {
     }
     await context.sync();
   });
-};
+};*/
 
 export let allAnnotationIds: any[] = [];
 
 export const insertInitAnnotations = async () => {
   // Adds annotations to the selected paragraph.
-  await Word.run(async (context) => {
-    const paragraph = context.document.body.paragraphs.getFirst().getNext();
-    const critique1 = {
-      colorScheme: Word.CritiqueColorScheme.red,
-      start: 207,
-      length: 10,
-    };
-    const critique2 = {
-      colorScheme: Word.CritiqueColorScheme.green,
-      start: 6,
-      length: 1,
-    };
-    const critique3 = {
-      colorScheme: Word.CritiqueColorScheme.blue,
-      start: 10,
-      length: 3,
-    };
-    const critique4 = {
-      colorScheme: Word.CritiqueColorScheme.lavender,
-      start: 14,
-      length: 3,
-    };
-    const critique5 = {
-      colorScheme: Word.CritiqueColorScheme.berry,
-      start: 18,
-      length: 10,
-    };
-    const annotationSet: Word.AnnotationSet = {
-      critiques: [critique1, critique2, critique3, critique4, critique5],
-    };
+  try {
+    await Word.run(async (context) => {
+      const paras = context.document.body.paragraphs;
+      paras.load("items");
+      await context.sync();
+      const paragraph = paras.items[6];
 
-    const annotationIds = paragraph.insertAnnotations(annotationSet);
+      const critique1 = {
+        colorScheme: Word.CritiqueColorScheme.red,
+        start: 20,
+        length: 3,
+        popupOptions: {
+          brandingTextResourceId: "WA.TabLabel",
+          subtitleResourceId: "WA.Suggestions.TipTitle",
+          titleResourceId: "WA.Suggestions.Label",
+          suggestions: ["text", "tax", "Text"],
+        },
+      };
+      const critique2 = {
+        colorScheme: Word.CritiqueColorScheme.green,
+        start: 32,
+        length: 7,
+        popupOptions: {
+          brandingTextResourceId: "WA.TabLabel",
+          subtitleResourceId: "WA.Suggestions.TipTitle",
+          titleResourceId: "WA.Suggestions.Label",
+          suggestions: ["document", "docent", "docents"],
+        },
+      };
+      const critique3 = {
+        colorScheme: Word.CritiqueColorScheme.blue,
+        start: 71,
+        length: 7,
+        popupOptions: {
+          brandingTextResourceId: "WA.TabLabel",
+          subtitleResourceId: "WA.Suggestions.TipTitle",
+          titleResourceId: "WA.Suggestions.Label",
+          suggestions: ["applied"],
+        },
+      };
+      const critique4 = {
+        colorScheme: Word.CritiqueColorScheme.lavender,
+        start: 139,
+        length: 7,
+        popupOptions: {
+          brandingTextResourceId: "WA.TabLabel",
+          subtitleResourceId: "WA.Suggestions.TipTitle",
+          titleResourceId: "WA.Suggestions.Label",
+          suggestions: ["get"],
+        },
+      };
+      const critique5 = {
+        colorScheme: Word.CritiqueColorScheme.berry,
+        start: 222,
+        length: 6,
+        popupOptions: {
+          brandingTextResourceId: "WA.TabLabel",
+          subtitleResourceId: "WA.Suggestions.TipTitle",
+          titleResourceId: "WA.Suggestions.Label",
+          suggestions: ["typing."],
+        },
+      };
+      const annotationSet: Word.AnnotationSet = {
+        critiques: [critique1, critique2, critique3, critique4, critique5],
+      };
 
-    await context.sync();
-    console.log("Annotations inserted: " + annotationIds.value);
-    allAnnotationIds = annotationIds.value;
-  });
+      const annotationIds = paragraph.insertAnnotations(annotationSet);
+
+      await context.sync();
+      console.log("Annotations inserted: " + annotationIds.value);
+
+      const para = paras.items[7];
+      para.load();
+      await context.sync();
+      let length = para.text.length;
+      const critique6 = {
+        colorScheme: Word.CritiqueColorScheme.berry,
+        start: 0,
+        length: length,
+        popupOptions: {
+          brandingTextResourceId: "WA.TabLabel",
+          subtitleResourceId: "WA.Suggestions.TipTitle",
+          titleResourceId: "WA.Suggestions.Label",
+          suggestions: [
+            "View and edit this document in Word on your computer, tablet, or phone. You can edit text; easily insert content such as pictures, shapes, or tables; and seamlessly save the document to the cloud from Word on your Windows, Mac, Android, or iOS device.",
+          ],
+        },
+      };
+      const annotationSet1: Word.AnnotationSet = {
+        critiques: [critique6],
+      };
+
+      para.insertAnnotations(annotationSet1);
+
+      await context.sync();
+    });
+  } catch (error) {
+    console.log("Error: " + error);
+  }
 };
 
 export const getAnnotations = async (): Promise<any> => {
@@ -202,4 +264,11 @@ export const rejectAction = async (id: string) => {
   });
 };
 
+export const appendText = async (str: string) => {
+  await Word.run(async (context) => {
+    const range = context.document.getSelection();
+    range.insertText(str, "After");
+    await context.sync();
+  });
+};
 export default initDocument;

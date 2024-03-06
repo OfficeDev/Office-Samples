@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import React from "react";
-import { acceptAction, insertAnnotations, rejectAction } from "../office-document";
+import { acceptAction, insertInitAnnotations, rejectAction } from "../office-document";
 
 export interface MyModalProps {
   show: boolean;
@@ -18,8 +18,8 @@ const MyModal: React.FC<MyModalProps> = (props: MyModalProps) => {
     props.handleClose();
   };
 
-  const handleGrammarChecking = async (args: string[]) => {
-    await insertAnnotations(args);
+  const handleGrammarChecking = async () => {
+    await insertInitAnnotations();
     props.handleClose();
   };
 
@@ -65,7 +65,7 @@ const MyModal: React.FC<MyModalProps> = (props: MyModalProps) => {
           )}
           {props.eventName === "ParagraphAdded" ? (
             <>
-              <Button variant="primary" onClick={() => handleGrammarChecking(props.paraIds)}>
+              <Button variant="primary" onClick={() => handleGrammarChecking()}>
                 Check Grammar
               </Button>
             </>

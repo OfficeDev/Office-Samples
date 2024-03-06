@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Button, Field, tokens, makeStyles } from "@fluentui/react-components";
-import { allAnnotationIds, insertInitAnnotations } from "../office-document";
+import { allAnnotationIds, appendText, insertInitAnnotations } from "../office-document";
 import NewModal from "./NewModal";
 import FileUploader from "./FileUploader";
 
@@ -59,32 +59,36 @@ const AnnotationComponents: React.FC = () => {
     await registerEventHandlers();
   };
 
+  const handleAppendText = async () => {
+    await appendText(" To be added by your services.");
+  };
   const registerEventHandlers = async () => {
     // Registers event handlers.
-    await Word.run(
-      async (context: {
-        document: {
-          onParagraphAdded: { add: (arg0: (args: Word.ParagraphChangedEventArgs) => Promise<void>) => any };
-          onParagraphChanged: { add: (arg0: (args: Word.ParagraphChangedEventArgs) => Promise<void>) => any };
-          onAnnotationClicked: { add: (arg0: (args: Word.AnnotationClickedEventArgs) => Promise<void>) => any };
-          onAnnotationHovered: { add: (arg0: (args: Word.AnnotationHoveredEventArgs) => Promise<void>) => any };
-          onAnnotationInserted: { add: (arg0: (args: Word.AnnotationInsertedEventArgs) => Promise<void>) => any };
-          onAnnotationRemoved: { add: (arg0: (args: Word.AnnotationRemovedEventArgs) => Promise<void>) => any };
-        };
-        sync: () => any;
-      }) => {
-        eventContexts[0] = context.document.onParagraphAdded.add(paragraphAdded);
-        eventContexts[1] = context.document.onParagraphChanged.add(paragraphChanged);
+    await Word.run(async (context) => {
+      eventContexts[0] = context.document.onParagraphAdded.add(paragraphAdded);
+      eventContexts[1] = context.document.onParagraphChanged.add(paragraphChanged);
 
-        eventContexts[2] = context.document.onAnnotationClicked.add(onClickedHandler);
-        eventContexts[3] = context.document.onAnnotationHovered.add(onHoveredHandler);
-        eventContexts[4] = context.document.onAnnotationInserted.add(onInsertedHandler);
-        eventContexts[5] = context.document.onAnnotationRemoved.add(onRemovedHandler);
+      eventContexts[2] = context.document.onAnnotationClicked.add(onClickedHandler);
+      eventContexts[3] = context.document.onAnnotationHovered.add(onHoveredHandler);
+      eventContexts[4] = context.document.onAnnotationInserted.add(onInsertedHandler);
+      eventContexts[5] = context.document.onAnnotationRemoved.add(onRemovedHandler);
+      eventContexts[6] = context.document.onAnnotationPopupAction.add(onPopupActionHandler);
 
-        await context.sync();
-      }
-    );
+      await context.sync();
+    });
     console.log("Event handlers registered.");
+  };
+
+  const onPopupActionHandler = async (args: Word.AnnotationPopupActionEventArgs) => {
+    await Word.run(async () => {
+      let message = `AnnotationPopupAction: ${args.id} - `;
+      if (args.action === "Accept") {
+        message += `Accepted: ` + args.critiqueSuggestion;
+      } else {
+        message += "Rejected";
+      }
+      console.log(message);
+    });
   };
 
   const paragraphAdded = async (args: Word.ParagraphAddedEventArgs) => {
@@ -178,7 +182,7 @@ const AnnotationComponents: React.FC = () => {
       }
       // result = `AnnotationHovered: ${args.id} - ${JSON.stringify(annotation.critiqueAnnotation.critique)}` + "\n";
     });
-    handleModalShow(true, "AnnotationHovered", expectedString, args.id, [""]);
+    handleModalShow(true, "xAnnotationHovered", expectedString, args.id, [""]);
   };
 
   const onInsertedHandler = async (args: Word.AnnotationInsertedEventArgs) => {
@@ -222,7 +226,7 @@ const AnnotationComponents: React.FC = () => {
       <Field
         className={styles.textAreaField}
         size="large"
-        label="Step 2. Click following button to check grammar."
+        label="Step 2. Click the button to check content. Hover the annotations to see details. "
       ></Field>
       <Button appearance="primary" disabled={false} size="large" onClick={handleGrammerChecking}>
         Check
@@ -231,8 +235,11 @@ const AnnotationComponents: React.FC = () => {
       <Field
         className={styles.textAreaField}
         size="large"
-        label="Step 3. Hover the annotations to see details."
+        label="Step 3. Select a sentence and click the button to continue writing. "
       ></Field>
+      <Button appearance="primary" disabled={false} size="large" onClick={handleAppendText}>
+        Append
+      </Button>
     </div>
   );
 };
