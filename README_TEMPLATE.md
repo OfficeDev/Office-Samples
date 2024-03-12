@@ -1,11 +1,11 @@
 ![](./assets/YOUR SAMPLE GIF PATH)
 
-**Describe sample functionality**, EXAMPLE: This sample shows how to insert an existing template from an external Excel file into the currently open Excel file. Then it retrieves data from a JSON web service and populates the template for the customer.
+**Describe sample functionality**, DELETE_EXAMPLE: This sample shows how to insert an existing template from an external Excel file into the currently open Excel file. Then it retrieves data from a JSON web service and populates the template for the customer.
 
 ### Features
-- Features of this sample: which APIs are used, what service is called....
-- EXAMPLE: Use insertWorksheetsFromBase64 to insert a worksheet from another Excel file into the open Excel file.
-- EXAMPLE: Get JSON data and add it to the worksheet.
+- DELETE_Features of this sample: which APIs are used, what service is called....
+- DELETE_EXAMPLE: Use insertWorksheetsFromBase64 to insert a worksheet from another Excel file into the open Excel file.
+- DELETE_EXAMPLE: Get JSON data and add it to the worksheet.
 
 ## How to run this sample
 
@@ -33,10 +33,10 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 
 
 ### How to use this sample
-1. EXAMPLE: Put the steps about how to use this sample.
-2. EXAMPLE: Register an API key in XXXXXX
-3. EXAMPLE: Replace the API key in xxxxx.js
-4. EXAMPLE
+1. DELETE_EXAMPLE: Put the steps about how to use this sample.
+2. DELETE_EXAMPLE: Register an API key in XXXXXX
+3. DELETE_EXAMPLE: Replace the API key in xxxxx.js
+4. DELETE_EXAMPLE
 
 ### File structure
 (DELETE) Use copilot chat @workspace to generate folder structure
@@ -53,6 +53,7 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 | manifest*.xml                 Manifest file
 | package.json                  
 | README.md                     Get started here
+| teamsapp.yml                  Config file for M365/Teams Toolkit support
 | SECURITY.md
 | src/                          Add-ins source code
 |   | commands/

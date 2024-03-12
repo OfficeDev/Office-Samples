@@ -51,6 +51,7 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 | manifest*.xml                 Manifest file
 | package.json                  
 | README.md                     Get started here
+| teamsapp.yml                  Config file for M365/Teams Toolkit support
 | SalesTemplate.xlsx            Template to be imported
 | SECURITY.md
 | src/                          Add-ins source code
