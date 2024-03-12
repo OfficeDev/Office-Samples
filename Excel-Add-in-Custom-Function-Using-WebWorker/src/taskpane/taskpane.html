@@ -101,6 +101,20 @@
         </script>
     </head>
     <body>
+        <script src="./taskpane.js" type="text/javascript"></script>
+        <div class="container">
+            <h1 style="margin: 8px;">Custom Function Using WebWorker</h1>
+            <p>This sample shows how to use web workers in custom functions to prevent blocking the UI of your Office Add-in.</p>
+            <p></p>
+            <p><strong>Execute Custom Function without WebWorker</strong></p>
+            <p>Click the button will block the below ball</p>
+        <button type="button" id="executeCFWithoutWebWorker">Execute CF without WebWorker</button>
+
+            <p><strong>Execute Custom Function with WebWorker</strong></p>
+            <p>Click the button will not block the below ball</p>
+        <button type="button" id="executeCFWithWebWorker">Execute CF with WebWorker</button>
+        <p></p>
         <canvas id = "mycanvas" width = "200" height = "200"></canvas>
+    </div>
     </body>
 </html>
