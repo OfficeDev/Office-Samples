@@ -10,7 +10,7 @@
 ## How to run this sample
 
 ### Prerequisites
-- [Node.js](https://nodejs.org) 16/18 (Tested on DELETE_16.14.0_THIS)
+- [Node.js](https://nodejs.org) 16/18 (Tested on DELETE_16.14.0_THIS_USE_ANOTHER_VERSION)
 - [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.7.0 and higher.
 - Office connected to a Microsoft 365 subscription (including Office on the web). If you don't already have Office, you might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
 https://developer.microsoft.com/en-us/microsoft-365/dev-program);
@@ -39,7 +39,7 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 4. DELETE_EXAMPLE
 
 ### File structure
-(DELETE) Use copilot chat @workspace to generate folder structure
+DELETE_THIS_LINE:Use copilot chat @workspace to generate folder structure
 ```
 | .eslintrc.json
 | .gitignore
@@ -50,7 +50,7 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 |   | tasks.json                
 | assets/                       Static assets like image/gif
 | babel.config.json
-| manifest*.xml                 Manifest file
+| manifest.xml                 Manifest file
 | package.json                  
 | README.md                     Get started here
 | teamsapp.yml                  Config file for M365/Teams Toolkit support
