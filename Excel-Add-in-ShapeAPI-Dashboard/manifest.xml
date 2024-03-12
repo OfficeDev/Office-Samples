@@ -5,7 +5,7 @@
   <ProviderName>Contoso</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="UsingShapeAsDashboard"/>
-  <Description DefaultValue="A template to get started."/>
+  <Description DefaultValue="The sample add-in demonstrates Excel add-in capablities to help users using shape API to work as a dashboard."/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
   <SupportUrl DefaultValue="https://www.contoso.com/help"/>
