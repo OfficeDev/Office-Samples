@@ -1,5 +1,3 @@
-# Custom function sample using web worker
-
 ![npm-search-msgext](assets/sampleDemo.gif)
 
 This sample shows how to use web workers in custom functions to prevent blocking the UI of your Office Add-in.
@@ -11,9 +9,18 @@ This sample shows how to use web workers in custom functions to prevent blocking
 
 ## How to Run this sample
 
-## Prerequisites
+### Prerequisites
 
-To learn more about custom functions, see [Create custom functions in Excel](https://learn.microsoft.com/office/dev/add-ins/excel/custom-functions-overview). See [Custom Functions requirement sets](https://learn.microsoft.com/office/dev/add-ins/reference/requirement-sets/custom-functions-requirement-sets) for a list of the platforms that support custom functions.
+- [Node.js](https://nodejs.org) 16/18/20 (Tested on v20.6.1)
+- [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.7.0 and higher.
+- Office connected to a Microsoft 365 subscription (including Office on the web). If you don't already have Office, you might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
+https://developer.microsoft.com/en-us/microsoft-365/dev-program);
+for details, see the [FAQ](
+https://learn.microsoft.com/en-us/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-).
+Alternatively, you can [sign up for a 1-month free trial](
+https://www.microsoft.com/en-us/microsoft-365/try?rtc=1)
+or [purchase a Microsoft 365 plan](
+https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products).
 
 ### Run and debug the add-in
 1. Open M365/Teams Toolkit
@@ -43,7 +50,6 @@ Now you can use the following custom functions:
 If you open the task pane you will see an animated bouncing ball. You can see the effect of blocking the UI thread by entering `=WebWorkerSample.TEST_UI_THREAD(50000)` into a cell. The bouncing ball will stop for a few seconds while the result is calculated.
 
 ### File structure
-(DELETE) Use copilot chat @workspace to generate folder structure
 ```
 | .eslintrc.json
 | .gitignore
