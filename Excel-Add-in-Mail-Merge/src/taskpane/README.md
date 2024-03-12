@@ -1,15 +1,4 @@
----
-page_type: sample
-description: This sample demonstrates how to use the Microsoft Graph JavaScript SDK to send email in Excel from Office Add-ins.
-products:
-- ms-graph
-- microsoft-graph-email-api
-languages:
-- javascript
----
-
 # Project Code Explaination
-[![Node.js build](https://github.com/microsoftgraph/msgraph-training-office-addin/actions/workflows/node.js.yml/badge.svg)](https://github.com/microsoftgraph/msgraph-training-office-addin/actions/workflows/node.js.yml) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 
 This sample demonstrates how to use the Microsoft Graph JavaScript SDK to send emails in Excel from Office Add-ins.
 
