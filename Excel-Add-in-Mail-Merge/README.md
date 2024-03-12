@@ -1,5 +1,7 @@
 # Microsoft Excel Mail Merge Sample Office Add-in
 
+![npm-search-msgext](assets/sampleDemo.gif)
+
 This sample demonstrates how to use the Microsoft Graph JavaScript SDK to send emails in Excel from Office Add-ins.
 
 ### Features
@@ -7,10 +9,7 @@ This sample demonstrates how to use the Microsoft Graph JavaScript SDK to send e
 - Verify Template and Data, the To Line must contain the column name of the email address.
 - Send Email, which will pop up a dialog to get the consent of Microsoft Graph. After sign-in, the email will be send out.
 
-## Sample Demo Video
-![npm-search-msgext](assets/sampleDemo.gif)
-
-## Required Steps & How to Run
+## How to Run this sample
 
 ### Prerequisites
 To run the completed project in this folder, you need the following:
@@ -45,15 +44,16 @@ To run the completed project in this folder, you need the following:
     npm install
     ```
 
-### Run the sample on Windows and Mac
+### Run and debug the add-in
+1. Open M365/Teams Toolkit
+<br>![](assets/toolkit_development.png)
+2. Click `Check and Install Dependencies`
+3. Launch and debug
+    * **For Office on Windows/macOS**, click `Preview Your Office Add-in(F5)` button on tree view and select a launch config. A Word/Excel/PowerPoint app will launch with add-in sample side-loaded. **Note:** Debugging on macOS is not supported yet.
+    * **For Office on the web**: [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
+4. Click `Stop Preview Your Office Add-in` to stop debugging.
 
-Run the following command in your CLI to start the application.
-```
-npm run build
-npm start
-```
-
-### Expected result
+### How to use the sample
 
 A webpack server will be hosted on https://localhost:3000/, as the CLI shows:
 
@@ -73,24 +73,31 @@ Please follow the steps below:
 
     ![](./assets/mail.png)
 
-### Sideload the sample add-in on Excel Online
-
-The previous steps show you how to run our sample on Desktop. As for the Excel Online, please follow the following steps to sideload the manifest.xml file on web.
-
-1.  **Keep the webpack server on** to host your sample add-in.
-1.  Open [Office on the web](https://office.live.com/).
-1.  Choose **Excel**, and then open a new document.
-1.  On the **Home** tab, in the **Add-ins** section, choose **Add-ins** and click **More Add-ins** on the lower-right corner to open Add-in Store Page.
-1.  On the **Office Add-ins** dialog, select the **MY ADD-INS** tab, choose **Manage My Add-ins**, and then **Upload My Add-in**.
-
-    ![](./assets/manageAddins.png)
-
-1.  Browse to the localhost add-in manifest file(manifest-localhost.xml), and then select **Upload**.
-
-    ![](./assets/localhostXML.png)
-
-1.  Verify that the add-in loaded successfully. 
-
+### File structure
+```
+| .eslintrc.json
+| .gitignore
+| .vscode/
+|   | extensions.json
+|   | launch.json               Launch and debug configurations
+|   | settings.json             
+|   | tasks.json                
+| assets/                       Static assets like image/gif
+| babel.config.json
+| manifest*.xml                 Manifest file
+| package.json                  
+| README.md                     Get started here
+| SECURITY.md
+| src/                          Add-ins source code
+|   | commands/
+|   |   | commands.html
+|   |   | commands.js
+|   | taskpane/
+|   |   | taskpane.css          Taskpane style
+|   |   | taskpane.html         Taskpane entry html
+|   |   | taskpane.js           Add API calls and logic here
+| webpack.config.js             Webpack config
+```
 
 ## Feedback
 Did you experience any problems with the sample? [Create an issue]( https://github.com/OfficeDev/Word-Scenario-based-Add-in-Samples/issues/new) and we'll help you out.
