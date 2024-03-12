@@ -13,7 +13,7 @@ This sample shows a practical Word Add-in with content insertion features, utili
 
 ### Prerequisites
 - [Node.js](https://nodejs.org) 16/18 (Tested on 16.14.0)
-- [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.4.0 and higher.
+- [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.7.0 and higher.
 - Office connected to a Microsoft 365 subscription (including Office on the web). If you don't already have Office, you might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
 https://developer.microsoft.com/en-us/microsoft-365/dev-program);
 for details, see the [FAQ](
