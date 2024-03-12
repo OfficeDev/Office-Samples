@@ -33,7 +33,7 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 
 ### How to use this sample
 
-After launch Word/Excel/PowerPoint  with add-in sample side-loaded, follow below steps:
+After launch Excel with add-in sample side-loaded, follow below steps:
 1. Click the executeCFWithoutWebWorker button, a CustomFunction without WebWorker will be instered into the 'A1' Cell and executed, and the ball inside the taskpane will be blocked.
 2. Click the executeCFWithWebWorker button, a CustomFunction with WebWorker will be instered into the 'A1' Cell and executed, and the ball inside the taskpane will not be blocked.
 
