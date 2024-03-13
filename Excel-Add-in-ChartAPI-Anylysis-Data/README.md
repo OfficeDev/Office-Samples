@@ -9,7 +9,7 @@ The sample add-in demonstrates Excel add-in capablities to help users using char
 ## How to run this sample
 
 ### Prerequisites
-- [Node.js](https://nodejs.org) 16/18 (Tested on DELETE_16.14.0_THIS_USE_ANOTHER_VERSION)
+- [Node.js](https://nodejs.org) 16/18/20 (Tested on 16.14.0)
 - [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.7.0 and higher.
 - Office connected to a Microsoft 365 subscription (including Office on the web). If you don't already have Office, you might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
 https://developer.microsoft.com/en-us/microsoft-365/dev-program);
