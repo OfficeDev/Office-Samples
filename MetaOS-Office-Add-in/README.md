@@ -5,23 +5,18 @@ languages:
 products:
 - office-teams
 - office
-name: Hello World Teams Tab and Outlook add-in
+name: MetaOS Office Add-in
 urlFragment: officedev-teamsfx-samples-tab-hello-world-teams-tab-and-outlook-add-in
 description: A hello world project that contains both Teams Tab and Outlook add-in capability.
 extensions:
-  createdDate: "2023-03-02"
+  createdDate: "2024-03-21"
 ---
-# Getting Started with Hello World Teams Tab and Outlook add-in Sample
+# Getting Started with MetaOS Office add-in Sample
 
-Microsoft Teams supports the ability to run web-based UI inside "custom tabs" that users can install either for just themselves (personal tabs) or within a team or group chat context.
-
-Outlook add-ins are integrations built by third parties into Outlook by using our web-based platform.
-
-Now you have the ability to create a single unit of distribution for all your Microsoft 365 extensions by using the same manifest format and schema, based on the current JSON-formatted Teams manifest.
 
 ## This sample illustrates
 
-- How a Teams Tab and an Outlook add-in share the same JSON manifest in one project.
+- How an Office add-in can support Word, Excel, PowerPoint and Outlook Apps by using the same JSON manifest.
 
 ## Prerequisites to use this sample
 - [Node.js](https://nodejs.org) 16/18 (Tested on 16.14.0)
@@ -41,6 +36,8 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 
 ## Debug Office add-in
 ![Debug Office add-in in add-in project](./images/office-addin-debug.png)
+
+TODO: sideload png
 
 ## Edit the manifest
 
@@ -105,7 +102,7 @@ To check that your manifest file is valid:
 
 |Date| Author| Comments|
 |---|---|---|
-|March 27, 2024| yueli2 | create sample|
+|March 21, 2024| yueli2 | create sample|
 
 ## Feedback
 
