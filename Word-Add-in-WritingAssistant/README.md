@@ -22,13 +22,13 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 
 
 ### Run and debug the add-in
-1. Open M365/Teams Toolkit
+1. Open Teams Toolkit
 <br>![](./assets/toolkit_development.png)
 2. Click `Check and Install Dependencies`
 3. Launch and debug
     * **For Office on Windows/macOS**, click `Preview Your Office Add-in(F5)` button on tree view and select a launch config. A Word/Excel/PowerPoint app will launch with add-in sample side-loaded. **Note:** Debugging on macOS is not supported yet.
     * **For Office on the web**: [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
-4. Click `Stop Preview Your Office Add-in` to stop debugging.
+4. Click `Stop Previewing Your Office Add-in` to stop debugging.
 
 
 ### How to use this sample add-in
