@@ -24,7 +24,11 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 ## Create Teams App for Office add-in
 ![Debug Office add-in in add-in project](./images/office-addin-debug.png)
 
-TODO: sideload png
+Once Excel is open, you can click the first step to show your add-in in flyout.
+![add-in show](./images/addin-show.png)
+
+Find your add-in and click it, you will see the taskpane look as shown in the following image.
+![add-in show taskpane](./images/addin-show-taskpane.png)
 
 ## Edit the manifest
 
