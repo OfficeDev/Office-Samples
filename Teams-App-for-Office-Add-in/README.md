@@ -30,6 +30,7 @@ Once Excel is open, you can click the first step to show your add-in in flyout.
 Find your add-in and click it, you will see the taskpane look as shown in the following image.
 ![add-in show taskpane](./images/addin-show-taskpane.png)
 
+
 ## Edit the manifest
 
 You can find the app manifest in `./appPackage` folder. The folder contains one manifest file:
