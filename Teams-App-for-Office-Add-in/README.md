@@ -1,17 +1,4 @@
----
-page_type: sample
-languages:
-- typescript
-products:
-- office-teams
-- office
-name: MetaOS Office Add-in
-urlFragment: officedev-teamsfx-samples-tab-hello-world-teams-tab-and-outlook-add-in
-description: A hello world project that contains both Teams Tab and Outlook add-in capability.
-extensions:
-  createdDate: "2024-03-21"
----
-# Getting Started with MetaOS Office add-in Sample
+# Getting Started with Teams App for Office add-in Sample
 
 
 ## This sample illustrates
@@ -31,10 +18,10 @@ or [purchase a Microsoft 365 plan](
 https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products).
 
 
-## Create Office add-in
+## Create Teams App for Office add-in
 ![Create Office add-in by using Toolkit](./images/office-addin-create.png)
 
-## Debug Office add-in
+## Create Teams App for Office add-in
 ![Debug Office add-in in add-in project](./images/office-addin-debug.png)
 
 TODO: sideload png
@@ -102,7 +89,7 @@ To check that your manifest file is valid:
 
 |Date| Author| Comments|
 |---|---|---|
-|March 21, 2024| yueli2 | create sample|
+|March 22, 2024| yueli2 | create sample|
 
 ## Feedback
 
