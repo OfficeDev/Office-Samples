@@ -1,3 +1,5 @@
+# Using Shape API to Work as a Dashboard
+
 ![](./assets/sampleDemo.gif)
 
 The sample add-in demonstrates Excel add-in capablities to help users using shape API to work as a dashboard
