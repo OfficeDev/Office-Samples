@@ -15,9 +15,11 @@ https://www.microsoft.com/en-us/microsoft-365/try?rtc=1)
 or [purchase a Microsoft 365 plan](
 https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products).
 - [Registry-Key](https://aka.ms/teams-toolkit/office-addin/registry-key) (Please follow the README in the registry folder)
-   - Click Registry link and will download a .zip, then operate the .bat file according to README.
+   - Click Registry link and will download a .zip.
 
        ![](./images/registry-key-zip.png)
+
+   - Then operate the .bat file according to README.
 
        ![](./images/registry-key-content.png)
 
