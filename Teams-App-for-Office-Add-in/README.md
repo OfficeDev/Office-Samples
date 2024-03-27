@@ -14,21 +14,29 @@ Alternatively, you can [sign up for a 1-month free trial](
 https://www.microsoft.com/en-us/microsoft-365/try?rtc=1)
 or [purchase a Microsoft 365 plan](
 https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products).
-- [Registry-Key](https://aka.ms/teams-toolkit/office-addin/registry-key) Please reference the README file
+- [Registry-Key](https://aka.ms/teams-toolkit/office-addin/registry-key) (Please follow the README in the registry folder)
+   - Click Registry link and will download a .zip, then operate the .bat file according to README.
+
+       ![](./images/registry-key-zip.png)
+
+       ![](./images/registry-key-content.png)
+
 - Environment variables (Please follow these steps)
 
    ![](./images/environment-variable-1.png)
 
    ![](./images/environment-variable-2.png)
 
+   TEAMSFX_OFFICE_ADDIN
+
    ![](./images/environment-variable-3.png)
-   
+
    ![](./images/environment-variable-4.png)
 
 
 ## Install Toolkit package in VS-Code
 You need to reload your VS-Code after you have completed the following three steps.
-![](./images/Install-toolkit-package.png)
+![](./images/install-toolkit-pkg.png)
 
 ## Get your environment ready
 ![](./images/get-start-1.png)
@@ -99,16 +107,16 @@ To check that your manifest file is valid:
 - From TeamsFx CLI: run command `teamsapp validate` in your project directory.
 
 ## Debug Teams App for Office add-in
-You can choose a option that you want to debug it in the second step.
+You can choose an option that you want to debug in the second step.
 ![Debug Office add-in in add-in project](./images/office-addin-debug.png)
 
-Once the Outlook app is open, select a mailbox item, and you can then use the Outlook add-in. For example, you can select the option to show a task pane.
+Once the Outlook app is open, select a mailbox item, and then you can use the Outlook add-in. For example, you can select the option to show a taskpane.
 ![](./images/outlook-addin-open.PNG)
 
 The taskpane should look as shown in the following image.
 ![](./images/outlook-addin-taskpane.PNG)
 
-Once Excel is open, you can click the first step to show your add-in in flyout.
+Once Excel is open, you can click the button to show your add-in list in flyout.
 ![add-in show](./images/excel-addin-open.png)
 
 Find your add-in and click it, you will see the taskpane look as shown in the following image.
