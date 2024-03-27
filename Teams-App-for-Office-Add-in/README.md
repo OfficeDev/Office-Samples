@@ -16,6 +16,20 @@ Alternatively, you can [sign up for a 1-month free trial](
 https://www.microsoft.com/en-us/microsoft-365/try?rtc=1)
 or [purchase a Microsoft 365 plan](
 https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products).
+- [Registry-Key](https://aka.ms/teams-toolkit/office-addin/registry-key) Please reference the README file
+- Environment variables
+
+  ![](./images/environment-variable-1.png)
+
+  ![](./images/environment-variable-2.png)
+
+  ![](./images/environment-variable-3.png)
+
+  ![](./images/environment-variable-4.png)
+
+
+## Install Toolkit package in VS-Code
+  ![](./images/Install-toolkit-package.png)
 
 
 ## Create Teams App for Office add-in
@@ -24,11 +38,17 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 ## Create Teams App for Office add-in
 ![Debug Office add-in in add-in project](./images/office-addin-debug.png)
 
+Once the Outlook app is open, select a mailbox item, and you can then use the Outlook add-in. For example, you can select the option to show a task pane.
+![](./images/outlook-addin-open.PNG)
+
+The taskpane should look as shown in the following image.
+![](./images/outlook-addin-taskpane.PNG)
+
 Once Excel is open, you can click the first step to show your add-in in flyout.
-![add-in show](./images/addin-show.png)
+![add-in show](./images/excel-addin-open.png)
 
 Find your add-in and click it, you will see the taskpane look as shown in the following image.
-![add-in show taskpane](./images/addin-show-taskpane.png)
+![add-in show taskpane](./images/excel-addin-taskpane.png)
 
 
 ## Edit the manifest
