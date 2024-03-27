@@ -128,7 +128,7 @@ Find your add-in and click it, you will see the taskpane look as shown in the fo
 ## Centralized deploy developed json manifest based Word, Excel and PowerPoint add-in to the users within your organization (tenant)
 - Login Microsoft admin center with admin account.
 - Explore to Settings\Integrated apps\Upload customer app\.
-- Make sure choose "Teams app" under "App type", and upload your app package as a .zip file.  Learn more about the app package.  
+- Make sure choose "Teams app" under "App type", and upload your app package as a .zip file.  Learn more about the [app package](https://learn.microsoft.com/en-au/microsoftteams/platform/concepts/build-and-test/apps-package).  
 - Select the user scope and deploy. Make sure the deployed users also enabled the new feature with register key setup.
 ![](./images/LOB.png)
 
