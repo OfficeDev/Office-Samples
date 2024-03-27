@@ -1,6 +1,5 @@
 # Getting Started with Teams App for Office add-in Sample
 
-
 ## This sample illustrates
 
 - How an Office add-in can support Word, Excel, PowerPoint and Outlook Apps by using the unified JSON manifest.
@@ -37,6 +36,12 @@ You need to reload your VS-Code after you have completed the following three ste
 Please ensure your enviroment check is Ready. As shown in the following picture. 
 ![](./images/get-start-2.png)
 
+## Centralized deploy developed json manifest based Word, Excel and PowerPoint add-in to the users within your organization (tenant)
+- Login Microsoft admin center with admin account.
+- Explore to Settings\Integrated apps\Upload customer app\.
+- Make sure choose "Teams app" under "App type", and upload your app package as a .zip file.  Learn more about the app package.  
+- Select the user scope and deploy. Make sure the deployed users also enabled the new feature with register key setup.
+![](./images/LOB.png)
 
 ## Create Teams App for Office add-in
 ![Create Office add-in by using Toolkit](./images/office-addin-create.png)
@@ -122,6 +127,7 @@ To check that your manifest file is valid:
 
 
 ## Known issues
+
 Now, these features are not support.
 ![](./images/known-issues.png)
 
