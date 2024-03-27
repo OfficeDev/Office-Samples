@@ -15,33 +15,26 @@ https://www.microsoft.com/en-us/microsoft-365/try?rtc=1)
 or [purchase a Microsoft 365 plan](
 https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products).
 - [Registry-Key](https://aka.ms/teams-toolkit/office-addin/registry-key) Please reference the README file
-- Environment variables
+- Environment variables (Please follow these steps)
 
-  ![](./images/environment-variable-1.png)
+   ![](./images/environment-variable-1.png)
 
-  ![](./images/environment-variable-2.png)
+   ![](./images/environment-variable-2.png)
 
-  ![](./images/environment-variable-3.png)
-
-  ![](./images/environment-variable-4.png)
+   ![](./images/environment-variable-3.png)
+   
+   ![](./images/environment-variable-4.png)
 
 
 ## Install Toolkit package in VS-Code
 You need to reload your VS-Code after you have completed the following three steps.
-  ![](./images/Install-toolkit-package.png)
+![](./images/Install-toolkit-package.png)
 
 ## Get your environment ready
 ![](./images/get-start-1.png)
 
 Please ensure your enviroment check is Ready. As shown in the following picture. 
 ![](./images/get-start-2.png)
-
-## Centralized deploy developed json manifest based Word, Excel and PowerPoint add-in to the users within your organization (tenant)
-- Login Microsoft admin center with admin account.
-- Explore to Settings\Integrated apps\Upload customer app\.
-- Make sure choose "Teams app" under "App type", and upload your app package as a .zip file.  Learn more about the app package.  
-- Select the user scope and deploy. Make sure the deployed users also enabled the new feature with register key setup.
-![](./images/LOB.png)
 
 ## Create Teams App for Office add-in
 ![Create Office add-in by using Toolkit](./images/office-addin-create.png)
@@ -91,6 +84,20 @@ Example of an add-in project via toolkit.
 | webpack.config.js           Webpack config
 ```
 
+## Edit the manifest
+
+You can find the app manifest in `./appPackage` folder. The folder contains one manifest file:
+
+- `manifest.json`: Manifest file for Teams app running locally or running remotely (After deployed to Azure).
+
+
+## Validate manifest file
+
+To check that your manifest file is valid:
+
+- From Visual Studio Code: open the command palette and select: `Teams: Validate Application` and select `Validate using manifest schema`.
+- From TeamsFx CLI: run command `teamsapp validate` in your project directory.
+
 ## Debug Teams App for Office add-in
 You can choose a option that you want to debug it in the second step.
 ![Debug Office add-in in add-in project](./images/office-addin-debug.png)
@@ -108,23 +115,12 @@ Find your add-in and click it, you will see the taskpane look as shown in the fo
 ![add-in show taskpane](./images/excel-addin-taskpane.png)
 
 
-## Edit the manifest
-
-You can find the app manifest in `./appPackage` folder. The folder contains one manifest file:
-
-- `manifest.json`: Manifest file for Teams app running locally or running remotely (After deployed to Azure).
-
-This file contains template arguments with `${{...}}` statements which will be replaced at build time. You may add any extra properties or permissions you require to this file. See the [schema reference](https://docs.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) for more information.
-TODO: schema link
-
-
-## Validate manifest file
-
-To check that your manifest file is valid:
-
-- From Visual Studio Code: open the command palette and select: `Teams: Validate Application` and select `Validate using manifest schema`.
-- From TeamsFx CLI: run command `teamsapp validate` in your project directory.
-
+## Centralized deploy developed json manifest based Word, Excel and PowerPoint add-in to the users within your organization (tenant)
+- Login Microsoft admin center with admin account.
+- Explore to Settings\Integrated apps\Upload customer app\.
+- Make sure choose "Teams app" under "App type", and upload your app package as a .zip file.  Learn more about the app package.  
+- Select the user scope and deploy. Make sure the deployed users also enabled the new feature with register key setup.
+![](./images/LOB.png)
 
 ## Known issues
 
