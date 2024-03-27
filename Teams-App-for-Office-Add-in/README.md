@@ -3,12 +3,11 @@
 
 ## This sample illustrates
 
-- How an Office add-in can support Word, Excel, PowerPoint and Outlook Apps by using the same JSON manifest.
+- How an Office add-in can support Word, Excel, PowerPoint and Outlook Apps by using the unified JSON manifest.
 
 ## Prerequisites to use this sample
 - [Node.js](https://nodejs.org) 16/18 (Tested on 16.14.0)
-- [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.7.0 and higher.
-- Office connected to a Microsoft 365 subscription (including Office on the web). If you don't already have Office, you might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
+- Office connected to a Microsoft 365 subscription. If you don't already have Office, you might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
 https://developer.microsoft.com/en-us/microsoft-365/dev-program);
 for details, see the [FAQ](
 https://learn.microsoft.com/en-us/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-).
@@ -29,36 +28,21 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 
 
 ## Install Toolkit package in VS-Code
+You need to reload your VS-Code after you have completed the following three steps.
   ![](./images/Install-toolkit-package.png)
+
+## Get your environment ready
+![](./images/get-start-1.png)
+
+Please ensure your enviroment check is Ready. As shown in the following picture. 
+![](./images/get-start-2.png)
 
 
 ## Create Teams App for Office add-in
 ![Create Office add-in by using Toolkit](./images/office-addin-create.png)
 
-## Create Teams App for Office add-in
-![Debug Office add-in in add-in project](./images/office-addin-debug.png)
-
-Once the Outlook app is open, select a mailbox item, and you can then use the Outlook add-in. For example, you can select the option to show a task pane.
-![](./images/outlook-addin-open.PNG)
-
-The taskpane should look as shown in the following image.
-![](./images/outlook-addin-taskpane.PNG)
-
-Once Excel is open, you can click the first step to show your add-in in flyout.
-![add-in show](./images/excel-addin-open.png)
-
-Find your add-in and click it, you will see the taskpane look as shown in the following image.
-![add-in show taskpane](./images/excel-addin-taskpane.png)
-
-
-## Edit the manifest
-
-You can find the app manifest in `./appPackage` folder. The folder contains one manifest file:
-
-- `manifest.json`: Manifest file for Teams app running locally or running remotely (After deployed to Azure).
-
-This file contains template arguments with `${{...}}` statements which will be replaced at build time. You may add any extra properties or permissions you require to this file. See the [schema reference](https://docs.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) for more information.
-
+Example of an add-in project via toolkit.
+![](./images/addin-project.png)
 
 ## File structure
 ```
@@ -102,7 +86,34 @@ This file contains template arguments with `${{...}}` statements which will be r
 | webpack.config.js           Webpack config
 ```
 
-### Validate manifest file
+## Debug Teams App for Office add-in
+You can choose a option that you want to debug it in the second step.
+![Debug Office add-in in add-in project](./images/office-addin-debug.png)
+
+Once the Outlook app is open, select a mailbox item, and you can then use the Outlook add-in. For example, you can select the option to show a task pane.
+![](./images/outlook-addin-open.PNG)
+
+The taskpane should look as shown in the following image.
+![](./images/outlook-addin-taskpane.PNG)
+
+Once Excel is open, you can click the first step to show your add-in in flyout.
+![add-in show](./images/excel-addin-open.png)
+
+Find your add-in and click it, you will see the taskpane look as shown in the following image.
+![add-in show taskpane](./images/excel-addin-taskpane.png)
+
+
+## Edit the manifest
+
+You can find the app manifest in `./appPackage` folder. The folder contains one manifest file:
+
+- `manifest.json`: Manifest file for Teams app running locally or running remotely (After deployed to Azure).
+
+This file contains template arguments with `${{...}}` statements which will be replaced at build time. You may add any extra properties or permissions you require to this file. See the [schema reference](https://docs.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) for more information.
+TODO: schema link
+
+
+## Validate manifest file
 
 To check that your manifest file is valid:
 
@@ -110,11 +121,16 @@ To check that your manifest file is valid:
 - From TeamsFx CLI: run command `teamsapp validate` in your project directory.
 
 
+## Known issues
+Now, these features are not support.
+![](./images/known-issues.png)
+
+
 ## Version History
 
 |Date| Author| Comments|
 |---|---|---|
-|March 22, 2024| yueli2 | create sample|
+|March 27, 2024| yueli2 | create sample|
 
 ## Feedback
 
