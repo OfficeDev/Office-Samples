@@ -66,7 +66,7 @@ If you open the task pane you will see an animated bouncing ball. You can see th
 | manifest*.xml                 Manifest file
 | package.json                  
 | README.md                     Get started here
-| teamsapp.yml                  Config file for M365/Teams Toolkit support
+| teamsapp.yml                  Config file for Teams Toolkit support
 | SECURITY.md
 | src/                          Add-ins source code
 |   | commands/

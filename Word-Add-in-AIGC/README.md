@@ -59,7 +59,7 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 | manifest.xml                 Manifest file
 | package.json                  
 | README.md                     Get started here
-| teamsapp.yml                  Config file for M365/Teams Toolkit support
+| teamsapp.yml                  Config file for Teams Toolkit support
 | src/                          Add-ins source code
 |   | commands/
 |   |   | commands.ts
