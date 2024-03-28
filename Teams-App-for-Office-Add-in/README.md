@@ -43,7 +43,7 @@ You need to reload your VS-Code after you have completed the following three ste
 ## Get your environment ready
 ![](./images/get-start-1.png)
 
-Please ensure your enviroment check is Ready. As shown in the following picture. 
+Please ensure your enviroment check is ready. As shown in the following picture. 
 ![](./images/get-start-2.png)
 
 ## Create Teams App for Office add-in
