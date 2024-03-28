@@ -35,11 +35,11 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 
 
 ### How to use this sample add-in
-1. Click the button "Import" to choose the document you want to inserted into the current Word document.
-2. Then, the provided Word file will be inserted into current document.
-3. Click the button "Check" to check all the potential errors.
-4. Move the mouse hover the annotation to check details.
-
+1. Click the button "Import" to choose the document: assets\Company Name.docx to inserted into the current Word document.
+2. Click the button "Check" to check all the potential errors.
+3. Move the mouse hover the annotation to check details.
+4. Select the last paragraph, click "Rewrite" to rewrite the paragraph.
+5. Click the button "Ignore" to ignore all annotations.
 
 ### File structure
 ```
@@ -55,7 +55,7 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 | manifest*.xml                 Manifest file
 | package.json                  
 | README.md                     Get started here
-| teamsapp.yml                  Config file for M365/Teams Toolkit support
+| teamsapp.yml                  Config file for Teams Toolkit support
 | src/                          Add-ins source code
 |   | commands/
 |   |   | commands.html
