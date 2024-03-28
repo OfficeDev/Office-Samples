@@ -95,7 +95,7 @@ Example of an add-in project via toolkit.
 ```
 
 ## Explanation of the contents of the manifest.json
-Added new permission "Document.ReadWrite.User" for Word, Excel and PowerPoint in permissions, this is for add-in can read and write to the document you are working on.
+Added new permission "Document.ReadWrite.User" for Word, Excel and PowerPoint in `permissions`, this is for add-in can read and write to the document you are working on.
 ```
 "authorization": {
     "permissions": {
@@ -112,7 +112,7 @@ Added new permission "Document.ReadWrite.User" for Word, Excel and PowerPoint in
     }
 },
 ```
-Added "workbook, document and presentation" in scopes, these are for Excel, Word and PowerPoint.
+Added "workbook, document and presentation" in `scopes`, these are for Excel, Word and PowerPoint.
 ```
 "requirements": {
                 "scopes": [
