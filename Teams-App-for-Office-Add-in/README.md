@@ -94,6 +94,37 @@ Example of an add-in project via toolkit.
 | webpack.config.js           Webpack config
 ```
 
+## Explanation of the contents of the manifest.json
+Added new permission "Document.ReadWrite.User" for Word, Excel and PowerPoint in permissions, this is for add-in can read and write to the document you are working on.
+```
+"authorization": {
+    "permissions": {
+        "resourceSpecific": [
+            {
+                "name": "MailboxItem.Read.User",
+                "type": "Delegated"
+            },
+            {
+                "name": "Document.ReadWrite.User",
+                "type": "Delegated"
+            }
+        ]
+    }
+},
+```
+Added "workbook, document and presentation" in scopes, these are for Excel, Word and PowerPoint.
+```
+"requirements": {
+                "scopes": [
+                    "mail",
+                    "workbook",
+                    "document",
+                    "presentation"
+                ]
+            },
+```
+
+
 ## Edit the manifest
 
 You can find the app manifest in `./appPackage` folder. The folder contains one manifest file:
