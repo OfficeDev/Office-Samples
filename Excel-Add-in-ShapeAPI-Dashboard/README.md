@@ -1,3 +1,5 @@
+# Using Shape API to Work as a Dashboard
+
 ![](./assets/sampleDemo.gif)
 
 The sample add-in demonstrates Excel add-in capablities to help users using shape API to work as a dashboard
@@ -54,7 +56,7 @@ DELETE_THIS_LINE:Use copilot chat @workspace to generate folder structure
 | manifest.xml                 Manifest file
 | package.json                  
 | README.md                     Get started here
-| teamsapp.yml                  Config file for M365/Teams Toolkit support
+| teamsapp.yml                  Config file for Teams Toolkit support
 | src/                          Add-ins source code
 |   | commands/
 |   |   | commands.html

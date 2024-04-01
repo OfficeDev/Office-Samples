@@ -1,3 +1,5 @@
+## Using chart API to analyse data
+
 ![](./assets/sampleDemo.gif)
 
 The sample add-in demonstrates Excel add-in capablities to help users using chart API to analyse data
@@ -27,6 +29,7 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 2. Click `Check and Install Dependencies`
 3. Launch and debug
     * **For Office on Windows/macOS**, click `Preview Your Office Add-in(F5)` button on tree view and select a launch config. A Word/Excel/PowerPoint app will launch with add-in sample side-loaded. **Note:** Debugging on macOS is not supported yet.
+    * To debug in Desktop (Edge Legacy), make sure you have installed [Legacy Office Add-in Debugger](vscode:extension/msoffice.microsoft-office-add-in-debugger). For more details, go to [Debug Edge Legacy Webview](https://learn.microsoft.com/office/dev/add-ins/testing/debug-with-vs-extension)
     * **For Office on the web**: [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
 4. Click `Stop Previewing Your Office Add-in` to stop debugging.
 
@@ -55,7 +58,7 @@ DELETE_THIS_LINE:Use copilot chat @workspace to generate folder structure
 | manifest.xml                 Manifest file
 | package.json                  
 | README.md                     Get started here
-| teamsapp.yml                  Config file for M365/Teams Toolkit support
+| teamsapp.yml                  Config file for Teams Toolkit support
 | src/                          Add-ins source code
 |   | commands/
 |   |   | commands.html
