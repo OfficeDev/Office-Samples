@@ -39,6 +39,7 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 ## Install Toolkit package in VS-Code
 You need to reload your VS-Code after you have completed the following three steps.
 ![](./images/install-toolkit-pkg.png)
+![](./images/reload-vscode.png)
 
 ## Get your environment ready
 ![](./images/get-start-1.png)
