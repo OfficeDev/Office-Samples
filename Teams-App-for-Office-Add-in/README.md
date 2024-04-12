@@ -166,8 +166,15 @@ Find your add-in and click it, you will see the taskpane look as shown in the fo
 
 ## Known issues
 
-Now, these features are not support.
-![](./images/known-issues.png)
+- Now, these features are not support.
+![](./images/known-issues-1.png)
+
+- Host will display as "Outlook", but it can support WXP also actually.
+![](./images/known-issues-2.png)
+
+- When host App opens, add-in icon will not display correctly.
+
+    ![](./images/known-issues-3.png)
 
 
 ## Version History
