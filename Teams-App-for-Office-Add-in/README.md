@@ -132,6 +132,10 @@ You can find the app manifest in `./appPackage` folder. The folder contains one 
 
 - `manifest.json`: Manifest file for Teams app running locally or running remotely (After deployed to Azure).
 
+- [WXP devPreview](https://github.com/QuanfuXiao/Teams-app-for-office-addin-schema/blob/main/WXP.md)
+
+- [Public manifest schema](https://github.com/QuanfuXiao/Teams-app-for-office-addin-schema/blob/main/manifest-schema-dev-preview.md)
+
 
 ## Validate manifest file
 
