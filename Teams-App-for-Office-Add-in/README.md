@@ -15,7 +15,7 @@ https://www.microsoft.com/en-us/microsoft-365/try?rtc=1)
 or [purchase a Microsoft 365 plan](
 https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products).
 - [Registry-Key](https://aka.ms/teams-toolkit/office-addin/registry-key) (Please follow the README in the registry folder)
-   - Click Registry link and will download a .zip.
+   - Click Registry link and will download a .zip. Need to extract this zip package.
 
        ![](./images/registry-key-zip.png)
 
@@ -23,7 +23,13 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 
        ![](./images/registry-key-content.png)
 
+    **Note:** Please refer to the README.md file to run the `office_registry_modifier.bat` file.
+
 - Environment variables (Please follow these steps)
+
+    First, you need to search "path" in Windows Search bar. Click it and follow step by step.
+
+    ![](./images/enviroment-path.png)
 
    ![](./images/environment-variable-1.png)
 
@@ -137,16 +143,13 @@ You can find the app manifest in `./appPackage` folder. The folder contains one 
 - [Public manifest schema](https://github.com/QuanfuXiao/Teams-app-for-office-addin-schema/blob/main/manifest-schema-dev-preview.md) For public developer manifest schema you can refer to this link.
 
 
-## Validate manifest file
-
-To check that your manifest file is valid:
-
-- From Visual Studio Code: open the command palette and select: `Teams: Validate Application` and select `Validate using manifest schema`.
-- From TeamsFx CLI: run command `teamsapp validate` in your project directory.
-
 ## Debug Teams App for Office add-in
 You can choose an option that you want to debug in the second step.
 ![Debug Office add-in in add-in project](./images/office-addin-debug.png)
+
+**Note:** If this happens, input `n`. If it doesn't, skip this.
+
+![](./images/localhost-loopback.png) 
 
 Once the Outlook app is open, select a mailbox item, and then you can use the Outlook add-in. For example, you can select the option to show a taskpane.
 ![](./images/outlook-addin-open.PNG)
