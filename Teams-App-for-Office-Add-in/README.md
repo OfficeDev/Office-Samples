@@ -132,9 +132,9 @@ You can find the app manifest in `./appPackage` folder. The folder contains one 
 
 - `manifest.json`: Manifest file for Teams app running locally or running remotely (After deployed to Azure).
 
-- [WXP devPreview](https://github.com/QuanfuXiao/Teams-app-for-office-addin-schema/blob/main/WXP.md)
+- [WXP devPreview](https://github.com/QuanfuXiao/Teams-app-for-office-addin-schema/blob/main/WXP.md) For the WXP new requirements in manifest schema you can refer to this link.
 
-- [Public manifest schema](https://github.com/QuanfuXiao/Teams-app-for-office-addin-schema/blob/main/manifest-schema-dev-preview.md)
+- [Public manifest schema](https://github.com/QuanfuXiao/Teams-app-for-office-addin-schema/blob/main/manifest-schema-dev-preview.md) For public developer manifest schema you can refer to this link.
 
 
 ## Validate manifest file
@@ -181,11 +181,16 @@ Find your add-in and click it, you will see the taskpane look as shown in the fo
     ![](./images/known-issues-3.png)
 
 
+## Additional Resource
+- [Configure WXP Add-in within Teams App](https://github.com/OfficeDev/Office-Samples/wiki/Configure-Office-Add%E2%80%90in-capability-within-your-Teams-app) If you want to combine your WXP add-in with Teams app you can refer to this link.
+- [Configure Outlook Add-in within Teams App](https://github.com/OfficeDev/TeamsFx/wiki/Configure-Outlook-Add-in-capability-within-your-Teams-app) If you want to combine your Outlook add-in with Teams App you can refer to this link.
+
 ## Version History
 
 |Date| Author| Comments|
 |---|---|---|
 |March 27, 2024| yueli2 | create sample|
+|April 17, 2024| yueli2 | update README|
 
 ## Feedback
 
