@@ -172,6 +172,7 @@ Find your add-in and click it, you will see the taskpane look as shown in the fo
 ![](./images/LOB.png)
 
 ## Known issues
+- PowerPoint Content add-in not show in flyout, it will be fixed in the upcoming update version.
 
 - Now, these features are not support.
 ![](./images/known-issues-1.png)
