@@ -1,5 +1,7 @@
 # Getting Started with Teams App for Office add-in Sample
 
+**By participating in the developer preivew, you are confirming your agreement to the [Microsoft Developer Agreement](https://learn.microsoft.com/en-us/legal/mdsa), please read it carefully.**
+
 ## This sample illustrates
 
 - How an Office add-in can support Word, Excel, PowerPoint and Outlook Apps by using the unified JSON manifest.
