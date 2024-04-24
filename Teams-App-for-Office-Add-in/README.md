@@ -27,6 +27,8 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 
     **Note:** Please refer to the README.md file to run the `office_registry_modifier.bat` file.
 
+    **Note:** After the registry key has enabled, the functionality of original store for add-in will be disabled.
+
 - Environment variables (Please follow these steps)
 
     First, you need to search "path" in Windows Search bar. Click it and follow step by step.
