@@ -81,7 +81,7 @@
             "configuration": "Ready for debug",
             "thumbnailPath": "assets/thumbnail.png",
             "gifPath": "assets/sampleDemo.gif",
-            "suggested": false
+            "suggested": true
         },
         {
             "id": "Excel-Add-in-Mail-Merge",
