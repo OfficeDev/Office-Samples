@@ -14,7 +14,15 @@ This sample demonstrates how to use the Microsoft Graph JavaScript SDK to send e
 ### Prerequisites
 To run the completed project in this folder, you need the following:
 - [Node.js](https://nodejs.org) installed on your development machine. (**Note:** This tutorial was written with Node version 16.14.0. The steps in this guide may work with other versions, but that has not been tested.)
-- Either a personal Microsoft account with a mailbox on Outlook.com, or a Microsoft work or school account. You can [sign up for the Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) to get a free Microsoft 365 subscription.
+- [Office Add-in Debugger](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) version 0.4.0 and higher.
+- Office connected to a Microsoft 365 subscription (including Office on the web). If you don't already have Office, you might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
+https://developer.microsoft.com/en-us/microsoft-365/dev-program);
+for details, see the [FAQ](
+https://learn.microsoft.com/en-us/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-).
+Alternatively, you can [sign up for a 1-month free trial](
+https://www.microsoft.com/en-us/microsoft-365/try?rtc=1)
+or [purchase a Microsoft 365 plan](
+https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products).
 
 ### Register a web application with the Azure Active Directory admin center
 1. If you have an application ID already, please ensure: 
@@ -45,12 +53,12 @@ To run the completed project in this folder, you need the following:
     ```
 
 ### Run and debug the add-in
-1. Open Teams Toolkit
+1. Open Office Add-in Debugger
 <br>![](./assets/toolkit_development.png)
 2. Click `Check and Install Dependencies`
 3. Launch and debug
     * **For Office on Windows/macOS**, click `Preview Your Office Add-in(F5)` button on tree view and select a launch config. A Word/Excel/PowerPoint app will launch with add-in sample side-loaded. **Note:** Debugging on macOS is not supported yet.
-    * To debug in Desktop (Edge Legacy), make sure you have installed [Legacy Office Add-in Debugger](vscode:extension/msoffice.microsoft-office-add-in-debugger). For more details, go to [Debug Edge Legacy Webview](https://learn.microsoft.com/office/dev/add-ins/testing/debug-with-vs-extension)
+    * To debug in Desktop (Edge Legacy), go to [Debug Edge Legacy Webview](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-devtools-edge-legacy)
     * **For Office on the web**: [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
 4. Click `Stop Previewing Your Office Add-in` to stop debugging.
 
