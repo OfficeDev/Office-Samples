@@ -44,7 +44,6 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 
 
 ### File structure
-DELETE_THIS_LINE:Use copilot chat @workspace to generate folder structure
 ```
 | .eslintrc.json
 | .gitignore
