@@ -10,13 +10,54 @@
             "JS"
         ],
         "technologies": [
-            "Office Add-in",
             "Custom Function",
             "SSO",
             "Graph"
         ]
     },
     "samples": [
+        {
+            "id": "Excel-HelloWorld-TaskPane-JS",
+            "onboardDate": "2024-07-01",
+            "title": "Excel Hello World Task Pane Add-in",
+            "shortId": "Excel Hello World",
+            "shortDescription": "A simple Excel Task Pane Add-in using JavaScript.",
+            "fullDescription": "This sample demonstrates how to create a simple Excel Task Pane Add-in using JavaScript.",
+            "types": [
+                "Excel"
+            ],
+            "tags": [
+                "JS",
+                "Hello World",
+                "Excel"
+            ],
+            "time": "5min to run",
+            "configuration": "Ready for debug",
+            "thumbnailPath": "assets/thumbnail.png",
+            "gifPath": "assets/sampleDemo.gif",
+            "suggested": false
+        },
+        {
+            "id": "Word-HelloWorld-TaskPane-JS",
+            "onboardDate": "2024-07-01",
+            "title": "Word Hello World Task Pane Add-in",
+            "shortId": "Word Hello World",
+            "shortDescription": "A simple Word Task Pane Add-in using JavaScript.",
+            "fullDescription": "This sample demonstrates how to create a simple Word Task Pane Add-in using JavaScript.",
+            "types": [
+                "Word"
+            ],
+            "tags": [
+                "JS",
+                "Hello World",
+                "Word"
+            ],
+            "time": "5min to run",
+            "configuration": "Ready for debug",
+            "thumbnailPath": "assets/thumbnail.png",
+            "gifPath": "assets/sampleDemo.gif",
+            "suggested": false
+        },
         {
             "id": "Word-Add-in-AIGC",
             "onboardDate": "2024-03-15",
@@ -30,7 +71,6 @@
             "tags": [
                 "TS",
                 "AIGC",
-                "Office Add-in",
                 "Word"
             ],
             "time": "5min to run",
@@ -52,7 +92,6 @@
             "tags": [
                 "TS",
                 "Writing Assistant",
-                "Office Add-in",
                 "Word"
             ],
             "time": "5min to run",
@@ -74,8 +113,7 @@
             "tags": [
                 "TS",
                 "Chart",
-                "Excel",
-                "Office Add-in"
+                "Excel"
             ],
             "time": "5min to run",
             "configuration": "Ready for debug",
@@ -98,8 +136,7 @@
                 "Mail Merge",
                 "Excel",
                 "SSO",
-                "Graph",
-                "Office Add-in"
+                "Graph"
             ],
             "time": "10min to run",
             "configuration": "Ready for debug",
@@ -121,8 +158,7 @@
                 "Custom Function",
                 "JS",
                 "Excel",
-                "WebWorker",
-                "Office Add-in"
+                "WebWorker"
             ],
             "time": "5min to run",
             "configuration": "Ready for debug",
@@ -143,8 +179,7 @@
             "tags": [
                 "TS",
                 "Shape",
-                "Excel",
-                "Office Add-in"
+                "Excel"
             ],
             "time": "5min to run",
             "configuration": "Ready for debug",
