@@ -14,10 +14,20 @@ Office.onReady((info) => {
 });
 
 export async function runOutlook() {
-  /**
-   * Insert your Outlook code here
-   */
-
   const item = Office.context.mailbox.item;
-  document.getElementById("item-subject").innerHTML = "<b>Subject:</b> <br/>" + item.subject;
+  const subjectElement = document.getElementById("item-subject");
+
+  // Clear previous content
+  subjectElement.textContent = '';
+
+  // Append "Subject:" in bold
+  const boldSubject = document.createElement("b");
+  boldSubject.textContent = "Subject:";
+  subjectElement.appendChild(boldSubject);
+
+  // Append line break
+  subjectElement.appendChild(document.createElement("br"));
+
+  // Append the item's subject
+  subjectElement.appendChild(document.createTextNode(item.subject));
 }
