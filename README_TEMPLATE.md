@@ -1,6 +1,6 @@
 ## DELETE_PUT_SAMPLE_TITLE_HERE_DELETE
 
-<img src="./assets/YOUR SAMPLE GIF PATH">
+<img src="./assets/YOUR SAMPLE GIF PATH  width="800"/>
 
 **Describe sample functionality**, DELETE_EXAMPLE: This sample shows how to insert an existing template from an external Excel file into the currently open Excel file. Then it retrieves data from a JSON web service and populates the template for the customer. 
 
@@ -25,7 +25,7 @@ https://www.microsoft.com/microsoft-365/buy/compare-all-microsoft-365-products).
 
 ### Run the add-in using Office Add-in Dev Kit
 [Office Add-in Dev Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) is an end-to end developer tool for building Office add-ins. You can use this tool to easily creating, running and debugging, and managing the lifecycle of an Office add-in.
-<br>![](./assets/devkit_preview.png)
+<br><img src="./assets/devkit_preview.png" width="800"/>
 
 1. **Check and Install Dependencies**
 
