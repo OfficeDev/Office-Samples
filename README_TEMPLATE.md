@@ -12,7 +12,7 @@
 ## How to run this sample
 
 ### Prerequisites
-- [Node.js](https://nodejs.org) 16 or 18 (Tested on DELETE_16.14.0_THIS_USE_ANOTHER_VERSION) and [npm](https://www.npmjs.com/get-npm). To verify if you've already installed these tools, run the commands node -v and npm -v in your terminal.
+- [Node.js](https://nodejs.org) 16 or 18 or 20 (DELETE_THIS_LINE: Change the version no. according to the specific need of the sample) and [npm](https://www.npmjs.com/get-npm). To verify if you've already installed these tools, run the commands node -v and npm -v in your terminal.
 - [Office Add-in Dev Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) version 0.4.0 and higher.
 - Office connected to a Microsoft 365 subscription. You might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
 https://developer.microsoft.com/microsoft-365/dev-program), see [FAQ](
@@ -25,15 +25,15 @@ https://www.microsoft.com/microsoft-365/buy/compare-all-microsoft-365-products).
 
 ### Run the add-in using Office Add-in Dev Kit
 [Office Add-in Dev Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) is an end-to end developer tool for building Office add-ins. You can use this tool to easily creating, running and debugging, and managing the lifecycle of an Office add-in.
-<br>![](./assets/toolkit_development_preview.png)
+<br>![](./assets/devkit_preview.png)
 
 1. **Check and Install Dependencies**
 
-    Select `Check and Install Dependencies` to install npm dependencies before debugging.
+    Select `Check and Install Dependencies` to check your environment and install necessary dependencies in order to run and debug the add-in code.
 
 3. **Preview Your Office Add-in (F5)**
     
-    Select `Preview Your Office Add-in(F5)` on tree view and select a launch config. A Word/Excel/PowerPoint app will launch with add-in sample side-loaded. 
+    Select `Preview Your Office Add-in(F5)` on the side panel to start running and debugging the add-in code. A Word/Excel/PowerPoint app will launch with the add-in sample side-loaded.
     * To debug on Office on the web, go to [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
     * To debug in Desktop (Edge Legacy), go to [Debug Edge Legacy Webview](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-devtools-edge-legacy)
     
