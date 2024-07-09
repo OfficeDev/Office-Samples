@@ -1,6 +1,6 @@
 # Word Writing Assistant
 
-![](./assets/sampleDemo.gif)
+<img src="./assets/sampleDemo.gif" width="800">
 
 This add-in demonstrates Word add-in capabilities to help users check errors, improve writing, and rephrase content.
 
@@ -11,27 +11,40 @@ This add-in demonstrates Word add-in capabilities to help users check errors, im
 ## How to run this sample
 
 ### Prerequisites
-- [Node.js](https://nodejs.org) 16/18 (Tested on 16.14.0)
-- [Office Add-in Debugger](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) version 0.4.0 and higher.
-- Office connected to a Microsoft 365 subscription (including Office on the web). If you don't already have Office, you might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
-https://developer.microsoft.com/en-us/microsoft-365/dev-program);
-for details, see the [FAQ](
-https://learn.microsoft.com/en-us/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-).
+- [Node.js](https://nodejs.org) 16 or 18 or 20 (DELETE_THIS_LINE: Change the version no. according to the specific need of the sample) and [npm](https://www.npmjs.com/get-npm). To verify if you've already installed these tools, run the commands node -v and npm -v in your terminal.
+- [Office Add-in Dev Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) version 0.4.0 and higher.
+- Office connected to a Microsoft 365 subscription. You might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
+https://developer.microsoft.com/microsoft-365/dev-program), see [FAQ](
+https://learn.microsoft.com/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-) for details.
 Alternatively, you can [sign up for a 1-month free trial](
-https://www.microsoft.com/en-us/microsoft-365/try?rtc=1)
+https://www.microsoft.com/microsoft-365/try?rtc=1)
 or [purchase a Microsoft 365 plan](
-https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products).
+https://www.microsoft.com/microsoft-365/buy/compare-all-microsoft-365-products).
 
 
-### Run and debug the add-in
-1. Open Office Add-in Debugger
-<br>![](./assets/toolkit_development.png)
-2. Click `Check and Install Dependencies`
-3. Launch and debug
-    * **For Office on Windows/macOS**, click `Preview Your Office Add-in(F5)` button on tree view and select a launch config. A Word/Excel/PowerPoint app will launch with add-in sample side-loaded. **Note:** Debugging on macOS is not supported yet.
+### Run the add-in using Office Add-in Dev Kit
+[Office Add-in Dev Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) is an end-to end developer tool for building Office add-ins. You can use this tool to easily creating, running and debugging, and managing the lifecycle of an Office add-in.
+<br><img src="./assets/devkit_preview.png" width="800"/>
+
+1. **Check and Install Dependencies**
+
+    Select `Check and Install Dependencies` to check your environment and install necessary dependencies in order to run and debug the add-in code.
+
+3. **Preview Your Office Add-in (F5)**
+    
+    Select `Preview Your Office Add-in(F5)` on the side panel to start running and debugging the add-in code. A Word/Excel/PowerPoint app will launch with the add-in sample side-loaded.
+    * To debug on Office on the web, go to [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
     * To debug in Desktop (Edge Legacy), go to [Debug Edge Legacy Webview](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-devtools-edge-legacy)
-    * **For Office on the web**: [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
-4. Click `Stop Previewing Your Office Add-in` to stop debugging.
+    
+    **If you meet sideload errors, please first confirm the following items and check [troubleshoot development errors]( https://learn.microsoft.com/en-us/office/dev/add-ins/testing/troubleshoot-development-errors) for common issues. If you still have problems, [Create an issue](https://github.com/OfficeDev/office-js/issues/new/choose) and we'll help you out.** 
+    
+    * You have installed dependencies.
+    * You have closed all Word/Excel/PowerPoint apps.
+    * You have stopped your last add-in previewing session.
+
+4. **Stop Previewing Your Office Add-in**
+
+    Select `Stop Previewing Your Office Add-in` to stop debugging.
 
 
 ### How to use this sample add-in
@@ -41,7 +54,7 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 4. Select the last paragraph, click "Rewrite" to rewrite the paragraph.
 5. Click the button "Ignore" to ignore all annotations.
 
-### File structure
+### Explore sample files
 ```
 | .eslintrc.json
 | .gitignore
@@ -72,8 +85,16 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 | webpack.config.js             Webpack config
 ```
 
-## Feedback
+### Make code changes
+
+**Resources to learn more Office add-ins capabilities:**
+* Select `View Samples` on `Office Add-in Dev Kit` tree view for real-world examples and code structures.
+* [Read the documentation](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins) of Office add-ins.
+
+## Engage with the team
 Did you experience any problems with the sample? [Create an issue]( https://github.com/OfficeDev/Office-Samples/issues/new) and we'll help you out.
+
+Want to learn more about new features, development practices, and additional information? [Join the Microsoft Office Add-ins community call.](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins-community-call)
 
 ## Copyright
 Copyright (c) 2024 Microsoft Corporation. All rights reserved.

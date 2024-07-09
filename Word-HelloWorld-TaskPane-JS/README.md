@@ -1,37 +1,65 @@
-# Build Word add-ins using Office Add-in Toolkit
+# Build Word add-ins using Office Add-in Dev Kit
 
 Word add-ins are integrations built by third parties into Word by using [Word JavaScript API](https://learn.microsoft.com/en-us/office/dev/add-ins/reference/overview/word-add-ins-reference-overview) and [Office Platform capabilities](https://learn.microsoft.com/en-us/office/dev/add-ins/overview/office-add-ins).
 
-## Prerequisites
+## How to run this project
+### Prerequisites
 
-- Node.js 16 or 18 (18 is preferred). Visit the  website to download and install the right version for your operating system.
-- Office connected to a Microsoft 365 subscription (including Office on the web). If you don't already have Office, you might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](https://developer.microsoft.com/en-us/microsoft-365/dev-program); for details, see the [FAQ](https://learn.microsoft.com/en-us/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-). Alternatively, you can [sign up for a 1-month free trial](https://www.microsoft.com/en-us/microsoft-365/try?rtc=1) or [purchase a Microsoft 365 plan](https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products).
+- [Node.js](https://nodejs.org) 16, 18, or 20 (18 is preferred) and [npm](https://www.npmjs.com/get-npm). To verify if you've already installed these tools, run the commands `node -v` and `npm -v` in your terminal.
+- Office connected to a Microsoft 365 subscription. You might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
+https://developer.microsoft.com/microsoft-365/dev-program), see [FAQ](
+https://learn.microsoft.com/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-) for details.
+Alternatively, you can [sign up for a 1-month free trial](
+https://www.microsoft.com/microsoft-365/try?rtc=1)
+or [purchase a Microsoft 365 plan](
+https://www.microsoft.com/microsoft-365/buy/compare-all-microsoft-365-products).
 
-## Run and Debug Word Add-in
+### Run the add-in using Office Add-in Dev Kit
 
-Before run and start the debug, make sure that:
-1. Close all opened Office Application windows.
-2. Click the *`Check and Install Dependencies`* in Office Add-in Toolkit extension sidebar.
+1. **Check and Install Dependencies**
 
-You can run and debug this project by either of the following ways:
+    Select `Check and Install Dependencies` to check your environment and install necessary dependencies in order to run and debug the add-in code.
 
-- By hitting the `F5` key in Visual Studio Code.
-- By clicking the *`Preview Your Add-in`* in Office Add-in Toolkit extension sidebar.
-- By running with command `npm run start` in the terminal.
+3. **Preview Your Office Add-in (F5)**
+    
+    Select `Preview Your Office Add-in(F5)` on the side panel to start running and debugging the add-in code. A Word/Excel/PowerPoint app will launch with the add-in sample side-loaded.
+    * You can also start debugging by hitting the `F5` key or running `npm run start` command in the terminal.
+    * To debug on Office on the web, go to [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
+    * To debug in Desktop (Edge Legacy), go to [Debug Edge Legacy Webview](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-devtools-edge-legacy)
+    
+    **If you meet sideload errors, please first confirm the following items and check [troubleshoot development errors]( https://learn.microsoft.com/en-us/office/dev/add-ins/testing/troubleshoot-development-errors) for common issues. If you still have problems, [Create an issue](https://github.com/OfficeDev/office-js/issues/new/choose) and we'll help you out.** 
+    
+    * You have installed dependencies.
+    * You have closed all Word/Excel/PowerPoint apps.
+    * You have stopped your last add-in previewing session.
+
+4. **Stop Previewing Your Office Add-in**
+
+    Select `Stop Previewing Your Office Add-in` to stop debugging.
 
 
-## Understand the project
+## How to use this project
+The add-in project that you've created contains sample code for a basic task pane add-in.
+### Explore project files
+To explore the components of the add-in project, review the key files listed below. 
 
-The add-in project that you've created contains sample code for a basic task pane add-in. If you'd like to explore the components of your add-in project, open the project in your code editor and review the key files listed below. 
-
-- The `./manifest.xml` file in the root directory of the project defines the settings and capabilities of the add-in.
+- The `./manifest.xml` file in the root directory of the project defines the settings and capabilities of the add-in.  <br>You can check whether your manifest file is valid by selecting `Validate Manifest` in the `Office Add-in Dev Kit` extension tree view.
 - The `./src/taskpane/taskpane.html` file contains the HTML markup for the task pane.
 - The `./src/taskpane/taskpane.css` file contains the CSS that's applied to content in the task pane.
 - The `./src/taskpane/taskpane.js` file contains the Office JavaScript API code that facilitates interaction between the task pane and the Word application.
+### Make code changes
 
-## Validate manifest
+**Resources to learn more Office add-ins capabilities:**
+* Select `View Samples` on `Office Add-in Dev Kit` tree view for real-world examples and code structures.
+* [Read the documentation](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins) of Office add-ins.
 
-You can check whether your manifest file is valid by either of the following ways:
+## Engage with the team
+Did you experience any problems with the sample? [Create an issue](https://github.com/OfficeDev/office-js/issues/new/choose) and we'll help you out.
 
-- From Visual Studio Code: open Office Add-in Toolkit extension sidebar and click *`Validate Manifest`*.
-- From Terminal: run the command `npx --yes office-addin-manifest validate manifest.xml`
+Want to learn more about new features, development practices, and additional information? [Join the Microsoft Office Add-ins community call.](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins-community-call)
+
+## Copyright
+Copyright (c) 2024 Microsoft Corporation. All rights reserved.
+
+## Disclaimer
+**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**

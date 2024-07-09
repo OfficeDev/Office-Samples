@@ -1,6 +1,6 @@
 ## DELETE_PUT_SAMPLE_TITLE_HERE_DELETE
 
-<img src="./assets/YOUR SAMPLE GIF PATH  width="800"/>
+<img src="./assets/sampleDemo.gif" width="800">
 
 **Describe sample functionality**, DELETE_EXAMPLE: This sample shows how to insert an existing template from an external Excel file into the currently open Excel file. Then it retrieves data from a JSON web service and populates the template for the customer. 
 
