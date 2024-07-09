@@ -6,12 +6,12 @@ This add-in demonstrates Word add-in capabilities to help users check errors, im
 
 ### Features
 - Use insertFileFromBase64 to insert a document into the open Word document.
-- Check erros, provid recommendations.
+- Check errors, provide recommendations.
 
 ## How to run this sample
 
 ### Prerequisites
-- [Node.js](https://nodejs.org) 16 or 18 or 20 (DELETE_THIS_LINE: Change the version no. according to the specific need of the sample) and [npm](https://www.npmjs.com/get-npm). To verify if you've already installed these tools, run the commands node -v and npm -v in your terminal.
+- [Node.js](https://nodejs.org) 16, 18, or 20 (18 is preferred) and [npm](https://www.npmjs.com/get-npm). To verify if you've already installed these tools, run the commands `node -v` and `npm -v` in your terminal.
 - [Office Add-in Dev Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) version 0.4.0 and higher.
 - Office connected to a Microsoft 365 subscription. You might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
 https://developer.microsoft.com/microsoft-365/dev-program), see [FAQ](
@@ -55,6 +55,8 @@ https://www.microsoft.com/microsoft-365/buy/compare-all-microsoft-365-products).
 5. Click the button "Ignore" to ignore all annotations.
 
 ### Explore sample files
+To explore the components of the add-in project, review the key files listed below. 
+<br>You can check whether your manifest file is valid by selecting `Validate Manifest` in the `Office Add-in Dev Kit` extension tree view.
 ```
 | .eslintrc.json
 | .gitignore
