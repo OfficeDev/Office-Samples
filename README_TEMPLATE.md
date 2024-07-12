@@ -1,6 +1,6 @@
 ## DELETE_PUT_SAMPLE_TITLE_HERE_DELETE
 
-<img src="./assets/YOUR SAMPLE GIF PATH  width="800"/>
+<img src="./assets/sampleDemo.gif" width="800">
 
 **Describe sample functionality**, DELETE_EXAMPLE: This sample shows how to insert an existing template from an external Excel file into the currently open Excel file. Then it retrieves data from a JSON web service and populates the template for the customer. 
 
@@ -12,7 +12,7 @@
 ## How to run this sample
 
 ### Prerequisites
-- [Node.js](https://nodejs.org) 16 or 18 or 20 (DELETE_THIS_LINE: Change the version no. according to the specific need of the sample) and [npm](https://www.npmjs.com/get-npm). To verify if you've already installed these tools, run the commands `node -v` and `npm -v` in your terminal.
+- [Node.js](https://nodejs.org) 16, 18, or 20 (18 is preferred) and [npm](https://www.npmjs.com/get-npm). To verify if you've already installed these tools, run the commands `node -v` and `npm -v` in your terminal.
 - [Office Add-in Dev Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) version 0.4.0 and higher.
 - Office connected to a Microsoft 365 subscription. You might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
 https://developer.microsoft.com/microsoft-365/dev-program), see [FAQ](
@@ -108,7 +108,6 @@ Want to learn more about new features, development practices, and additional inf
 Copyright (c) 2024 Microsoft Corporation. All rights reserved.
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 <br>**Note**: The taskpane.html file contains an image URL that tracks diagnostic data for this sample add-in. Please remove the image tag if you reuse this sample in your own code project.
-DELETE_EXAMPLE: <img src="https://pnptelemetry.azurewebsites.net/pnp-officeaddins/samples/word-add-in-aigc">
 
 ## Disclaimer
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
