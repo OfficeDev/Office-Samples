@@ -1,10 +1,13 @@
 # Excel Mail Merge Sample Office Add-in
 
-![npm-search-msgext](assets/sampleDemo.gif)
+> This add-in project is found by GitHub Copilot extension for Office Add-ins per your description. Please take a look at it below. GitHub Copilot is powered by AI, so mistakes are possible.
+
+<img src="./assets/sampleDemo.gif" width="800">
 
 This sample demonstrates how to use the Microsoft Graph JavaScript SDK to send emails in Excel from Office Add-ins.
 
 ### Features
+
 - Create Sample Data, including valid email address (required) and other information.
 - Verify Template and Data, the To Line must contain the column name of the email address.
 - Send Email, which will pop up a dialog to get the consent of Microsoft Graph. After sign-in, the email will be send out.
@@ -12,51 +15,76 @@ This sample demonstrates how to use the Microsoft Graph JavaScript SDK to send e
 ## How to Run this sample
 
 ### Prerequisites
+
 To run the completed project in this folder, you need the following:
-- [Node.js](https://nodejs.org) installed on your development machine. (**Note:** This tutorial was written with Node version 16.14.0. The steps in this guide may work with other versions, but that has not been tested.)
-- Either a personal Microsoft account with a mailbox on Outlook.com, or a Microsoft work or school account. You can [sign up for the Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) to get a free Microsoft 365 subscription.
+
+- [Node.js](https://nodejs.org) 16, 18, or 20 (18 is preferred) and [npm](https://www.npmjs.com/get-npm). To verify if you've already installed these tools, run the commands `node -v` and `npm -v` in your terminal.
+- Office connected to a Microsoft 365 subscription. You might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
+https://developer.microsoft.com/microsoft-365/dev-program), see [FAQ](
+https://learn.microsoft.com/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-) for details.
+Alternatively, you can [sign up for a 1-month free trial](
+https://www.microsoft.com/microsoft-365/try?rtc=1)
+or [purchase a Microsoft 365 plan](
+https://www.microsoft.com/microsoft-365/buy/compare-all-microsoft-365-products).
 
 ### Register a web application with the Azure Active Directory admin center
-1. If you have an application ID already, please ensure: 
 
-- In [Microsoft Entra admin center](https://aad.portal.azure.com) under **Identity > Applications > App registrations**: 
-- Navigate to **Redirect URI**, set the first drop-down to `Single-page application (SPA)` and its value to `https://localhost:3000/consent.html`.
+1. If you have an application ID already, please ensure:
 
-2. Otherwise, if you haven't registered a web application with the Azure Active Directory admin center, please follow the steps below:
+    - In [Microsoft Entra admin center](https://aad.portal.azure.com) under **Identity > Applications > App registrations**:
+    - Navigate to **Redirect URI**, set the first drop-down to `Single-page application (SPA)` and its value to `https://localhost:3000/consent.html`.
 
-- Open a browser and navigate to the [Microsoft Entra admin center](https://aad.portal.azure.com). Login using a **personal account** (aka: Microsoft Account) or **Work or School Account**.
+1. Otherwise, if you haven't registered a web application with the Azure Active Directory admin center, please follow the steps below:
 
-- Select **Identity** in the left-hand navigation, then select **App registrations** under **Applications**.
-- Select **New registration**. On the **App registrations** page, set the values as follows.
-    - Set **Name** to `Office Add-in Graph Tutorial`.
-    - Set **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts**.
-    - Under **Redirect URI**, set the first drop-down to `Single-page application (SPA)` and set the value to `https://localhost:3000/consent.html`.
+    - Open a browser and navigate to the [Microsoft Entra admin center](https://aad.portal.azure.com). Login using a **personal account** (aka: Microsoft Account) or **Work or School Account**.
 
-- Select **Register**. On the **Office Add-in Graph Tutorial** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
+    - Select **Identity** in the left-hand navigation, then select **App registrations** under **Applications**.
+    - Select **New registration**. On the **App registrations** page, set the values as follows.
+        - Set **Name** to `Office Add-in Graph Tutorial`.
+        - Set **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts**.
+        - Under **Redirect URI**, set the first drop-down to `Single-page application (SPA)` and set the value to `https://localhost:3000/consent.html`.
 
+    - Select **Register**. On the **Office Add-in Graph Tutorial** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
 
 ### Configure the sample
 
 1. Edit the `taskpane.js` file and make the following changes.
     - Replace `YOUR_APP_ID_HERE` with the **Application Id** you got from the App Registration Portal.
 1. In your command-line interface (CLI), navigate to this directory and run the following command to install requirements.
-    ```
+
+    ```shell
     npm install
     ```
 
-### Run and debug the add-in
-1. Open Teams Toolkit
-<br>![](./assets/toolkit_development.png)
-2. Click `Check and Install Dependencies`
-3. Launch and debug
-    * **For Office on Windows/macOS**, click `Preview Your Office Add-in(F5)` button on tree view and select a launch config. A Word/Excel/PowerPoint app will launch with add-in sample side-loaded. **Note:** Debugging on macOS is not supported yet.
-    * To debug in Desktop (Edge Legacy), make sure you have installed [Legacy Office Add-in Debugger](vscode:extension/msoffice.microsoft-office-add-in-debugger). For more details, go to [Debug Edge Legacy Webview](https://learn.microsoft.com/office/dev/add-ins/testing/debug-with-vs-extension)
-    * **For Office on the web**: [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
-4. Click `Stop Previewing Your Office Add-in` to stop debugging.
+### Run the add-in using Teams Toolkit
+
+You can use [Teams Tookit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) to easily run and debug your Office add-in.
+<br><img src="./assets/ttk_preview.png" width="800"/>
+
+1. **Check and Install Dependencies**
+
+    Select `Check and Install Dependencies` to check your environment and install necessary dependencies in order to run and debug the add-in code.
+
+1. **Preview Your Office Add-in (F5)**
+
+    Select `Preview Your Office Add-in(F5)` on the side panel to start running and debugging the add-in code. A Word/Excel/PowerPoint app will launch with the add-in sample side-loaded.
+    - You can also start debugging by hitting the `F5` key or running `npm run start` command in the terminal.
+    - To debug on Office on the web, go to [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
+    - To debug in Desktop (Edge Legacy), go to [Debug Edge Legacy Webview](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-devtools-edge-legacy)
+
+    **If you meet sideload errors, please first confirm the following items and check [troubleshoot development errors]( https://learn.microsoft.com/en-us/office/dev/add-ins/testing/troubleshoot-development-errors) for common issues. If you still have problems, [Create an issue](https://github.com/OfficeDev/office-js/issues/new/choose) and we'll help you out.**
+
+    - You have installed dependencies.
+    - You have closed all Word/Excel/PowerPoint apps.
+    - You have stopped your last add-in previewing session.
+
+1. **Stop Previewing Your Office Add-in**
+
+    Select `Stop Previewing Your Office Add-in` to stop debugging.
 
 ### How to use the sample
 
-A webpack server will be hosted on https://localhost:3000/, as the CLI shows:
+A webpack server will be hosted on <https://localhost:3000/>, as the CLI shows:
 
 ![](./assets/webpack.png)
 
@@ -74,7 +102,13 @@ Please follow the steps below:
 
     ![](./assets/mail.png)
 
-### File structure
+### Explore sample files
+
+To explore the components of the add-in project, review the key files listed below.
+<br>You can check whether your manifest file is valid by selecting `Validate Manifest` in the `Teams Toolkit` extension tree view.
+
+Use copilot chat `@workspace` to generate folder structure
+
 ```
 | .eslintrc.json
 | .gitignore
@@ -100,16 +134,35 @@ Please follow the steps below:
 | webpack.config.js             Webpack config
 ```
 
-## Feedback
-Did you experience any problems with the sample? [Create an issue]( https://github.com/OfficeDev/Word-Scenario-based-Add-in-Samples/issues/new) and we'll help you out.
+### Make code changes
 
-Let us know your experience using our sample code for Office add-in development: [Sample survey](https://aka.ms/OfficeDevSampleSurvey).
+**GitHub Copilot extension for Office Add-ins:**
+
+1. Type in `@office` to invoke the extension.
+1. Type in `/generatecode` and describe the feature you would like to build, then send the request to Copilot. You can [view prompt examples for GitHub Copilot](https://learn.microsoft.com/en-us/office/dev/add-ins/resources/resources-github-copilot-prompt-library) to see how to write prompts for Office add-in development.
+1. Get the response from the extension and use the code.
+<br><img src="./assets/github_copilot_extension.png" width="400"/>
+
+**Resources to learn more Office add-ins capabilities:**
+
+- [Read the documentation](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins) of Office add-ins.
+- Check [Office Add-ins code samples](https://github.com/OfficeDev/Office-Add-in-samples) for real-world examples and code structures.
+
+## Engage with the team
+
+Did you experience any problems with the sample? [Create an issue](https://github.com/OfficeDev/office-js/issues/new/choose) and we'll help you out.
+
+If you have suggestions for GitHub Copilot extension for Office add-ins, [give us feedback](aka.ms/GitHubCopilotextensionforOfficeAddinsFeedback) and help us improve the product.
+
+Want to learn more about new features, development practices, and additional information? [Join the Microsoft Office Add-ins community call.](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins-community-call)
 
 ## Copyright
+
 Copyright (c) 2021 Microsoft Corporation. All rights reserved.
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 <br>**Note**: The taskpane.html file contains an image URL that tracks diagnostic data for this sample add-in. Please remove the image tag if you reuse this sample in your own code project.
 <img src="https://pnptelemetry.azurewebsites.net/pnp-officeaddins/samples/word-add-in-aigc">
 
 ## Disclaimer
+
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**

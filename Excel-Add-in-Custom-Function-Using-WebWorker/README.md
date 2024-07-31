@@ -1,6 +1,8 @@
 # Custom Function Sample Using Web Worker
 
-![npm-search-msgext](assets/sampleDemo.gif)
+> This add-in project is found by GitHub Copilot extension for Office Add-ins per your description. Please take a look at it below. GitHub Copilot is powered by AI, so mistakes are possible.
+
+<img src="./assets/sampleDemo.gif" width="800">
 
 This sample shows how to use web workers in custom functions to prevent blocking the UI of your Office Add-in.
 
@@ -13,30 +15,45 @@ This sample shows how to use web workers in custom functions to prevent blocking
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org) 16/18/20 (Tested on v20.6.1)
-- [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.7.0 and higher.
-- Office connected to a Microsoft 365 subscription (including Office on the web). If you don't already have Office, you might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
-https://developer.microsoft.com/en-us/microsoft-365/dev-program);
-for details, see the [FAQ](
-https://learn.microsoft.com/en-us/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-).
+- [Node.js](https://nodejs.org) 16, 18, or 20 (18 is preferred) and [npm](https://www.npmjs.com/get-npm). To verify if you've already installed these tools, run the commands `node -v` and `npm -v` in your terminal.
+- Office connected to a Microsoft 365 subscription. You might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
+https://developer.microsoft.com/microsoft-365/dev-program), see [FAQ](
+https://learn.microsoft.com/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-) for details.
 Alternatively, you can [sign up for a 1-month free trial](
-https://www.microsoft.com/en-us/microsoft-365/try?rtc=1)
+https://www.microsoft.com/microsoft-365/try?rtc=1)
 or [purchase a Microsoft 365 plan](
-https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products).
+https://www.microsoft.com/microsoft-365/buy/compare-all-microsoft-365-products).
 
-### Run and debug the add-in
-1. Open Teams Toolkit
-<br>![](./assets/toolkit_development.png)
-2. Click `Check and Install Dependencies`
-3. Launch and debug
-    * **For Office on Windows/macOS**, click `Preview Your Office Add-in(F5)` button on tree view and select a launch config. A Word/Excel/PowerPoint app will launch with add-in sample side-loaded. **Note:** Debugging on macOS is not supported yet.
-    * To debug in Desktop (Edge Legacy), make sure you have installed [Legacy Office Add-in Debugger](vscode:extension/msoffice.microsoft-office-add-in-debugger). For more details, go to [Debug Edge Legacy Webview](https://learn.microsoft.com/office/dev/add-ins/testing/debug-with-vs-extension)
-    * **For Office on the web**: [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
-4. Click `Stop Previewing Your Office Add-in` to stop debugging.
+### Run the add-in using Teams Toolkit
+
+You can use [Teams Tookit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) to easily run and debug your Office add-in.
+<br><img src="./assets/ttk_preview.png" width="800"/>
+
+1. **Check and Install Dependencies**
+
+    Select `Check and Install Dependencies` to check your environment and install necessary dependencies in order to run and debug the add-in code.
+
+1. **Preview Your Office Add-in (F5)**
+
+    Select `Preview Your Office Add-in(F5)` on the side panel to start running and debugging the add-in code. A Word/Excel/PowerPoint app will launch with the add-in sample side-loaded.
+    - You can also start debugging by hitting the `F5` key or running `npm run start` command in the terminal.
+    - To debug on Office on the web, go to [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
+    - To debug in Desktop (Edge Legacy), go to [Debug Edge Legacy Webview](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-devtools-edge-legacy)
+
+    **If you meet sideload errors, please first confirm the following items and check [troubleshoot development errors]( https://learn.microsoft.com/en-us/office/dev/add-ins/testing/troubleshoot-development-errors) for common issues. If you still have problems, [Create an issue](https://github.com/OfficeDev/office-js/issues/new/choose) and we'll help you out.**
+
+    - You have installed dependencies.
+    - You have closed all Word/Excel/PowerPoint apps.
+    - You have stopped your last add-in previewing session.
+
+1. **Stop Previewing Your Office Add-in**
+
+    Select `Stop Previewing Your Office Add-in` to stop debugging.
 
 ### How to use this sample
 
 After launch Excel with add-in sample side-loaded, follow below steps:
+
 1. Click the executeCFWithoutWebWorker button, a CustomFunction without WebWorker will be instered into the 'A1' Cell and executed, and the ball inside the taskpane will be blocked.
 2. Click the executeCFWithWebWorker button, a CustomFunction with WebWorker will be instered into the 'A1' Cell and executed, and the ball inside the taskpane will not be blocked.
 
@@ -52,7 +69,13 @@ Now you can use the following custom functions:
 
 If you open the task pane you will see an animated bouncing ball. You can see the effect of blocking the UI thread by entering `=WebWorkerSample.TEST_UI_THREAD(50000)` into a cell. The bouncing ball will stop for a few seconds while the result is calculated.
 
-### File structure
+### Explore sample files
+
+To explore the components of the add-in project, review the key files listed below.
+<br>You can check whether your manifest file is valid by selecting `Validate Manifest` in the `Teams Toolkit` extension tree view.
+
+Use copilot chat `@workspace` to generate folder structure
+
 ```
 | .eslintrc.json
 | .gitignore
@@ -81,10 +104,30 @@ If you open the task pane you will see an animated bouncing ball. You can see th
 | webpack.config.js             Webpack config
 ```
 
-## Feedback
-Did you experience any problems with the sample? [Create an issue]( https://github.com/OfficeDev/Office-Samples/issues/new) and we'll help you out.
+### Make code changes
+
+**GitHub Copilot extension for Office Add-ins:**
+
+1. Type in `@office` to invoke the extension.
+1. Type in `/generatecode` and describe the feature you would like to build, then send the request to Copilot. You can [view prompt examples for GitHub Copilot](https://learn.microsoft.com/en-us/office/dev/add-ins/resources/resources-github-copilot-prompt-library) to see how to write prompts for Office add-in development.
+1. Get the response from the extension and use the code.
+<br><img src="./assets/github_copilot_extension.png" width="400"/>
+
+**Resources to learn more Office add-ins capabilities:**
+
+- [Read the documentation](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins) of Office add-ins.
+- Check [Office Add-ins code samples](https://github.com/OfficeDev/Office-Add-in-samples) for real-world examples and code structures.
+
+## Engage with the team
+
+Did you experience any problems with the sample? [Create an issue](https://github.com/OfficeDev/office-js/issues/new/choose) and we'll help you out.
+
+If you have suggestions for GitHub Copilot extension for Office add-ins, [give us feedback](aka.ms/GitHubCopilotextensionforOfficeAddinsFeedback) and help us improve the product.
+
+Want to learn more about new features, development practices, and additional information? [Join the Microsoft Office Add-ins community call.](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins-community-call)
 
 ## Copyright
+
 Copyright (c) 2024 Microsoft Corporation. All rights reserved.
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 <br>**Note**: The taskpane.html file contains an image URL that tracks diagnostic data for this sample add-in. Please remove the image tag if you reuse this sample in your own code project.
