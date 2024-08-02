@@ -1,6 +1,6 @@
 # Create a Word AIGC Add-in
 
-<img src="./assets/sampleDemo.gif" width="800">
+<img src="./assets/thumbnail.png" width="800">
 
 This sample shows a practical Word Add-in with content insertion features, utilizing either AI or predefined content. 
 

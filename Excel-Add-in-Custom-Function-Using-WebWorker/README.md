@@ -1,6 +1,6 @@
 # Custom Function Sample Using Web Worker
 
-<img src="./assets/sampleDemo.gif" width="800">
+<img src="./assets/thumbnail.png" width="800">
 
 This sample shows how to use web workers in custom functions to prevent blocking the UI of your Office Add-in.
 

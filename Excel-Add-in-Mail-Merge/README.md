@@ -1,6 +1,6 @@
 # Excel Mail Merge Sample Office Add-in
 
-<img src="./assets/sampleDemo.gif" width="800">
+<img src="./assets/thumbnail.png" width="800">
 
 This sample demonstrates how to use the Microsoft Graph JavaScript SDK to send emails in Excel from Office Add-ins.
 

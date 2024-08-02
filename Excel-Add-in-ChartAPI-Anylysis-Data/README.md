@@ -1,6 +1,6 @@
 ## Using chart API to analyse data
 
-<img src="./assets/sampleDemo.gif" width="800">
+<img src="./assets/thumbnail.png" width="800">
 
 The sample add-in demonstrates Excel add-in capablities to help users using chart API to analyse data
 

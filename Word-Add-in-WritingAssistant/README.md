@@ -1,6 +1,6 @@
 # Word Writing Assistant
 
-<img src="./assets/sampleDemo.gif" width="800">
+<img src="./assets/thumbnail.png" width="800">
 
 This add-in demonstrates Word add-in capabilities to help users check errors, improve writing, and rephrase content.
 
