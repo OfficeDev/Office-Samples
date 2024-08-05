@@ -9,7 +9,7 @@ The simpliest way to run this add-in project is using Office Add-ins Development
     
     Select `Preview Your Office Add-in(F5)` to start debugging the add-in code. 
     
-    <img src="./assets/DevKit_Preview.png" width="500"/>
+    <img src="./assets/devkit_preview.png" width="500"/>
 
     <br>After selecting the button, the extension will first check prerequites before debugging starts. Check the terminal for detailed information and guiduance to get the environment ready. After theis process, a Word/Excel/PowerPoint desktop app will launch with the add-in sample side-loaded.
     
