@@ -25,7 +25,6 @@ https://www.microsoft.com/microsoft-365/buy/compare-all-microsoft-365-products).
 
 ### Run the add-in using Office Add-ins Development Kit extension
 The simpliest way to run this add-in project is using the Office Add-ins Development Kit. The [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) is an end-to end developer tool for building Office add-ins. You can use this tool to easily creating, running and debugging an Office add-in.
-<br><img src="./assets/devkit_preview.png" width="800"/>
 
 1. **Download the sample code**
 
@@ -39,7 +38,7 @@ The simpliest way to run this add-in project is using the Office Add-ins Develop
     
     Select `Preview Your Office Add-in(F5)` to start debugging the add-in code. 
     
-    <img src="./assets/DevKit_Preview.png" width="500"/>
+    <img src="./assets/devkit_preview.png" width="500"/>
 
     <br>After selecting the button, the extension will first check prerequites before debugging starts. Check the terminal for detailed information and guiduance to get the environment ready. After theis process, a Word/Excel/PowerPoint desktop app will launch with the add-in sample side-loaded.
     
