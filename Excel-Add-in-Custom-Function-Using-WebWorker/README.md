@@ -1,6 +1,6 @@
 # Custom Function Sample Using Web Worker
 
-<img src="./assets/sampleDemo.gif" width="800">
+<img src="./assets/thumbnail.png" width="800">
 
 This sample shows how to use web workers in custom functions to prevent blocking the UI of your Office Add-in.
 
@@ -13,7 +13,7 @@ This sample shows how to use web workers in custom functions to prevent blocking
 
 ### Prerequisites
 - [Node.js](https://nodejs.org) 16, 18, or 20 (18 is preferred) and [npm](https://www.npmjs.com/get-npm). To verify if you've already installed these tools, run the commands `node -v` and `npm -v` in your terminal.
-- [Office Add-in Dev Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) version 0.4.0 and higher.
+- [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) version 0.5.0 and higher.
 - Office connected to a Microsoft 365 subscription. You might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
 https://developer.microsoft.com/microsoft-365/dev-program), see [FAQ](
 https://learn.microsoft.com/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-) for details.
@@ -23,8 +23,8 @@ or [purchase a Microsoft 365 plan](
 https://www.microsoft.com/microsoft-365/buy/compare-all-microsoft-365-products).
 
 
-### Run the add-in using Office Add-in Dev Kit
-[Office Add-in Dev Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) is an end-to end developer tool for building Office add-ins. You can use this tool to easily creating, running and debugging, and managing the lifecycle of an Office add-in.
+### Run the add-in using Office Add-ins Development Kit
+[Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) is an end-to end developer tool for building Office add-ins. You can use this tool to easily creating, running and debugging, and managing the lifecycle of an Office add-in.
 <br><img src="./assets/devkit_preview.png" width="800"/>
 
 1. **Check and Install Dependencies**
@@ -67,7 +67,7 @@ If you open the task pane you will see an animated bouncing ball. You can see th
 
 ### Explore sample files
 To explore the components of the add-in project, review the key files listed below. 
-<br>You can check whether your manifest file is valid by selecting `Validate Manifest` in the `Office Add-in Dev Kit` extension tree view.
+<br>You can check whether your manifest file is valid by selecting `Validate Manifest` in the `Office Add-ins Development Kit` extension tree view.
 ```
 | .eslintrc.json
 | .gitignore
@@ -97,7 +97,7 @@ To explore the components of the add-in project, review the key files listed bel
 
 ### Make code changes
 **Resources to learn more Office add-ins capabilities:**
-* Select `View Samples` on `Office Add-in Dev Kit` tree view for real-world examples and code structures.
+* Select `View Samples` on `Office Add-ins Development Kit` tree view for real-world examples and code structures.
 * [Read the documentation](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins) of Office add-ins.
 
 ## Engage with the team
