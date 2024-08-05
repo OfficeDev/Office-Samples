@@ -53,7 +53,7 @@ The simpliest way to run this add-in project is using the Office Add-ins Develop
     * You have closed all Word/Excel/PowerPoint apps.
     * You have stopped your last add-in previewing session.
 
-    If you still have problems, check [troubleshoot development errors]( https://learn.microsoft.com/en-us/office/dev/add-ins/testing/troubleshoot-development-errors) or [Create an issue](https://github.com/OfficeDev/office-js/issues/new/choose) and we'll help you out.  
+    If you still have problems, check [troubleshoot development errors]( https://learn.microsoft.com/office/dev/add-ins/testing/troubleshoot-development-errors) or [Create an issue](https://aka.ms/officedevkitnewissue) and we'll help you out.  
 
 ## How to use this sample
 You can try out the sample add-in when it is sideloaded on Word/Excel/PowerPoint apps:
@@ -95,7 +95,7 @@ You can check whether your manifest file is valid by selecting `Validate Manifes
 * Read the documentation: [Office add-ins documentation](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins)
 
 ## Engage with the team
-Did you experience any problems with the sample? [Create an issue](https://github.com/OfficeDev/office-js/issues/new/choose) and we'll help you out.
+Did you experience any problems with the sample? [Create an issue](https://aka.ms/officedevkitnewissue) and we'll help you out.
 
 Want to learn more about new features, development practices, and additional information? [Join the Microsoft Office Add-ins community call.](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins-community-call)
 
