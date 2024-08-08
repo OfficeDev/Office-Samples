@@ -1,33 +1,35 @@
 # Run the add-in with Office Add-ins Development Kit extension
-The simpliest way to run this add-in project is using Office Add-ins Development Kit. Here are steps to follow:
+We recommend you try this sample by using the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger). The Office Add-ins Development Kit is an end-to end developer tool for building Office add-ins. It helps create, run, and debug an Office Add-in.
 
 1. **Open the Office Add-ins Development Kit**
     
-    Click the <img src="./assets/Icon_Office_Add-ins_Development_Kit.png" width="30"/> button in the side panel to open the extension.
-
+    Click the <img src="./assets/Icon_Office_Add-ins_Development_Kit.png" width="30" alt="Office Add-ins Development Kit"/> button in the side panel to open the extension.
+   
 1. **Preview Your Office Add-in (F5)**
-    
-    Select `Preview Your Office Add-in(F5)` to start debugging the add-in code. 
-    
+
+    Select **Preview Your Office Add-in(F5)** to launch the add-in and debug the code.
+
     <img src="./assets/devkit_preview.png" width="500"/>
 
-    <br>After selecting the button, the extension will first check prerequites before debugging starts. Check the terminal for detailed information and guiduance to get the environment ready. After theis process, a Word/Excel/PowerPoint desktop app will launch with the add-in sample side-loaded.
-    
-1.  **Stop Previewing Your Office Add-in**
+    <br>The extension then checks that the prerequisites are met before debugging starts. Check the terminal for detailed information if there are issues with your environment. After this process, the Excel desktop application launches and opens a new workbook with the sample add-in.
 
-    After you complete the debugging process, select `Stop Previewing Your Office Add-in` to stop debugging.
-    
-## Common questions running an add-in
-    
-* To debug on Office on the web, go to [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing)
-* To debug in Desktop (Edge Legacy), go to [Debug Edge Legacy Webview](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-devtools-edge-legacy)
-* If you meet sideload errors, please check the following items to avoid some common errors:
-    * You have installed dependencies.
-    * You have closed all Word/Excel/PowerPoint apps.
-    * You have stopped your last add-in previewing session.
+1. **Stop Previewing Your Office Add-in**
 
-    If you still have problems, check [troubleshoot development errors]( https://learn.microsoft.com/en-us/office/dev/add-ins/testing/troubleshoot-development-errors) or [Create an issue](https://aka.ms/officedevkitnewissue) and we'll help you out.  
+    Once you are finished testing and debugging the add-in, select **Stop Previewing Your Office Add-in**. This closes the web server and removes the add-in from the registry and cache.
+    
+## Troubleshooting
 
+If you have problems running the sample, take these steps.
+
+- Ensure you have installed the project dependencies. Select **Check and Install Dependencies** from the Office Add-in Dev Kit extension to install these.
+- Close any open instances of Excel.
+- Close the previous web server started for the sample with the **Stop Previewing Your Office Add-in** Office Add-in Dev Kit extension option.
+
+If you still have problems, see [troubleshoot development errors](https://learn.microsoft.com//office/dev/add-ins/testing/troubleshoot-development-errors) or [create a GitHub issue](https://aka.ms/officedevkitnewissue) and we'll help you.  
+
+For information on running the sample on Excel on the web, see [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing).
+
+For information on debugging on older versions of Office, see [Debug add-ins using developer tools in Microsoft Edge Legacy](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-devtools-edge-legacy).
 
 # See also
     
