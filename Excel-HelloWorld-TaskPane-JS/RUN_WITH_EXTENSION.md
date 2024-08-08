@@ -32,7 +32,7 @@ The simpliest way to run this add-in project is using Office Add-ins Development
 ## Explore the add-in code
 To explore an Office add-in project, you can start with the key files listed below.
 
-- The `./manifest.xml` file in the root directory of the project defines the settings and capabilities of the add-in.  <br>You can check whether your manifest file is valid by selecting `Validate Manifest File` in the `Office Add-ins Development Kit` extension tree view.
+- The `./manifest.xml` file in the root directory of the project defines the settings and capabilities of the add-in.  <br>You can check whether your manifest file is valid by selecting **Validate Manifest File** option from the Office Add-ins Development Kit.
 - The `./src/taskpane/taskpane.html` file contains the HTML markup for the task pane.
 - The `./src/taskpane/taskpane.css` file contains the CSS that's applied to content in the task pane.
 - The `./src/taskpane/taskpane.js` file contains the Office JavaScript API code that facilitates interaction between the task pane and the Excel application.
