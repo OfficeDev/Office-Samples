@@ -27,7 +27,7 @@ We recommend you try this sample by using the [Office Add-ins Development Kit](h
 
 1. **Install the Office Add-ins Development Kit**
 
-    Install the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) extension in Visual Studio Code marketplace. Click the <img src="./assets/Icon_Office_Add-ins_Development_Kit.png" width="30" alt="Office Add-in Dev Kit"/> button in the side panel to open the extension.
+    Install the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) extension in Visual Studio Code marketplace. Click the <img src="./assets/Icon_Office_Add-ins_Development_Kit.png" width="30" alt="Office Add-ins Development Kit"/> button in the side panel to open the extension.
 
 1. **Preview Your Office Add-in (F5)**
 
