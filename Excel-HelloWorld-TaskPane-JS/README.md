@@ -35,7 +35,7 @@ The simpliest way to run this add-in project is using the Office Add-ins Develop
    
 1. **Open the Office Add-in Development Kit**
    
-   Click the <img src="./assets/Icon_Office_Add-ins_Development_Kit.png" width="30"/> button in the side panel to open the extension.
+   Click the <img src="./assets/Icon_Office_Add-ins_Development_Kit.png" width="30"/ alt="Office Add-ins Development Kit"/> button in the side panel to open the extension.
 
 1. **Preview Your Office Add-in (F5)**
     
