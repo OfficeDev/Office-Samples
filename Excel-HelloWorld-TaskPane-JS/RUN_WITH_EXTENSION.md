@@ -38,7 +38,7 @@ To explore an Office add-in project, you can start with the key files listed bel
 - The `./src/taskpane/taskpane.js` file contains the Office JavaScript API code that facilitates interaction between the task pane and the Excel application.
 
 # See also
-* **Explore more add-in samples:** `View Samples` in `Office Add-ins Development Kit` tree view.
+* **Explore more add-in samples:** Select **View Samples** in the Office Add-ins Development Kit.
 * **Read the documentation:** [Office add-ins documentation](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins)
 * **Experience any problems?** [Create an issue](https://aka.ms/officedevkitnewissue) and we'll help you out.
 * **Engage with the team to learn more about updates:** [Join the Microsoft Office Add-ins community call](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins-community-call).
