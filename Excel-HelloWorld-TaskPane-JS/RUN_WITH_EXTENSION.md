@@ -29,8 +29,8 @@ The simpliest way to run this add-in project is using Office Add-ins Development
     If you still have problems, check [troubleshoot development errors]( https://learn.microsoft.com/en-us/office/dev/add-ins/testing/troubleshoot-development-errors) or [Create an issue](https://aka.ms/officedevkitnewissue) and we'll help you out.  
 
 
-# <br>Explore the add-in code
-To explore an Office add-in project, you can start with the key files listed below:
+## Explore the add-in code
+To explore an Office add-in project, you can start with the key files listed below.
 
 - The `./manifest.xml` file in the root directory of the project defines the settings and capabilities of the add-in.  <br>You can check whether your manifest file is valid by selecting `Validate Manifest File` in the `Office Add-ins Development Kit` extension tree view.
 - The `./src/taskpane/taskpane.html` file contains the HTML markup for the task pane.
