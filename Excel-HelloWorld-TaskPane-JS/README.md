@@ -31,7 +31,7 @@ The simpliest way to run this add-in project is using the Office Add-ins Develop
 
    You can use either of the ways to download the sample code:
    * In the `Office Add-ins Development Kit` extension, find the sample in `Sample gallery`, click the "create" button at the top of the sample page.
-   * Clone or download this sample to a folder on your computer, then open the folder in Visual Studio Code.
+   * [Clone](https://docs.github.com/repositories/creating-and-managing-repositories/cloning-a-repository) this repository or download this sample to a folder on your computer. Then, open the folder in Visual Studio Code.
    
 1. **Open the Office Add-in Development Kit**
    
