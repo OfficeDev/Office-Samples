@@ -17,6 +17,14 @@ We recommend you try this sample by using the [Office Add-ins Development Kit](h
 
     Once you are finished testing and debugging the add-in, select **Stop Previewing Your Office Add-in**. This closes the web server and removes the add-in from the registry and cache.
 
+## Explore the add-in code
+To explore an Office add-in project, you can start with the key files listed below.
+
+- The `./manifest.xml` file in the root directory of the project defines the settings and capabilities of the add-in.  <br>You can check whether your manifest file is valid by selecting **Validate Manifest File** option from the Office Add-ins Development Kit.
+- The `./src/taskpane/taskpane.html` file contains the HTML markup for the task pane.
+- The `./src/taskpane/taskpane.css` file contains the CSS that's applied to content in the task pane.
+- The `./src/taskpane/taskpane.js` file contains the Office JavaScript API code that facilitates interaction between the task pane and the Excel application.
+
 ## Troubleshooting
 
 If you have problems running the sample, take these steps.
@@ -29,14 +37,6 @@ If you still have problems, see [troubleshoot development errors](https://learn.
 For information on running the sample on Excel on the web, see [Sideload Office Add-ins to Office on the web](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing).
 
 For information on debugging on older versions of Office, see [Debug add-ins using developer tools in Microsoft Edge Legacy](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-devtools-edge-legacy).
-
-## Explore the add-in code
-To explore an Office add-in project, you can start with the key files listed below.
-
-- The `./manifest.xml` file in the root directory of the project defines the settings and capabilities of the add-in.  <br>You can check whether your manifest file is valid by selecting **Validate Manifest File** option from the Office Add-ins Development Kit.
-- The `./src/taskpane/taskpane.html` file contains the HTML markup for the task pane.
-- The `./src/taskpane/taskpane.css` file contains the CSS that's applied to content in the task pane.
-- The `./src/taskpane/taskpane.js` file contains the Office JavaScript API code that facilitates interaction between the task pane and the Excel application.
 
 ## See also
 Once you understand the sample, make it your own! All the information about Office Add-ins is found in our [official documentation](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins). You can also explore more samples in the Office Add-ins Development Kit. Select **View Samples** to see more samples of real-world scenarios.
