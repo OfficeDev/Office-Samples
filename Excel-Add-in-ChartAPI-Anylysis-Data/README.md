@@ -13,29 +13,32 @@ This sample add-in demonstrates Excel add-in capabilities to help users using ch
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org) 16, 18, or 20 (18 is preferred) and [npm](https://www.npmjs.com/get-npm). To verify if you've already installed these tools, run the commands `node -v` and `npm -v` in your terminal.
-- [Visual Studio Code](https://visualstudio.microsoft.com/downloads/) and [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) version 0.5.0 and higher.
+- Download and install [Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
+- Install the latest version of [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) into Visual Studio Code.
+- Node.js (the latest LTS version). Visit the [Node.js site](https://nodejs.org/) to download and install the right version for your operating system. To verify if you've already installed these tools, run the commands `node -v` and `npm -v` in your terminal.
 - Office connected to a Microsoft 365 subscription. You might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program), see [FAQ](https://learn.microsoft.com/office/developer-program/microsoft-365-developer-program-faq#who-qualifies-for-a-microsoft-365-e5-developer-subscription-) for details. Alternatively, you can [sign up for a 1-month free trial](https://www.microsoft.com/microsoft-365/try?rtc=1) or [purchase a Microsoft 365 plan](https://www.microsoft.com/microsoft-365/buy/compare-all-microsoft-365-products).
-
+  
 ### Run the add-in using Office Add-ins Development Kit extension
 
 We recommend you try this sample by using the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger). The Office Add-ins Development Kit is an end-to end developer tool for building Office add-ins. It helps create, run, and debug an Office Add-in.
 
 1. **Download the sample code**
 
-    Clone or download this sample to a folder on your computer, then open the folder in Visual Studio Code.
-
-1. **Install the Office Add-ins Development Kit**
-
-    Install the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) extension in Visual Studio Code marketplace. Click the <img src="./assets/Icon_Office_Add-ins_Development_Kit.png" width="30" alt="Office Add-ins Development Kit"/> button in the side panel to open the extension.
+   You can use either of the ways to download the sample code:
+   * Open the Office Add-ins Development Kit extension and view samples in the **Sample gallery**. Select the **Create** button in the top-right corner of the sample page.
+   * [Clone](https://docs.github.com/repositories/creating-and-managing-repositories/cloning-a-repository) this repository or download this sample to a folder on your computer. Then, open the folder in Visual Studio Code.
+   
+1. **Open the Office Add-ins Development Kit**
+    
+    Select the <img src="./assets/Icon_Office_Add-ins_Development_Kit.png" width="30" alt="Office Add-ins Development Kit"/> button in the side panel to open the extension.
 
 1. **Preview Your Office Add-in (F5)**
 
-    Select **Preview Your Office Add-in(F5)** to launch the add-in and debug the code.
+    Select **Preview Your Office Add-in(F5)** to launch the add-in and debug the code. In the drop down menu, select the option **Desktop (Edge Chromium)**.
 
-    <img src="./assets/devkit_preview.png" width="500"/>
+    <img src="./assets/devkit_preview.png" width="500" alt="Screenshot shows Preview your Office add-in in Office Add-ins Development Kit"/>
 
-    <br>The extension then checks that the prerequisites are met before debugging starts. Check the terminal for detailed information if there are issues with your environment. After this process, the Excel desktop application launches and opens a new workbook with the sample add-in.
+    The extension then checks that the prerequisites are met before debugging starts. Check the terminal for detailed information if there are issues with your environment. After this process, the Excel desktop application launches and opens a new workbook with the sample add-in.
 
 1. **Stop Previewing Your Office Add-in**
 
@@ -82,9 +85,8 @@ These are the important files in the sample project.
 
 If you have problems running the sample, take these steps.
 
-- Ensure you have installed the project dependencies. Select **Check and Install Dependencies** from the Office Add-in Dev Kit extension to install these.
 - Close any open instances of Excel.
-- Close the previous web server started for the sample with the **Stop Previewing Your Office Add-in** Office Add-in Dev Kit extension option.
+- Close the previous web server started for the sample with the **Stop Previewing Your Office Add-in** Office Add-ins Development Kit extension option.
 
 If you still have problems, see [troubleshoot development errors](https://learn.microsoft.com//office/dev/add-ins/testing/troubleshoot-development-errors) or [create a GitHub issue](https://aka.ms/officedevkitnewissue) and we'll help you.  
 
@@ -96,7 +98,7 @@ For information on debugging on older versions of Office, see [Debug add-ins usi
 
 Once you understand the sample, make it your own! All the information about Office Add-ins is found in our [official documentation](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins). You can also explore more samples in the Office Add-ins Development Kit. Select **View Samples** to see more samples of real-world scenarios.
 
-If you edit the manifest as part of your changes, use the **Validate Manifest** option in the Office Add-ins Development Kit. This shows you errors in the manifest syntax.
+If you edit the manifest as part of your changes, use the **Validate Manifest File** option in the Office Add-ins Development Kit. This shows you errors in the manifest syntax.
 
 ## Engage with the team
 
