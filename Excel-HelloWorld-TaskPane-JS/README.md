@@ -23,13 +23,19 @@ https://www.microsoft.com/microsoft-365/buy/compare-all-microsoft-365-products).
 ### Run the add-in using Office Add-ins Development Kit extension
 The simpliest way to run this add-in project is using the Office Add-ins Development Kit. The [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) is an end-to end developer tool for building Office add-ins. You can use this tool to easily creating, running and debugging an Office add-in.
 
-1. **Download the sample code**
-
-    Clone or download this sample to a folder on your computer, then open the folder in Visual Studio Code.
-
 1. **Install the Office Add-ins Development Kit**
     
-    Install the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) extension in Visual Studio Code marketplace. Click the <img src="./assets/Icon_Office_Add-ins_Development_Kit.png" width="30"/> button in the side panel to open the extension.
+    Install the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger) extension in Visual Studio Code marketplace. 
+
+1. **Download the sample code**
+
+   You can use either of the ways to download the sample code:
+   * Open the Office Add-ins Development Kit extension and view samples in the **Sample gallery**. Select the **Create** button in the top-right corner of the sample page.
+   * [Clone](https://docs.github.com/repositories/creating-and-managing-repositories/cloning-a-repository) this repository or download this sample to a folder on your computer. Then, open the folder in Visual Studio Code.
+   
+1. **Open the Office Add-in Development Kit**
+   
+   Click the <img src="./assets/Icon_Office_Add-ins_Development_Kit.png" width="30" alt="Office Add-ins Development Kit"/> button in the side panel to open the extension.
 
 1. **Preview Your Office Add-in (F5)**
     
