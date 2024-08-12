@@ -1,5 +1,5 @@
 # Run the add-in with Office Add-ins Development Kit extension
-We recommend you try this sample by using the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger). The Office Add-ins Development Kit is an end-to end developer tool for building Office Add-ins. It helps create, run, and debug an Office Add-in.
+We recommend you try this sample by using the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger). The Office Add-ins Development Kit is an end-to-end developer tool for building Office Add-ins. It helps create, run, and debug an Office Add-in.
 
 1. **Open the Office Add-ins Development Kit**
     
@@ -29,7 +29,7 @@ To explore an Office add-in project, you can start with the key files listed bel
 
 If you have problems running the sample, take these steps.
 
-- Close any open instances of Excel.
+- Close any open instances of Word.
 - Close the previous web server started for the sample with the **Stop Previewing Your Office Add-in** Office Add-ins Development Kit extension option.
 
 If you still have problems, see [troubleshoot development errors](https://learn.microsoft.com//office/dev/add-ins/testing/troubleshoot-development-errors) or [create a GitHub issue](https://aka.ms/officedevkitnewissue) and we'll help you.  

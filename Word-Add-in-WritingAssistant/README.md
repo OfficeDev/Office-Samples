@@ -20,7 +20,7 @@ This add-in demonstrates Word add-in capabilities to help users check errors, im
   
 ### Run the add-in using Office Add-ins Development Kit extension
 
-We recommend you try this sample by using the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger). The Office Add-ins Development Kit is an end-to end developer tool for building Office add-ins. It helps create, run, and debug an Office Add-in.
+We recommend you try this sample by using the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger). The Office Add-ins Development Kit is an end-to-end developer tool for building Office add-ins. It helps create, run, and debug an Office Add-in.
 
 1. **Download the sample code**
 
@@ -91,7 +91,7 @@ These are the important files in the sample project.
 
 If you have problems running the sample, take these steps.
 
-- Close any open instances of Excel.
+- Close any open instances of Word.
 - Close the previous web server started for the sample with the **Stop Previewing Your Office Add-in** Office Add-ins Development Kit extension option.
 
 If you still have problems, see [troubleshoot development errors](https://learn.microsoft.com//office/dev/add-ins/testing/troubleshoot-development-errors) or [create a GitHub issue](https://aka.ms/officedevkitnewissue) and we'll help you.  

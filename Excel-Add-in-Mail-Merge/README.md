@@ -21,7 +21,7 @@ This sample demonstrates how to use the Microsoft Graph JavaScript SDK to send e
   
 ### Run the add-in using Office Add-ins Development Kit extension
 
-We recommend you try this sample by using the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger). The Office Add-ins Development Kit is an end-to end developer tool for building Office add-ins. It helps create, run, and debug an Office Add-in.
+We recommend you try this sample by using the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger). The Office Add-ins Development Kit is an end-to-end developer tool for building Office add-ins. It helps create, run, and debug an Office Add-in.
 
 1. **Download the sample code**
 
