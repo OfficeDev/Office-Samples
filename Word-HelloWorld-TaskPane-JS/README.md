@@ -21,7 +21,7 @@ We recommend you try this sample by using the [Office Add-ins Development Kit](h
 
 1. **Download the sample code**
 
-   You can use either of the ways to download the sample code:
+   To download this sample code, either:
    * Open the Office Add-ins Development Kit extension and view samples in the **Sample gallery**. Select the **Create** button in the top-right corner of the sample page.
    * [Clone](https://docs.github.com/repositories/creating-and-managing-repositories/cloning-a-repository) this repository or download this sample to a folder on your computer. Then, open the folder in Visual Studio Code.
    

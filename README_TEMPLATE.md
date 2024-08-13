@@ -91,7 +91,7 @@ DELETE_THIS_LINE:Use copilot chat @workspace to generate folder structure
 |   |   | commands.js
 |   | taskpane/
 |   |   | taskpane.css          Taskpane style
-|   |   | taskpane.html         Taskpane entry html
+|   |   | taskpane.html         Taskpane entry HTML
 |   |   | taskpane.js           Add API calls and logic here
 | webpack.config.js             Webpack config
 ```

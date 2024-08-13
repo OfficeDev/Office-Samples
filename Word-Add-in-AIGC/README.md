@@ -26,7 +26,7 @@ We recommend you try this sample by using the [Office Add-ins Development Kit](h
 
 1. **Download the sample code**
 
-   You can use either of the ways to download the sample code:
+   To download this sample code, either:
    * Open the Office Add-ins Development Kit extension and view samples in the **Sample gallery**. Select the **Create** button in the top-right corner of the sample page.
    * [Clone](https://docs.github.com/repositories/creating-and-managing-repositories/cloning-a-repository) this repository or download this sample to a folder on your computer. Then, open the folder in Visual Studio Code.
    
@@ -76,10 +76,10 @@ These are the important files in the sample project.
 |   | commands/
 |   |   | commands.ts
 |   | taskpane/
-|   |   | components/           
+|   |   | components/           React components
 |   |   | css/                  Task pane style
-|   |   | taskpane.html         Task pane entry html
-|   |   | index.tsx             Task pane react component
+|   |   | taskpane.html         Task pane entry HTML
+|   |   | index.tsx             Task pane React component
 | webpack.config.js             Webpack config
 | tsconfig.json
 ```
