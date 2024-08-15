@@ -64,7 +64,7 @@ const AnnotationComponents: React.FC = () => {
     });
   };
 
-  const handleGrammerChecking = async () => {
+  const handleGrammarChecking = async () => {
     await insertInitAnnotations();
     await registerEventHandlers();
   };
@@ -128,7 +128,7 @@ const AnnotationComponents: React.FC = () => {
     handleModalShow(
       true,
       args.type,
-      "New paragraph(s) added, do you want to start checking grammers?",
+      "New paragraph(s) added, do you want to start checking grammar?",
       "",
       args.uniqueLocalIds
     );*/
@@ -247,7 +247,7 @@ const AnnotationComponents: React.FC = () => {
         label="Step 2. Click the button to check content. Click the annotations to see suggestions. "
       ></Field>
       <div>
-        <Button appearance="primary" disabled={false} size="large" onClick={handleGrammerChecking}>
+        <Button appearance="primary" disabled={false} size="large" onClick={handleGrammarChecking}>
           Check
         </Button>
       </div>

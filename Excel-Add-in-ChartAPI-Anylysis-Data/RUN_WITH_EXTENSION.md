@@ -1,8 +1,9 @@
 # Run the add-in with Office Add-ins Development Kit extension
+
 We recommend you try this sample by using the [Office Add-ins Development Kit](https://marketplace.visualstudio.com/items?itemName=msoffice.microsoft-office-add-in-debugger). The Office Add-ins Development Kit is an end-to end developer tool for building Office Add-ins. It helps create, run, and debug an Office Add-in.
 
 1. **Open the Office Add-ins Development Kit**
-    
+
     Select the <img src="./assets/Icon_Office_Add-ins_Development_Kit.png" width="30" alt="Office Add-ins Development Kit"/> icon in the **Activity Bar** to open the extension.
 
 1. **Preview Your Office Add-in (F5)**
@@ -18,6 +19,7 @@ We recommend you try this sample by using the [Office Add-ins Development Kit](h
     Once you are finished testing and debugging the add-in, select **Stop Previewing Your Office Add-in**. This closes the web server and removes the add-in from the registry and cache.
 
 ## Explore the add-in code
+
 To explore an Office add-in project, you can start with the key files listed below.
 
 - The `./manifest.xml` file in the root directory of the project defines the settings and capabilities of the add-in.  <br>You can check whether your manifest file is valid by selecting **Validate Manifest File** option from the Office Add-ins Development Kit.
@@ -39,6 +41,7 @@ For information on running the sample on Excel on the web, see [Sideload Office 
 For information on debugging on older versions of Office, see [Debug add-ins using developer tools in Microsoft Edge Legacy](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-using-devtools-edge-legacy).
 
 ## See also
+
 Once you understand the sample, make it your own! All the information about Office Add-ins is found in our [official documentation](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins). You can also explore more samples in the Office Add-ins Development Kit. Select **View Samples** to see more samples of real-world scenarios.
 
 Did you experience any problems with the sample? [Create an issue]( https://github.com/OfficeDev/Office-Samples/issues/new) and we'll help you out.

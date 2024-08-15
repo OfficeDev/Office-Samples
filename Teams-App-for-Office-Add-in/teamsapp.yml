@@ -7,7 +7,7 @@ environmentFolderPath: ./env
 
 # Triggered when 'teamsapp provision' is executed
 provision:
-  - uses: arm/deploy # Deploy given ARM templates parallelly.
+  - uses: arm/deploy # Deploy given ARM templates in parallel.
     with:
       # AZURE_SUBSCRIPTION_ID is a built-in environment variable,
       # if its value is empty, TeamsFx will prompt you to select a subscription.

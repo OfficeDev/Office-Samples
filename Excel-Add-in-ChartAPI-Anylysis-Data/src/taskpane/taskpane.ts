@@ -12,9 +12,9 @@ Office.onReady((info) => {
     document.getElementById("reverse-plot-order").onclick = reversePlotOrder;
     document.getElementById("move-chart-title").onclick = moveChartTitle;
     document.getElementById("show-correlation-1").onclick = showCorrelation1;
-    document.getElementById("highlight-top-10").onclick = hightlight1;
+    document.getElementById("highlight-top-10").onclick = highlight1;
     document.getElementById("show-correlation-2").onclick = showCorrelation2;
-    document.getElementById("highlight-top-5").onclick = hightlight2;
+    document.getElementById("highlight-top-5").onclick = highlight2;
     document.getElementById("show-sales-trend").onclick = showSalesTrendline;
     document.getElementById("highlight-highest-sales").onclick = highlightSales;
   }
@@ -95,7 +95,7 @@ async function showCorrelation1() {
       let dataRange = sheet.getRange("A40:A41");
       let chart = sheet.charts.add("XYScatter", dataRange, "auto");
       chart.name = "correlation1";
-      chart.title.text = "Correlation betweeen Sales and Temperature";
+      chart.title.text = "Correlation between Sales and Temperature";
       chart.title.format.font.size = 12;
       chart.title.left = 8;
       chart.title.top = 8;
@@ -125,7 +125,7 @@ async function showCorrelation1() {
       let trendline = series.trendlines.getItem(0);
       trendline.displayRSquared = true;
 
-      //High light title
+      //Highlight title
       var font = chart.title.getSubstring(21, 5).font;
       var font2 = chart.title.getSubstring(31, 11).font;
       font.color = "#FF7F50";
@@ -138,7 +138,7 @@ async function showCorrelation1() {
   }
 }
 
-async function hightlight1() {
+async function highlight1() {
   try {
     await Excel.run(async (context) => {
       showStatus("Running", false);
@@ -176,7 +176,7 @@ async function hightlight1() {
     showStatus(error, true);
   }
 }
-async function hightlight2() {
+async function highlight2() {
   try {
     await Excel.run(async (context) => {
       showStatus("Running", false);
@@ -223,7 +223,7 @@ async function showCorrelation2() {
       let dataRange = sheet.getRange("A40:A41");
       let chart = sheet.charts.add("XYScatter", dataRange, "auto");
       chart.name = "correlation2";
-      chart.title.text = "Correlation betweeen Sales and Leaflets";
+      chart.title.text = "Correlation between Sales and Leaflets";
       chart.title.left = 8;
       chart.title.top = 8;
       chart.title.format.font.size = 12;
@@ -286,8 +286,8 @@ async function showSalesTrendline() {
       chart.legend.visible = false;
 
       let axis = chart.axes.categoryAxis;
-      let yaxis = chart.axes.valueAxis;
-      yaxis.displayUnit = "Thousands";
+      let yAxis = chart.axes.valueAxis;
+      yAxis.displayUnit = "Thousands";
       let categoryNameRange = sheet.getRange("A2:A33");
       axis.setCategoryNames(categoryNameRange);
 
@@ -302,7 +302,7 @@ async function showSalesTrendline() {
   }
 }
 
-async function clearDatalables() {
+async function clearDataLabels() {
   try {
     await Excel.run(async (context) => {
       const sheet = context.workbook.worksheets.getItem("Sample");
@@ -345,7 +345,7 @@ async function highlightSales() {
           max = point.value;
         }
       }
-      clearDatalables();
+      clearDataLabels();
       highlight();
       await context.sync();
       showStatus('Success for "Highlight highest sales"', false);
@@ -365,10 +365,10 @@ async function highlight() {
       let points = chart.series.getItemAt(0).points;
       let maxPoint = points.getItemAt(index);
       maxPoint.hasDataLabel = true;
-      let datalabel = maxPoint.dataLabel;
-      datalabel.showCategoryName = true;
-      datalabel.showValue = true;
-      datalabel.showLegendKey = true;
+      let dataLabel = maxPoint.dataLabel;
+      dataLabel.showCategoryName = true;
+      dataLabel.showValue = true;
+      dataLabel.showLegendKey = true;
 
       maxPoint.markerStyle = "Diamond";
       await context.sync();
@@ -514,24 +514,24 @@ async function addSampleData() {
 
       let dateRange = sheet.getRange("A2:A33");
 
-      let formatdate = [];
-      let formatdateitem = ["m/d"];
+      let formatDate = [];
+      let formatDateItem = ["m/d"];
       for (let i = 0; i < 32; i++) {
-        formatdate.push(formatdateitem);
+        formatDate.push(formatDateItem);
       }
-      dateRange.numberFormat = formatdate;
+      dateRange.numberFormat = formatDate;
 
       let numRange1 = sheet.getRange("C2:C33");
       let numRange2 = sheet.getRange("D2:D33");
       let numRange3 = sheet.getRange("H2:H33");
-      let formatnumber = [];
-      let formatnumberitem = ["###,0"];
+      let formatNumber = [];
+      let formatNumberItem = ["###,0"];
       for (let i = 0; i < 32; i++) {
-        formatnumber.push(formatnumberitem);
+        formatNumber.push(formatNumberItem);
       }
-      numRange1.numberFormat = formatnumber;
-      numRange2.numberFormat = formatnumber;
-      numRange3.numberFormat = formatnumber;
+      numRange1.numberFormat = formatNumber;
+      numRange2.numberFormat = formatNumber;
+      numRange3.numberFormat = formatNumber;
 
       if (Office.context.requirements.isSetSupported("ExcelApi", 1.2)) {
         sheet.getUsedRange().format.autofitColumns();

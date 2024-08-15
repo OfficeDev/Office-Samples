@@ -79,7 +79,7 @@ xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov=
         <bt:String id="TaskpaneButton.Label" DefaultValue="Send Emails"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Send Emails' button to get started."/>
+        <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded successfully. Go to the HOME tab and click the 'Send Emails' button to get started."/>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to open Mail Merge Taskpane"/>
       </bt:LongStrings>
     </Resources>

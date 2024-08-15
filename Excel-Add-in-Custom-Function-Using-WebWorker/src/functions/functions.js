@@ -72,7 +72,7 @@ const SampleNamespace = {};
     const g_maxWebWorkers = 4;
 
     // The array of web workers
-    const g_webworkers = [];
+    const g_webWorkers = [];
     
     // Next job id
     let g_nextJobId = 0;
@@ -82,12 +82,12 @@ const SampleNamespace = {};
 
     function getOrCreateWebWorker(jobId) {
         const index = jobId % g_maxWebWorkers;
-        if (g_webworkers[index]) {
-            return g_webworkers[index];
+        if (g_webWorkers[index]) {
+            return g_webWorkers[index];
         }
 
         // create a new web worker
-        const webWorker = new Worker("functionssWorker.js");
+        const webWorker = new Worker("functionsWorker.js");
         webWorker.addEventListener('message', function(event) {
             let jobResult = event.data;
             if (typeof(jobResult) == "string") {
@@ -112,7 +112,7 @@ const SampleNamespace = {};
             }
         });
 
-        g_webworkers[index] = webWorker;
+        g_webWorkers[index] = webWorker;
         return webWorker;
     }
 

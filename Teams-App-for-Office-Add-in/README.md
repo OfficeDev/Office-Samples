@@ -1,12 +1,13 @@
 # Getting Started with Teams App for Office add-in Sample
 
-**By participating in the developer preivew, you are confirming your agreement to the [Microsoft Developer Agreement](https://learn.microsoft.com/en-us/legal/mdsa), please read it carefully.**
+**By participating in the developer preview, you are confirming your agreement to the [Microsoft Developer Agreement](https://learn.microsoft.com/en-us/legal/mdsa), please read it carefully.**
 
 ## This sample illustrates
 
 - How an Office add-in can support Word, Excel, PowerPoint and Outlook Apps by using the unified JSON manifest.
 
 ## Prerequisites to use this sample
+
 - [Node.js](https://nodejs.org) 16/18 (Tested on 16.14.0)
 - Office connected to a Microsoft 365 subscription. If you don't already have Office, you might qualify for a Microsoft 365 E5 developer subscription through the [Microsoft 365 Developer Program](
 https://developer.microsoft.com/en-us/microsoft-365/dev-program);
@@ -47,23 +48,27 @@ https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-prod
 - [Toolkit Package](https://aka.ms/toolkit/package) Click this link will download a zip package, you need to extract this zip, then will see named `toolkit-package-latest.vsix`. Congratulations, you're ready for the next step!
 
 ## Install Toolkit package in VS-Code
+
 You need to reload your VS-Code after you have completed the following three steps.
 ![](./images/install-toolkit-pkg.png)
 ![](./images/reload-vscode.png)
 
 ## Get your environment ready
+
 ![](./images/get-start-1.png)
 
-Please ensure your enviroment check is ready. As shown in the following picture. 
+Please ensure your environment check is ready. As shown in the following picture.
 ![](./images/get-start-2.png)
 
 ## Create Teams App for Office add-in
+
 ![Create Office add-in by using Toolkit](./images/office-addin-create.png)
 
 Example of an add-in project via toolkit.
 ![](./images/addin-project.png)
 
 ## File structure
+
 ```
 | .eslintrc.json
 | .gitignore
@@ -106,6 +111,7 @@ Example of an add-in project via toolkit.
 ```
 
 ## Explanation of the contents of the manifest.json
+
 Added new permission "Document.ReadWrite.User" for Word, Excel and PowerPoint in `permissions`, this is for add-in can read and write to the document you are working on.
 ```
 "authorization": {
@@ -123,7 +129,9 @@ Added new permission "Document.ReadWrite.User" for Word, Excel and PowerPoint in
     }
 },
 ```
+
 Added "workbook, document and presentation" in `scopes`, these are for Excel, Word and PowerPoint.
+
 ```
 "requirements": {
                 "scopes": [
@@ -135,7 +143,6 @@ Added "workbook, document and presentation" in `scopes`, these are for Excel, Wo
             },
 ```
 
-
 ## Edit the manifest
 
 You can find the app manifest in `./appPackage` folder. The folder contains one manifest file:
@@ -146,14 +153,13 @@ You can find the app manifest in `./appPackage` folder. The folder contains one 
 
 - [Public manifest schema](https://github.com/QuanfuXiao/Teams-app-for-office-addin-schema/blob/main/manifest-schema-dev-preview.md) For public developer manifest schema you can refer to this link.
 
-
 ## Debug Teams App for Office add-in
 You can choose an option that you want to debug in the second step.
 ![Debug Office add-in in add-in project](./images/office-addin-debug.png)
 
 **Note:** If this happens, input `n`. If it doesn't, skip this.
 
-![](./images/localhost-loopback.png) 
+![](./images/localhost-loopback.png)
 
 Once the Outlook app is open, select a mailbox item, and then you can use the Outlook add-in. For example, you can select the option to show a taskpane.
 ![](./images/outlook-addin-open.PNG)
@@ -167,8 +173,8 @@ Once Excel is open, you can click the button to show your add-in list in flyout.
 Find your add-in and click it, you will see the taskpane look as shown in the following image.
 ![add-in show taskpane](./images/excel-addin-taskpane.png)
 
-
 ## Centralized deploy developed json manifest based Word, Excel and PowerPoint add-in to the users within your organization (tenant)
+
 - Login Microsoft admin center with admin account.
 - Explore to Settings\Integrated apps\Upload customer app\.
 - Make sure choose "Teams app" under "App type", and upload your app package as a .zip file.  Learn more about the [app package](https://learn.microsoft.com/en-au/microsoftteams/platform/concepts/build-and-test/apps-package).  
@@ -176,6 +182,7 @@ Find your add-in and click it, you will see the taskpane look as shown in the fo
 ![](./images/LOB.png)
 
 ## Known issues
+
 - PowerPoint Content add-in not show in flyout, it will be fixed in the upcoming update version.
 
 - Now, these features are not support.
@@ -187,7 +194,6 @@ Find your add-in and click it, you will see the taskpane look as shown in the fo
 - When host App opens, add-in icon will not display correctly.
 
     ![](./images/known-issues-3.png)
-
 
 ## Additional Resource
 - [Configure WXP Add-in within Teams App](https://github.com/OfficeDev/Office-Samples/wiki/Configure-Office-Add%E2%80%90in-capability-within-your-Teams-app) If you want to combine your WXP add-in with Teams app you can refer to this link.

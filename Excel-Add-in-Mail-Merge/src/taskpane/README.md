@@ -1,4 +1,4 @@
-# Project Code Explaination
+# Project Code Explanation
 
 This sample demonstrates how to use the Microsoft Graph JavaScript SDK to send emails in Excel from Office Add-ins.
 
@@ -45,7 +45,7 @@ Taskpane folder contains all the Main Page Drawing, Mail Merge code-logic and Gr
     - `login()` constructs a URL for the Graph login dialog and uses the Office JavaScript API to display this dialog. It sets up event handlers for dialog events. If the dialog sends a message with a status of 'success', it stores the received access token and resolves the Promise with it.
 
 - `sendEmail()` function replace the column name in the to/subject/content textarea with the corresponding value in the table, and send email row by row.
-    
+
     The code of sending email via `Microsoft Graph` is as below:
     ```
     const sendMail = 
@@ -67,10 +67,11 @@ Taskpane folder contains all the Main Page Drawing, Mail Merge code-logic and Gr
     await graphClient.api('me/SendMail')
         .post(sendMail);
     ```
+
 ## Reference
 
 -   [Microsoft Graph website](https://graph.microsoft.io)
-- For more information about Graph, please visit to the official documation: [Overview of Microsoft Graph](https://learn.microsoft.com/en-us/graph/overview)
+- For more information about Graph, please visit to the official documentation: [Overview of Microsoft Graph](https://learn.microsoft.com/graph/overview)
 -   The Microsoft Graph TypeScript definitions enable editors to provide intellisense on Microsoft Graph objects including users, messages, and groups.
     -   [@microsoft/microsoft-graph-types](https://www.npmjs.com/package/@microsoft/microsoft-graph-types) or [@types/microsoft-graph](https://www.npmjs.com/package/@types/microsoft-graph)
     -   [@microsoft/microsoft-graph-types-beta](https://www.npmjs.com/package/@microsoft/microsoft-graph-types-beta)
@@ -92,4 +93,3 @@ Taskpane folder contains all the Main Page Drawing, Mail Merge code-logic and Gr
 
 - [Microsoft Graph SDK `n.call is not a function` by Lee Ford](https://www.lee-ford.co.uk/posts/graph-sdk-is-not-a-function/)
 - [Example of using the Graph JS library with ESM and `importmaps` ](https://github.com/waldekmastykarz/js-graph-101/blob/main/index_esm.html)
-

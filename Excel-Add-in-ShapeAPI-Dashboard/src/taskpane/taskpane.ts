@@ -77,7 +77,7 @@ async function createDashBoard() {
   }
 }
 
-async function onDeactive() {
+async function onDeactivate() {
   await changeColor();
   await changeFontFormat();
 }
@@ -89,49 +89,49 @@ async function changeColor() {
       let shapes = context.workbook.worksheets.getItem("Sample").shapes;
       shapes.load("items");
       await context.sync();
-      let shapec = shapes.items[0].group.shapes;
-      shapec.load("items");
+      let shapeC = shapes.items[0].group.shapes;
+      shapeC.load("items");
       await context.sync();
 
       let text2 = context.workbook.worksheets.getItem("Sample").getRange("E152:E152");
       text2.load("values");
       await context.sync();
-      let region = shapec.items[0];
+      let region = shapeC.items[0];
       region.textFrame.textRange.text = Math.ceil(parseFloat(text2.values.toString())).toString() + "\nRegions";
       region.fill.foreColor = "#339933";
 
       let text3 = context.workbook.worksheets.getItem("Sample").getRange("E157:E157");
       text3.load("values");
       await context.sync();
-      let state = shapec.items[1];
+      let state = shapeC.items[1];
       state.fill.foreColor = "#339933";
       state.textFrame.textRange.text = text3.values.toString() + "\nStates";
 
       let text4 = context.workbook.worksheets.getItem("Sample").getRange("E153:E153");
       text4.load("values");
       await context.sync();
-      let category = shapec.items[3];
+      let category = shapeC.items[3];
       category.fill.foreColor = "#003366";
       category.textFrame.textRange.text = text4.values.toString() + "\nCategories";
 
       let text5 = context.workbook.worksheets.getItem("Sample").getRange("E154:E154");
       text5.load("values");
       await context.sync();
-      let subCategory = shapec.items[4];
+      let subCategory = shapeC.items[4];
       subCategory.fill.foreColor = "#003366";
       subCategory.textFrame.textRange.text = text5.values.toString() + "\nSub Categories";
 
       let text6 = context.workbook.worksheets.getItem("Sample").getRange("E155:E155");
       text6.load("values");
       await context.sync();
-      let maxSale = shapec.items[6];
+      let maxSale = shapeC.items[6];
       maxSale.fill.foreColor = "#FF6600";
       maxSale.textFrame.textRange.text = text6.values.toString() + "\nMax Sale";
 
       let text7 = context.workbook.worksheets.getItem("Sample").getRange("E156:E156");
       text7.load("values");
       await context.sync();
-      let sumSale = shapec.items[7];
+      let sumSale = shapeC.items[7];
       sumSale.fill.foreColor = "#FF6600";
       sumSale.textFrame.textRange.text = text7.values.toString() + "\nSum Sale";
 
@@ -150,46 +150,46 @@ async function changeFontFormat() {
       let shapes = context.workbook.worksheets.getItem("Sample").shapes;
       shapes.load("items");
       await context.sync();
-      let shapec = shapes.items[0].group.shapes;
+      let shapeC = shapes.items[0].group.shapes;
       shapes.items[0].onActivated.add(onActive);
-      shapes.items[0].onDeactivated.add(onDeactive);
-      shapec.load("items");
+      shapes.items[0].onDeactivated.add(onDeactivate);
+      shapeC.load("items");
       await context.sync();
 
-      for (let i = 0; i < shapec.items.length; i++) {
-        let shp = shapec.items[i];
+      for (let i = 0; i < shapeC.items.length; i++) {
+        let shp = shapeC.items[i];
         shp.textFrame.textRange.font.name = "Consolas";
 
         shp.textFrame.verticalAlignment = "Middle";
         shp.textFrame.horizontalAlignment = "Center";
       }
 
-      let region = shapec.items[0];
+      let region = shapeC.items[0];
       region.textFrame.textRange.getSubstring(0, 1).font.size = 30;
       region.textFrame.textRange.getSubstring(1).font.size = 17;
       region.textFrame.textRange.getSubstring(1).font.color = "#FFFFCC";
 
-      let state = shapec.items[1];
+      let state = shapeC.items[1];
       state.textFrame.textRange.getSubstring(0, 2).font.size = 30;
       state.textFrame.textRange.getSubstring(2).font.size = 17;
       state.textFrame.textRange.getSubstring(2).font.color = "#FFFFCC";
 
-      let category = shapec.items[3];
+      let category = shapeC.items[3];
       category.textFrame.textRange.getSubstring(0, 1).font.size = 30;
       category.textFrame.textRange.getSubstring(1).font.size = 12;
       category.textFrame.textRange.getSubstring(1).font.color = "#99CCFF";
 
-      let subCategory = shapec.items[4];
+      let subCategory = shapeC.items[4];
       subCategory.textFrame.textRange.getSubstring(0, 2).font.size = 30;
       subCategory.textFrame.textRange.getSubstring(2).font.size = 12;
       subCategory.textFrame.textRange.getSubstring(2).font.color = "#99CCFF";
 
-      let maxSale = shapec.items[6];
+      let maxSale = shapeC.items[6];
       maxSale.textFrame.textRange.getSubstring(0, 8).font.size = 18;
       maxSale.textFrame.textRange.getSubstring(8).font.size = 13;
       maxSale.textFrame.textRange.getSubstring(8).font.color = "FFFF66";
 
-      let sumSale = shapec.items[7];
+      let sumSale = shapeC.items[7];
       sumSale.textFrame.textRange.getSubstring(0, 9).font.size = 15;
       sumSale.textFrame.textRange.getSubstring(9).font.size = 13;
       sumSale.textFrame.textRange.getSubstring(9).font.color = "FFFF66";
@@ -208,35 +208,35 @@ async function onActive() {
       let shapes = context.workbook.worksheets.getItem("Sample").shapes;
       shapes.load("items");
       await context.sync();
-      let shapec = shapes.items[0].group.shapes;
-      shapec.load("items");
+      let shapeC = shapes.items[0].group.shapes;
+      shapeC.load("items");
       await context.sync();
 
-      let region = shapec.items[0];
+      let region = shapeC.items[0];
       region.textFrame.textRange.text = "-Central\n-South\n-West\n-East";
       region.textFrame.horizontalAlignment = "Left";
       region.textFrame.textRange.font.size = 13;
 
-      let state = shapec.items[1];
+      let state = shapeC.items[1];
       state.textFrame.textRange.text = "Top 3:\n-California\n-Washington\n-New York";
       state.textFrame.horizontalAlignment = "Left";
       state.textFrame.textRange.font.size = 12;
 
-      let category = shapec.items[3];
+      let category = shapeC.items[3];
       category.textFrame.textRange.text = "-OfficeSupply\n-Furniture\n-Technology";
       category.textFrame.horizontalAlignment = "Left";
       category.textFrame.textRange.font.size = 10;
 
-      let subCategory = shapec.items[4];
+      let subCategory = shapeC.items[4];
       subCategory.textFrame.textRange.text = "Top 3:\n-Phone\n-Tables\n-Accessories";
       subCategory.textFrame.horizontalAlignment = "Left";
       subCategory.textFrame.textRange.font.size = 10;
 
-      let maxScale = shapec.items[6];
+      let maxScale = shapeC.items[6];
       maxScale.textFrame.textRange.text = "US2015126214\n-Furniture\n-Washington";
       maxScale.textFrame.textRange.font.size = 11;
 
-      let subScale = shapec.items[7];
+      let subScale = shapeC.items[7];
       subScale.textFrame.textRange.text = "Top 3:\nUS2015126214\nCA2017137596\nCA2014115812";
       subScale.textFrame.horizontalAlignment = "Left";
       subScale.textFrame.textRange.font.size = 11;

@@ -11,7 +11,7 @@ import {
   predefinedTitle,
 } from "./utility/PredefinedData";
 
-// global variable to store the EndPoint/Deployment/ApiKey, configrued by developer
+// global variable to store the EndPoint/Deployment/ApiKey, configured by developer
 export let _apiKey = "";
 export let _endpoint = "";
 export let _deployment = "";
