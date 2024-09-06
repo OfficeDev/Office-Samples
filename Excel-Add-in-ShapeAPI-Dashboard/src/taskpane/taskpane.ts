@@ -8,76 +8,86 @@
 Office.onReady((info) => {
   if (info.host === Office.HostType.Excel) {
     document.getElementById("add-sample-data").onclick = addSampleData;
-    document.getElementById("create-dash-board").onclick = createDashBoard;
+    document.getElementById("create-dash-board").onclick = createDashboard;
     document.getElementById("add-information").onclick = changeColor;
     document.getElementById("change-font-format").onclick = changeFontFormat;
   }
 });
 
-async function createDashBoard() {
+async function createDashboard() {
   try {
     await Excel.run(async (context) => {
       showStatus("Running", false);
       let shapes = context.workbook.worksheets.getItem("Sample").shapes;
       let array = [];
+
       let region = shapes.addGeometricShape("RoundRectangle");
       region.left = 550;
       region.top = 100;
       region.width = 100;
       region.height = 100;
       array.push(region);
+
       let state = shapes.addGeometricShape("RoundRectangle");
       state.left = 700;
       state.top = 100;
       state.width = 100;
       state.height = 100;
       array.push(state);
+
       let line = shapes.addGeometricShape("Rectangle");
       line.left = 500;
       line.top = 230;
       line.width = 350;
       line.height = 1;
       array.push(line);
+
       let category = shapes.addGeometricShape("RoundRectangle");
       category.left = 550;
       category.top = 260;
       category.width = 100;
       category.height = 100;
       array.push(category);
+
       let subCategory = shapes.addGeometricShape("RoundRectangle");
       subCategory.left = 700;
       subCategory.top = 260;
       subCategory.width = 100;
       subCategory.height = 100;
       array.push(subCategory);
+
       let line2 = shapes.addGeometricShape("Rectangle");
       line2.left = 500;
       line2.top = 390;
       line2.width = 350;
       line2.height = 1;
       array.push(line2);
+
       let maxScale = shapes.addGeometricShape("RoundRectangle");
       maxScale.left = 550;
       maxScale.top = 420;
       maxScale.width = 100;
       maxScale.height = 100;
       array.push(maxScale);
+
       let sumScale = shapes.addGeometricShape("RoundRectangle");
       sumScale.left = 700;
       sumScale.top = 420;
       sumScale.width = 100;
       sumScale.height = 100;
       array.push(sumScale);
+
       shapes.addGroup(array);
       await context.sync();
-      showStatus('Success for "Create Empty Dashboard"', false);
+      
+      showStatus('Create empty dashboard - success!', false);
     });
   } catch (error) {
     showStatus(error, true);
   }
 }
 
-async function onDeactive() {
+async function onDeactivate() {
   await changeColor();
   await changeFontFormat();
 }
@@ -89,54 +99,56 @@ async function changeColor() {
       let shapes = context.workbook.worksheets.getItem("Sample").shapes;
       shapes.load("items");
       await context.sync();
-      let shapec = shapes.items[0].group.shapes;
-      shapec.load("items");
+
+      let shapeGroup = shapes.items[0].group.shapes;
+      shapeGroup.load("items");
       await context.sync();
 
       let text2 = context.workbook.worksheets.getItem("Sample").getRange("E152:E152");
       text2.load("values");
       await context.sync();
-      let region = shapec.items[0];
+
+      let region = shapeGroup.items[0];
       region.textFrame.textRange.text = Math.ceil(parseFloat(text2.values.toString())).toString() + "\nRegions";
       region.fill.foreColor = "#339933";
 
       let text3 = context.workbook.worksheets.getItem("Sample").getRange("E157:E157");
       text3.load("values");
       await context.sync();
-      let state = shapec.items[1];
+      let state = shapeGroup.items[1];
       state.fill.foreColor = "#339933";
       state.textFrame.textRange.text = text3.values.toString() + "\nStates";
 
       let text4 = context.workbook.worksheets.getItem("Sample").getRange("E153:E153");
       text4.load("values");
       await context.sync();
-      let category = shapec.items[3];
+      let category = shapeGroup.items[3];
       category.fill.foreColor = "#003366";
       category.textFrame.textRange.text = text4.values.toString() + "\nCategories";
 
       let text5 = context.workbook.worksheets.getItem("Sample").getRange("E154:E154");
       text5.load("values");
       await context.sync();
-      let subCategory = shapec.items[4];
+      let subCategory = shapeGroup.items[4];
       subCategory.fill.foreColor = "#003366";
       subCategory.textFrame.textRange.text = text5.values.toString() + "\nSub Categories";
 
       let text6 = context.workbook.worksheets.getItem("Sample").getRange("E155:E155");
       text6.load("values");
       await context.sync();
-      let maxSale = shapec.items[6];
+      let maxSale = shapeGroup.items[6];
       maxSale.fill.foreColor = "#FF6600";
       maxSale.textFrame.textRange.text = text6.values.toString() + "\nMax Sale";
 
       let text7 = context.workbook.worksheets.getItem("Sample").getRange("E156:E156");
       text7.load("values");
       await context.sync();
-      let sumSale = shapec.items[7];
+      let sumSale = shapeGroup.items[7];
       sumSale.fill.foreColor = "#FF6600";
       sumSale.textFrame.textRange.text = text7.values.toString() + "\nSum Sale";
 
       await context.sync();
-      showStatus('Success for "Add Information to Dashboard"', false);
+      showStatus('Add information to dashboard - success!', false);
     });
   } catch (error) {
     showStatus(error, true);
@@ -150,93 +162,94 @@ async function changeFontFormat() {
       let shapes = context.workbook.worksheets.getItem("Sample").shapes;
       shapes.load("items");
       await context.sync();
-      let shapec = shapes.items[0].group.shapes;
-      shapes.items[0].onActivated.add(onActive);
-      shapes.items[0].onDeactivated.add(onDeactive);
-      shapec.load("items");
+
+      let shapeGroup = shapes.items[0].group.shapes;
+      shapes.items[0].onActivated.add(onActivate);
+      shapes.items[0].onDeactivated.add(onDeactivate);
+      shapeGroup.load("items");
       await context.sync();
 
-      for (let i = 0; i < shapec.items.length; i++) {
-        let shp = shapec.items[i];
+      for (let i = 0; i < shapeGroup.items.length; i++) {
+        let shp = shapeGroup.items[i];
         shp.textFrame.textRange.font.name = "Consolas";
 
         shp.textFrame.verticalAlignment = "Middle";
         shp.textFrame.horizontalAlignment = "Center";
       }
 
-      let region = shapec.items[0];
+      let region = shapeGroup.items[0];
       region.textFrame.textRange.getSubstring(0, 1).font.size = 30;
       region.textFrame.textRange.getSubstring(1).font.size = 17;
       region.textFrame.textRange.getSubstring(1).font.color = "#FFFFCC";
 
-      let state = shapec.items[1];
+      let state = shapeGroup.items[1];
       state.textFrame.textRange.getSubstring(0, 2).font.size = 30;
       state.textFrame.textRange.getSubstring(2).font.size = 17;
       state.textFrame.textRange.getSubstring(2).font.color = "#FFFFCC";
 
-      let category = shapec.items[3];
+      let category = shapeGroup.items[3];
       category.textFrame.textRange.getSubstring(0, 1).font.size = 30;
       category.textFrame.textRange.getSubstring(1).font.size = 12;
       category.textFrame.textRange.getSubstring(1).font.color = "#99CCFF";
 
-      let subCategory = shapec.items[4];
+      let subCategory = shapeGroup.items[4];
       subCategory.textFrame.textRange.getSubstring(0, 2).font.size = 30;
       subCategory.textFrame.textRange.getSubstring(2).font.size = 12;
       subCategory.textFrame.textRange.getSubstring(2).font.color = "#99CCFF";
 
-      let maxSale = shapec.items[6];
+      let maxSale = shapeGroup.items[6];
       maxSale.textFrame.textRange.getSubstring(0, 8).font.size = 18;
       maxSale.textFrame.textRange.getSubstring(8).font.size = 13;
       maxSale.textFrame.textRange.getSubstring(8).font.color = "FFFF66";
 
-      let sumSale = shapec.items[7];
+      let sumSale = shapeGroup.items[7];
       sumSale.textFrame.textRange.getSubstring(0, 9).font.size = 15;
       sumSale.textFrame.textRange.getSubstring(9).font.size = 13;
       sumSale.textFrame.textRange.getSubstring(9).font.color = "FFFF66";
 
       await context.sync();
-      showStatus('Success for "Change Information Format"', false);
+      showStatus('Change information format - success!', false);
     });
   } catch (error) {
     showStatus(error, true);
   }
 }
 
-async function onActive() {
+async function onActivate() {
   try {
     await Excel.run(async (context) => {
       let shapes = context.workbook.worksheets.getItem("Sample").shapes;
       shapes.load("items");
       await context.sync();
-      let shapec = shapes.items[0].group.shapes;
-      shapec.load("items");
+      let shapeGroup = shapes.items[0].group.shapes;
+      shapeGroup.load("items");
       await context.sync();
 
-      let region = shapec.items[0];
+      let region = shapeGroup.items[0];
       region.textFrame.textRange.text = "-Central\n-South\n-West\n-East";
       region.textFrame.horizontalAlignment = "Left";
       region.textFrame.textRange.font.size = 13;
 
-      let state = shapec.items[1];
+      let state = shapeGroup.items[1];
       state.textFrame.textRange.text = "Top 3:\n-California\n-Washington\n-New York";
       state.textFrame.horizontalAlignment = "Left";
       state.textFrame.textRange.font.size = 12;
 
-      let category = shapec.items[3];
+      let category = shapeGroup.items[3];
       category.textFrame.textRange.text = "-OfficeSupply\n-Furniture\n-Technology";
       category.textFrame.horizontalAlignment = "Left";
       category.textFrame.textRange.font.size = 10;
 
-      let subCategory = shapec.items[4];
+      let subCategory = shapeGroup.items[4];
       subCategory.textFrame.textRange.text = "Top 3:\n-Phone\n-Tables\n-Accessories";
       subCategory.textFrame.horizontalAlignment = "Left";
       subCategory.textFrame.textRange.font.size = 10;
 
-      let maxScale = shapec.items[6];
+      let maxScale = shapeGroup.items[6];
       maxScale.textFrame.textRange.text = "US2015126214\n-Furniture\n-Washington";
       maxScale.textFrame.textRange.font.size = 11;
 
-      let subScale = shapec.items[7];
+      let subScale = shapeGroup.items[7];
       subScale.textFrame.textRange.text = "Top 3:\nUS2015126214\nCA2017137596\nCA2014115812";
       subScale.textFrame.horizontalAlignment = "Left";
       subScale.textFrame.textRange.font.size = 11;
@@ -248,7 +261,6 @@ async function onActive() {
   }
 }
 
-//add Sample Data
 async function addSampleData() {
   try {
     await Excel.run(async (context) => {
@@ -257,6 +269,7 @@ async function addSampleData() {
       context.workbook.worksheets.add("Sample");
       const sheet = context.workbook.worksheets.getItem("Sample");
       sheet.activate();
+
       let expensesTable = sheet.tables.add("A1:H1", true);
       expensesTable.name = "SalesTable";
       expensesTable.getHeaderRowRange().values = [
@@ -361,7 +374,8 @@ async function addSampleData() {
         ["US-2017-145366", 43082, "Corporate", "East", "Office Supplies", "Storage", 37.208, "Ohio"],
         ["CA-2017-155376", 43096, "Consumer", "Central", "Office Supplies", "Appliances", 839.43, "Missouri"],
       ]);
-      // prepare table data for RegionMap chart
+
+      // Prepare table data for RegionMap chart.
       let regionMapRange_State = sheet.getRange("A151:A248");
       let regionMapRange_Sales = sheet.getRange("B151:B248");
       let data1 = [];
@@ -385,7 +399,7 @@ async function addSampleData() {
       segment.formulas = [["=SUMPRODUCT(1/COUNTIF(C2:C98,C2:C98))"]];
       let region = sheet.getRange("E152:E152");
       region.formulas = [["=SUMPRODUCT(1/COUNTIF(D2:D98,D2:D98))"]];
-      // region.values = [["4"]];
+
       let category = sheet.getRange("E153:E153");
       category.formulas = [["=SUMPRODUCT(1/COUNTIF(E2:E98,E2:E98))"]];
       let subCategory = sheet.getRange("E154:E154");
@@ -396,8 +410,9 @@ async function addSampleData() {
       sumSale.formulas = [["=SUM(G2:G98)"]];
       let state = sheet.getRange("E157:E157");
       state.formulas = [["=SUMPRODUCT(1/COUNTIF(H2:H98,H2:H98))"]];
+
       await context.sync();
-      showStatus('Success for "Add Sample data"', false);
+      showStatus('Add sample data - success!', false);
     });
   } catch (error) {
     showStatus(error, true);
@@ -406,25 +421,25 @@ async function addSampleData() {
 
 function showStatus(message, isError) {
   let status = document.getElementById("status");
-  // Clear previous content
+  // Clear previous content.
   status.innerHTML = "";
 
-  // Create the container div
+  // Create the container div.
   let statusCard = document.createElement("div");
   statusCard.className = `status-card ms-depth-4 ${isError ? "error-msg" : "success-msg"}`;
 
-  // Create and append the first paragraph
+  // Create and append the first paragraph.
   let p1 = document.createElement("p");
   p1.className = "ms-fontSize-24 ms-fontWeight-bold";
   p1.textContent = isError ? "An error occurred" : "";
   statusCard.appendChild(p1);
 
-  // Create and append the second paragraph
+  // Create and append the second paragraph.
   let p2 = document.createElement("p");
   p2.className = "ms-fontSize-16 ms-fontWeight-regular";
   p2.textContent = message;
   statusCard.appendChild(p2);
 
-  // Append the status card to the status element
+  // Append the status card to the status element.
   status.appendChild(statusCard);
 }
