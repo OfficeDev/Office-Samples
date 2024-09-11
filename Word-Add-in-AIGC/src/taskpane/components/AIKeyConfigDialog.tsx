@@ -55,11 +55,11 @@ export default class AIKeyConfigDialog extends React.Component<ApiKeyConfigProps
     render() {
         return <>
             <Modal
-                title="Connect to Azure OpenAI service."
+                title="Connect to Azure OpenAI Service"
                 open={this.props.isOpen}
                 onOk={this.handleOk}
                 onCancel={this.handleCancel}>
-                <label>EndPoint</label><Input defaultValue={this.props.apiKey} onChange={this.inputEndpointChange} />
+                <label>Endpoint</label><Input defaultValue={this.props.apiKey} onChange={this.inputEndpointChange} />
                 <label>Deployment</label><Input defaultValue={this.props.deployment} onChange={this.inputDeploymentChange} />
                 <label>API Key</label><Input defaultValue={this.props.apiKey} onChange={this.inputApiKeyChange} />
             </Modal>
